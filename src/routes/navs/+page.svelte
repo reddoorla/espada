@@ -33,9 +33,7 @@
 
     ];
 
-    const [send, receive] = crossfade({
-    duration: 200
-  });
+
 
     let isOverlayVisible = $state(false);
 

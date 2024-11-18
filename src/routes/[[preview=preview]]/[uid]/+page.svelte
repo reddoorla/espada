@@ -6,4 +6,4 @@
 	let { data } = $props();
 </script>
 
-<SliceZone slices={data.page.data.slices} {components} />
+

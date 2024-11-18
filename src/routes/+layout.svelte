@@ -1,15 +1,48 @@
-<script>
+<script lang='ts'>
 	import { PrismicPreview } from '@prismicio/svelte/kit';
 	import { page } from '$app/stores';
 	import { repositoryName } from '$lib/prismicio';
 	import "../app.css";
+  import ContentWidth from '$lib/components/ContentWidth/ContentWidth.svelte';
+  import espadaLogo from '$lib/assets/icons/logos/espadaLogo.svg'
+  import { fly, fade } from 'svelte/transition';
+  import Footer from '$lib/components/Footer.svelte';
 	/**
 	 * @typedef {Object} Props
 	 * @property {import('svelte').Snippet} [children]
 	 */
 
 	/** @type {Props} */
-	let { children } = $props();
+	let { children } = $props()
+	
+	const NAV_LINKS=[
+        {
+            label:"Property Management",
+            href:"/"
+        },
+        {
+            label:"Development & Investments",
+            href:"/"
+        },
+        {
+            label:"About",
+            href:"/"
+        },
+        {
+            label:"Contact",
+            href:"/"
+        },
+        {
+            label:"Investor Login",
+            href:"/"
+        },
+
+    ];
+
+
+
+    let isOverlayVisible = $state(false);
+
 </script>
 
 <svelte:head>
@@ -26,8 +59,48 @@
 	{/if}
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 </svelte:head>
+
+{#if isOverlayVisible}
+<div class="w-screen h-screen fixed bg-dark flex flex-col items-center justify-center gap-12 z-30" transition:fly={{y:"-100%"}}>
+    {#each NAV_LINKS as item}
+        <a onclick={()=>isOverlayVisible=false} href={item.href} class="text-white text-2xl">{item.label}</a>
+    {/each}
+
+    <button class="absolute top-5 right-5 opacity-60 hover:opacity-100 transition-all z-40" onclick={()=>isOverlayVisible=false} aria-label="close overlay">
+        <div in:fade={{delay: 600}} out:fade class="text-white">
+        	<i class="fa-sharp fa-thin fa-close fa-3x"></i>
+        </div>
+      
+    </button>
+</div>
+{/if}
 <main>
-	<a href="/" class="z-30 font-bold text-dark bg-light fixed bottom-4 right-4 pt-2.5 pb-2 px-4 rounded-full hover:bg-dark hover:text-white transition-all duration-300 active:-translate-y-2">Home</a>
+	<div class="h-16 w-screen">
+		<ContentWidth class="flex flex-row justify-between items-center h-full">
+	
+			
+			<a href="/" class="hover:opacity-80 transition-all duration-500 bump">
+				<img src={espadaLogo} alt="logo" class="h-10"/>
+			</a>
+			<div class="flex flex-row">
+				<div class="hidden lg:flex flex-row justify-between items-center gap-10">
+					{#each NAV_LINKS as item}
+						<a class="nav-link" href={item.href}>{item.label}</a>
+					{/each}
+				</div>
+			
+				<button class="lg:hidden ml-6 opacity-60 hover:opacity-100 transition-all" onclick={()=>isOverlayVisible=true}>
+				{#if !isOverlayVisible}
+						<i class="fa-sharp fa-thin fa-bars fa-2xl text-white"></i>
+					{/if}
+				
+				</button>
+			 </div>
+			
+	
+		</ContentWidth>
+	</div>
 	{@render children?.()}
 </main>
+<Footer/>
 <PrismicPreview {repositoryName} />
