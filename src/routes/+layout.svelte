@@ -59,7 +59,7 @@
 
 		setTimeout(()=>{
 			isTransitioning = false;
-		}, 1200)
+		}, 600)
 	})
 
 </script>
