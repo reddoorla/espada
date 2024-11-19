@@ -6,6 +6,8 @@
   import ContentWidth from '$lib/components/ContentWidth/ContentWidth.svelte';
   import espadaLogo from '$lib/assets/icons/logos/espadaLogo.svg'
   import { fly, fade } from 'svelte/transition';
+  import { onMount } from 'svelte';
+  import { onNavigate } from '$app/navigation';
   import Footer from '$lib/components/Footer.svelte';
 	/**
 	 * @typedef {Object} Props
@@ -18,23 +20,23 @@
 	const NAV_LINKS=[
         {
             label:"Property Management",
-            href:"/"
+            href:"/property-management"
         },
         {
             label:"Development & Investments",
-            href:"/"
+            href:"/development-and-investments"
         },
         {
             label:"About",
-            href:"/"
+            href:"/about"
         },
         {
             label:"Contact",
-            href:"/"
+            href:"/contact"
         },
         {
             label:"Investor Login",
-            href:"/"
+            href:"/login"
         },
 
     ];
@@ -42,6 +44,21 @@
 
 
     let isOverlayVisible = $state(false);
+	let isTransitioning = $state(true);
+
+	onMount(()=>{
+		
+			isTransitioning = false;
+		
+	})
+
+	onNavigate(()=>{
+		isTransitioning = true;
+
+		setTimeout(()=>{
+			isTransitioning = false;
+		}, 100)
+	})
 
 </script>
 
@@ -59,6 +76,10 @@
 	{/if}
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
 </svelte:head>
+
+{#if isTransitioning}
+	<div class="bg-[#140F09] z-40 fixed w-screen h-screen top-0 left-0 pointer-events-none" out:fade={{duration:700}} ></div>
+{/if}
 
 {#if isOverlayVisible}
 <div class="w-screen h-screen fixed bg-dark flex flex-col items-center justify-center gap-12 z-30" transition:fly={{y:"-100%"}}>

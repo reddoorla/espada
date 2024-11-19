@@ -77,10 +77,7 @@ a{
     cursor: pointer;
 }
 
-a:hover{
-   opacity: 0.7;
 
-}
 
 
 
@@ -102,15 +99,18 @@ line-height: 80px; /* 121.212% */
 
 h2{
     font-size: 50px;
-    font-weight: 700;
+    font-style: normal;
+    font-weight: 300;
     line-height: 64px; /* 128% */
 }
 
+
 h3{
-    font-size: 38px;
+    font-size: 28px;
     font-style: normal;
-    font-weight: 700;
-    line-height: 48px; 
+    font-weight: 300;
+    line-height: 38px; /* 135.714% */
+   
 }
 
 h4{
@@ -121,8 +121,11 @@ h4{
 }
 
 h5{
-   font-size: 1.5rem; 
-   line-height: 1.5em;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 30px; /* 142.857% */
+    text-transform: uppercase;
 }
 
 h6{
@@ -135,10 +138,11 @@ h6{
 }
 
 p{
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px; /* 150% */
+
+font-size: 16px;
+font-style: normal;
+font-weight: 300;
+line-height: 24px; /* 150% */
 }
 
 .label{
@@ -150,9 +154,7 @@ line-height: 15px; /* 150% */
 }
 
 .nav-link{
-    color: var(--White, #FFF);
-text-align: center;
-font-feature-settings: 'liga' off, 'clig' off;
+
 font-family: 'interstate', sans-serif;
 font-size: 12px;
 font-style: normal;
@@ -166,62 +168,39 @@ button{
     cursor: pointer;
 }
 
-a{
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height:1em;
-    color:#424B5A;
-}
+
 
 @media only screen and (max-width:786px) {
     h1{
         font-size: 36px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 44px; /* 121.212% */
+        line-height: normal;
+       
     }
     
     h2{
-        font-size: 32px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 42px;
+        
     }
     
     h3{
-        font-size: 28px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 40px;
+      
     }
     
     h4{
-        font-size: 2rem;
-        line-height: 1.4em;
+   
     }
     
     h5{
-       font-size: 1.5rem; 
-       line-height: 1.5em;
+    
     }
     
     
     p{
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 24px; /* 150% */
+     
+    
     }
     
-
-    
     a{
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        margin: 0px 0px 8.5px 0px;
+      
 }
 }
 

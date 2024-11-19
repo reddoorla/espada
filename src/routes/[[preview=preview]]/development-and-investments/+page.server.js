@@ -5,7 +5,7 @@ import { createClient } from '$lib/prismicio';
 export async function load({ fetch, cookies }) {
 	const client = createClient({ fetch, cookies });
 
-	const page = await client.getByUID('page', 'developments-and-investments');
+	const page = await client.getByUID('page', 'development-and-investments');
 
 	return {
 		page,
