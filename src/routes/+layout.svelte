@@ -48,7 +48,9 @@
 
 	onMount(()=>{
 		
+		setTimeout(()=>{
 			isTransitioning = false;
+		}, 1200)
 		
 	})
 
