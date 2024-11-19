@@ -212,7 +212,7 @@ button{
 
 .svelte-select{
     border-radius: 3px !important;
-    border: 1px solid #C2D1D9 !important;
+    border: 1px solid black !important;
     cursor: pointer !important;
 }
 
@@ -225,7 +225,7 @@ button{
 }
 
 ::placeholder{
-    color: #C2D1D9 !important;
+    color: #ABABAB !important;
     
 }
 
@@ -236,7 +236,7 @@ input[type='textarea']::placeholder{
 .multi-item-clear{
     cursor: pointer !important;
     transform: translateY(-0.5px);
-    color: #424B5A !important;
+    color: #ABABAB !important;
     margin-left: 1em !important;
     filter: invert(25%) sepia(15%) saturate(703%) hue-rotate(178deg) brightness(99%) contrast(85%);
     transition: all 300ms cubic-bezier(.5,0,0,1);
@@ -252,12 +252,12 @@ input[type='textarea']::placeholder{
 .multi-item{
     margin-right: 3em !important;
     background-color: transparent !important;
-    outline-color:#C2D1D9 !important;
+    outline-color:#ABABAB !important;
 }
 
 .multi-item-text, .svelte-select-list{
     transform: translateY(1px);
-    color: #424B5A !important;
+    color: #ABABAB !important;
     font-size: 14px !important;
     font-style: normal;
     font-weight: 700 !important;

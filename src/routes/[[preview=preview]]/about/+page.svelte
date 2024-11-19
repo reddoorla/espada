@@ -5,9 +5,11 @@
   import SquareImage from "$lib/components/FullWidth/SquareImage.svelte";
   import { slide } from "svelte/transition";
 
+  import brent from "$lib/assets/images/about/headshots/brent.jpeg"
+
   const leaderArray = [
       {
-          headshot: "",
+          headshot: brent,
           name: "Brent Conlin",
           title: "Managing Partner",
           body: `Brent is a commercial real estate developer and private equity investor with 30+ years in professional real estate experience predominantly in San Antonio and South Texas. \n \n As a Managing Partner of Espada, he oversees development and investment activities. He has served as Managing Partner of Espada Real Estate (formerly Reata Assets, Investments & Development) since its inception in 2012, after more than a decade of corporate real estate experience at the Trammell Crow Company. Brent has a BBA and a MS in Land & Real Estate Development from Texas A&M University. He serves on the ULI San Antonio Advisory Council and is a member of the San Antonio Real Estate Council and ICSC. Brent is a Co-Captain of the Valero Texas Open Trailblazers and an Executive Committee Member of the Development Industry Advisory Council for the Texas A&M graduate program in land & property development.`,
@@ -38,12 +40,12 @@ In more recent years, Espada partners and their associates have developed and ac
       <div class="xl:min-h-80 flex flex-col xl:flex-row justify-between w-full flex-nowrap">
           <div class="flex flex-col sm:flex-row xl:w-1/2">
               <div class="sm:w-1/2 flex flex-col items-start">
-                  <SquareImage src={stPaul} />
+                  <SquareImage src={p.headshot} />
               </div>
               <div class="sm:w-1/2 flex flex-col mt-8 sm:mt-0 sm:pl-8 gap-2">
                   <h5>{p.name}</h5>
                   <h6>{p.title}</h6>
-                  <a class="nav-link transition hover:text-white hover:bg-black text-black py-4 px-5 border-black border-2 rounded-sm w-fit mt-8" href={p.vcfLink}>Contact Card</a>
+                  <a class="nav-link transition hover:text-white hover:bg-black text-black py-4 px-5 border-black border-2 rounded-sm w-fit mt-8" href={p.vcfLink} download>Contact Card</a>
                   {#if viewportWidth < 1340}
                   <button 
                       onclick={() => leaderBioStates[i] = !leaderBioStates[i]} 
