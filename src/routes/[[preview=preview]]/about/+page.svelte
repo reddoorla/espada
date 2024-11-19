@@ -45,24 +45,24 @@ In more recent years, Espada partners and their associates have developed and ac
               <div class="sm:w-1/2 flex flex-col mt-8 sm:mt-0 sm:pl-8 gap-2">
                   <h5>{p.name}</h5>
                   <h6>{p.title}</h6>
-                  <a class="nav-link transition hover:text-white hover:bg-black text-black py-4 px-5 border-black border-2 rounded-sm w-fit mt-8" href={p.vcfLink} download>Contact Card</a>
+                  <a class="nav-link transition hover:text-white hover:bg-black text-black py-4 px-5 border-black border-[1px] rounded-sm w-fit mt-8" href={p.vcfLink} download>Contact Card</a>
                   {#if viewportWidth < 1340}
                   <button 
                       onclick={() => leaderBioStates[i] = !leaderBioStates[i]} 
-                      class="nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-2 rounded-sm w-fit mt-2"
+                      class="nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-[1px] rounded-sm w-fit mt-2"
                   >
                       {leaderBioStates[i] ? "Hide Bio" : "Show Bio"}
                   </button>
                   {/if}
               </div>
           </div>
-          <p class="hidden xl:block xl:mt-0 xl:w-1/2 whitespace-pre-line">{p.body}</p>
+          <p class="hidden xl:block xl:mt-0 xl:w-1/2 xl:pl-8 whitespace-pre-line">{p.body}</p>
           {#if leaderBioStates[i]&&viewportWidth<1340}
               <div transition:slide>
                   <p class="mt-8 whitespace-pre-line">{p.body}</p>
                   <button 
                       onclick={() => leaderBioStates[i] = !leaderBioStates[i]} 
-                      class="mt-6 nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-2 rounded-sm w-fit"
+                      class="mt-6 nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-[1px] rounded-sm w-fit"
                   >
                       {leaderBioStates[i] ? "Hide Bio" : "Show Bio"}
                   </button>
