@@ -31,7 +31,7 @@ text-transform: uppercase;
 {#if href}
     <a {href} on:click={click} 
             class="{filled ?
-            "bg-white bg-opacity-0 hover:bg-opacity-5 active:bg-black  text-white" 
+            "hover:bg-white   hover:text-black" 
             : 
             "hover:bg-dark text-dark hover:text-white active:bg-black " 
             } border-[1px] border-white w-full md:w-auto text-center mb-5 sm:mb-0 uppercase cursor-pointer text-nowrap transition-all duration-300 active:-translate-y-2 label {$$props.class || ''}">

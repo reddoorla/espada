@@ -84,9 +84,9 @@
 {/if}
 
 {#if isOverlayVisible}
-<div class="w-screen h-screen fixed bg-dark flex flex-col items-center justify-center gap-12 z-30" transition:fly={{y:"-100%"}}>
+<div class="w-screen h-screen fixed bg-black flex flex-col items-center justify-center gap-12 z-30" transition:fly={{y:"-100%"}}>
     {#each NAV_LINKS as item}
-        <a onclick={()=>isOverlayVisible=false} href={item.href} class="text-white text-2xl">{item.label}</a>
+        <a onclick={()=>isOverlayVisible=false} href={item.href} class="text-white text-2x nav-links hover:opacity-100 opacity-75">{item.label}</a>
     {/each}
 
     <button class="absolute top-5 right-5 opacity-60 hover:opacity-100 transition-all z-40" onclick={()=>isOverlayVisible=false} aria-label="close overlay">
@@ -108,7 +108,7 @@
 			<div class="flex flex-row">
 				<div class="hidden lg:flex flex-row justify-between items-center gap-10">
 					{#each NAV_LINKS as item}
-						<a class="nav-link" href={item.href}>{item.label}</a>
+						<a class="nav-link hover:opacity-100 opacity-75" href={item.href}>{item.label}</a>
 					{/each}
 				</div>
 			
