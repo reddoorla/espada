@@ -4,10 +4,74 @@
     import corner from "$lib/assets/images/development-and-investments/corner.jpg"
     import mcAlister from "$lib/assets/images/development-and-investments/mcAlister.jpg"
     import dollarStore from "$lib/assets/images/development-and-investments/dollarTree.jpg"
+    import att from "$lib/assets/images/development-and-investments/att.jpg"
   import ContentWidth from "$lib/components/ContentWidth/ContentWidth.svelte";
   import FourByThreeImage from "$lib/components/FullWidth/FourByThreeImage.svelte";
     import bass from "$lib/assets/images/development-and-investments/bassProShops.jpg"
   import SubHero from "$lib/components/SubHero.svelte";
+  import { slide } from "svelte/transition";
+
+  const projectArray = [
+    {
+      image: att,
+      name: "AT&T Uvalde",
+      address1:"3190 East Uvalde Street",
+      address2:"Uvalde, TX",
+      desc:"4,515SF single-tenant build-to-suit",
+      status:"Asset stabilized and sold",
+      timeline:[
+        "Negotiated JV with land partner May 2014",
+        "LOI with AT&T June 2014 with a March 2015 lease effective date",
+        "September 2015 construction started; January 2016 construction completed/tenant delivery; March 2016 rent commenced",
+        "Sold"
+      ]
+    },
+    {
+      image: att,
+      name: "AT&T Uvalde",
+      address1:"3190 East Uvalde Street",
+      address2:"Uvalde, TX",
+      desc:"4,515SF single-tenant build-to-suit",
+      status:"Asset stabilized and sold",
+      timeline:[
+        "Negotiated JV with land partner May 2014",
+        "LOI with AT&T June 2014 with a March 2015 lease effective date",
+        "September 2015 construction started; January 2016 construction completed/tenant delivery; March 2016 rent commenced",
+        "Sold"
+      ]
+    },
+    {
+      image: att,
+      name: "AT&T Uvalde",
+      address1:"3190 East Uvalde Street",
+      address2:"Uvalde, TX",
+      desc:"4,515SF single-tenant build-to-suit",
+      status:"Asset stabilized and sold",
+      timeline:[
+        "Negotiated JV with land partner May 2014",
+        "LOI with AT&T June 2014 with a March 2015 lease effective date",
+        "September 2015 construction started; January 2016 construction completed/tenant delivery; March 2016 rent commenced",
+        "Sold"
+      ]
+    },
+    {
+      image: att,
+      name: "AT&T Uvalde",
+      address1:"3190 East Uvalde Street",
+      address2:"Uvalde, TX",
+      desc:"4,515SF single-tenant build-to-suit",
+      status:"Asset stabilized and sold",
+      timeline:[
+        "Negotiated JV with land partner May 2014",
+        "LOI with AT&T June 2014 with a March 2015 lease effective date",
+        "September 2015 construction started; January 2016 construction completed/tenant delivery; March 2016 rent commenced",
+        "Sold"
+      ]
+    },
+  ]
+
+  let projectStates = $state(Array(projectArray.length).fill(false));
+
 </script>
 
 <SubHero src={bass} text="Development & Investments" />
@@ -86,5 +150,48 @@
   </ContentWidth>
   <ContentWidth class="border-t-2 border-black">
     <h2 class="text-black my-16">Our Projects</h2>
+    <div class="flex flex-row justify-between flex-wrap gap-y-20 text-black">
+      {#each projectArray as proj, i}
+      <div class="w-full md:w-[calc(50%-24px)]">
+        <FourByThreeImage src={proj.image} />
+        <div class="mt-12 border-t-2 border-black w-full">
+          <button class="w-full flex flex-row justify-between items-center h-20" onclick={()=>projectStates[i]=!projectStates[i]}>
+            <h5>{proj.name}</h5>
+            <i class="fa-sharp fa-chevron-down fa-lg transition-transform {projectStates[i]?"-rotate-180":""}"></i>
+          </button>
+          {#if projectStates[i]}
+          <div class="w-full flex flex-col gap-5" transition:slide>
+            <div>
+              <p class="font-medium">Location</p>
+              <p>{proj.address1}</p>
+              <p>{proj.address2}</p>
+            </div>
+            <div>
+              <p class="font-medium">Project Description</p>
+              <p>{proj.desc}</p>
+            </div>
+            <div>
+              <p class="font-medium">Project Status</p>
+              <p>{proj.status}</p>
+            </div>
+            <div>
+              <p class="font-medium">Timeline</p>
+              <ul class="list-disc translate-x-5 pr-5">
+              {#each proj.timeline as item}
+                <li>
+                  <p>
+                    {item}
+                  </p>
+                </li>
+              {/each}
+              </ul>
+            </div>
+          </div>
+          {/if}
+
+        </div>
+      </div>
+      {/each}
+    </div>
   </ContentWidth>
 </section>
