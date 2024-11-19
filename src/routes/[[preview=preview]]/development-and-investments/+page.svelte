@@ -1,7 +1,5 @@
 <script lang='ts'>
-   import petco from "$lib/assets/images/property-management/petco.jpg"
-    import conns from "$lib/assets/images/property-management/conns.jpg"
-    import zoes from "$lib/assets/images/property-management/zoes.jpg"
+
     import starbucks from "$lib/assets/images/development-and-investments/starbucks.jpg"
     import corner from "$lib/assets/images/development-and-investments/corner.jpg"
     import mcAlister from "$lib/assets/images/development-and-investments/mcAlister.jpg"
