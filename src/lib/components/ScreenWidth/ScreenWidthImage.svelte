@@ -1,7 +1,7 @@
 <script lang='ts'>
 	import placeholder from "../../assets/images/background_placeholder.svg";
 	import ContentWidth from "../ContentWidth/ContentWidth.svelte";
-	import Img from "@zerodevx/svelte-img"
+	import  Img  from "@zerodevx/svelte-img"
 	
 	export let src = placeholder;
 	export let altText = "background image";
