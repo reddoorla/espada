@@ -83,7 +83,7 @@
       A diversified commercial real estate company with services development and investments with deep roots in San Antonio & South Texas.
     </h3>
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
-      <div  class="md:w-[calc(50%-24px)]">
+      <div  class="w-full md:w-[calc(50%-24px)]">
       <FourByThreeImage src={starbucks}/>
 
       </div>
@@ -94,7 +94,7 @@
     </div>
 
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
-      <div  class="md:w-[calc(50%-24px)]">
+      <div  class="w-full md:w-[calc(50%-24px)]">
       <FourByThreeImage src={corner}/>
       </div>
       <div class="md:w-[calc(50%-24px)] border-t-2 border-t-black py-6 gap-6 flex flex-col text-black">
@@ -104,7 +104,7 @@
     </div>
 
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
-      <div  class="md:w-[calc(50%-24px)]">
+      <div  class="w-full md:w-[calc(50%-24px)]">
       <FourByThreeImage src={mcAlister}/>
       </div>
       <div class="md:w-[calc(50%-24px)] border-t-2 border-t-black py-6 gap-6 flex flex-col text-black">
@@ -114,7 +114,7 @@
     </div>
 
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
-      <div  class="md:w-[calc(50%-24px)]">
+      <div  class="w-full md:w-[calc(50%-24px)]">
       <FourByThreeImage src={dollarStore}/>
       </div>
       <div class="md:w-[calc(50%-24px)] border-t-2 border-t-black py-6 gap-6 flex flex-col text-black">

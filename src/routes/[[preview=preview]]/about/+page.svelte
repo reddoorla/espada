@@ -123,7 +123,7 @@ In more recent years, Espada partners and their associates have developed and ac
       {#each leaderArray as p, i}
       <div class="xl:min-h-80 flex flex-col xl:flex-row justify-between w-full flex-nowrap">
           <div class="flex flex-col sm:flex-row xl:w-1/2">
-              <div class="sm:w-1/2 flex flex-col items-start">
+              <div class="w-full sm:w-1/2 flex flex-col items-start">
                   <SquareImage src={p.headshot} />
               </div>
               <div class="sm:w-1/2 flex flex-col mt-8 sm:mt-0 sm:pl-8 gap-2">
@@ -164,7 +164,7 @@ In more recent years, Espada partners and their associates have developed and ac
     {#each developmentTeamArray as p, i}
     <div class="xl:min-h-80 flex flex-col xl:flex-row justify-between w-full flex-nowrap">
         <div class="flex flex-col sm:flex-row xl:w-1/2">
-            <div class="sm:w-1/2 flex flex-col items-start">
+            <div class="w-full sm:w-1/2 flex flex-col items-start">
                 <SquareImage src={p.headshot} />
             </div>
             <div class="sm:w-1/2 flex flex-col mt-8 sm:mt-0 sm:pl-8 gap-2">
@@ -207,7 +207,7 @@ In more recent years, Espada partners and their associates have developed and ac
             <div class="sm:w-1/2 flex flex-col items-start">
                 <SquareImage src={p.headshot} />
             </div>
-            <div class="sm:w-1/2 flex flex-col mt-8 sm:mt-0 sm:pl-8 gap-2">
+            <div class="w-full sm:w-1/2 flex flex-col mt-8 sm:mt-0 sm:pl-8 gap-2">
                 <h5>{p.name}</h5>
                 <h6>{p.title}</h6>
                 {#if viewportWidth < 1340}

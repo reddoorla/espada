@@ -11,7 +11,7 @@
 <section class="w-full bg-white py-20">
   <ContentWidth class="flex flex-col gap-20">
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
-      <div  class="md:w-[calc(50%-24px)]">
+      <div  class="w-full md:w-[calc(50%-24px)]">
       <FourByThreeImage src={conns}/>
       </div>
       <div class="md:w-[calc(50%-24px)] border-t-2 border-t-black py-6 gap-6 flex flex-col text-black">
@@ -21,7 +21,7 @@
     </div>
 
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
-      <div  class="md:w-[calc(50%-24px)]">
+      <div  class="w-full md:w-[calc(50%-24px)]">
       <FourByThreeImage src={zoes}/>
       </div>
       <div class="md:w-[calc(50%-24px)] border-t-2 border-t-black py-6 gap-6 flex flex-col text-black">
@@ -31,7 +31,7 @@
     </div>
 
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
-      <div  class="md:w-[calc(50%-24px)]">
+      <div  class="w-full md:w-[calc(50%-24px)]">
       <FourByThreeImage src={zoes}/>
       </div>
       <div class="md:w-[calc(50%-24px)] border-t-2 border-t-black py-6 gap-6 flex flex-col text-black">
