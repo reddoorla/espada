@@ -104,6 +104,7 @@
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
       <div  class="md:w-[calc(50%-24px)]">
       <FourByThreeImage src={mcAlister}/>
+      <enhanced:img src={mcAlister} class="w-full h-64"/>
       </div>
       <div class="md:w-[calc(50%-24px)] border-t-2 border-t-black py-6 gap-6 flex flex-col text-black">
         <h5>Our Network</h5>
