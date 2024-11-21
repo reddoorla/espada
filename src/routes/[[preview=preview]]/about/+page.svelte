@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import stPaul from "$lib/assets/images/about/stPaul.jpg"
+  import stPaul from "$lib/assets/images/about/stPaul.jpg?as=run"
   import SubHero from "$lib/components/SubHero.svelte";
   import ContentWidth from  "$lib/components/ContentWidth/ContentWidth.svelte"
   import SquareImage from "$lib/components/FullWidth/SquareImage.svelte";
@@ -7,18 +7,18 @@
 
   import brent from "$lib/assets/images/about/headshots/brent.jpeg"
 
-  import Don from "$lib/assets/images/about/headshots/Don.jpg"
+  import Don from "$lib/assets/images/about/headshots/Don.jpg?as=run"
 
-  import Jessica from "$lib/assets/images/about/headshots/Jessica.jpg"
-  import John from "$lib/assets/images/about/headshots/John.jpg"
-  import Kaitlin from "$lib/assets/images/about/headshots/Kaitlin.jpg"
-  import Kathy from "$lib/assets/images/about/headshots/Kathy.jpg"
+  import Jessica from "$lib/assets/images/about/headshots/Jessica.jpg?as=run"
+  import John from "$lib/assets/images/about/headshots/John.jpg?as=run"
+  import Kaitlin from "$lib/assets/images/about/headshots/Kaitlin.jpg?as=run"
+  import Kathy from "$lib/assets/images/about/headshots/Kathy.jpg?as=run"
 
-  import Michael from "$lib/assets/images/about/headshots/Michael.jpg"
-  import Mitch from "$lib/assets/images/about/headshots/Mitch.jpg"
+  import Michael from "$lib/assets/images/about/headshots/Michael.jpg?as=run"
+  import Mitch from "$lib/assets/images/about/headshots/Mitch.jpg?as=run"
 
-  import Sophie from "$lib/assets/images/about/headshots/Sophie.jpg"
-  import Thomas from "$lib/assets/images/about/headshots/Thomas.jpg"
+  import Sophie from "$lib/assets/images/about/headshots/Sophie.jpg?as=run"
+  import Thomas from "$lib/assets/images/about/headshots/Thomas.jpg?as=run"
 
   const leaderArray = [
       {

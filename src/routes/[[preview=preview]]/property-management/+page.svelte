@@ -1,7 +1,7 @@
 <script lang='ts'>
-    import petco from "$lib/assets/images/property-management/petco.jpg"
-    import conns from "$lib/assets/images/property-management/conns.jpg"
-    import zoes from "$lib/assets/images/property-management/zoes.jpg"
+    import petco from "$lib/assets/images/property-management/petco.jpg?as=run"
+    import conns from "$lib/assets/images/property-management/conns.jpg?as=run"
+    import zoes from "$lib/assets/images/property-management/zoes.jpg?as=run"
   import ContentWidth from "$lib/components/ContentWidth/ContentWidth.svelte";
   import FourByThreeImage from "$lib/components/FullWidth/FourByThreeImage.svelte";
   import SubHero from "$lib/components/SubHero.svelte";

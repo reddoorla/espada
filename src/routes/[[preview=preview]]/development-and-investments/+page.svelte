@@ -1,15 +1,16 @@
 <script lang='ts'>
 
-    import starbucks from "$lib/assets/images/development-and-investments/starbucks.jpg"
-    import corner from "$lib/assets/images/development-and-investments/corner.jpg"
-    import mcAlister from "$lib/assets/images/development-and-investments/mcAlister.jpg"
-    import dollarStore from "$lib/assets/images/development-and-investments/dollarTree.jpg"
-    import att from "$lib/assets/images/development-and-investments/att.jpg"
+    import starbucks from "$lib/assets/images/development-and-investments/starbucks.jpg?as=run"
+    import corner from "$lib/assets/images/development-and-investments/corner.jpg?as=run"
+    import mcAlister from "$lib/assets/images/development-and-investments/mcAlister.jpg?as=run"
+    import dollarStore from "$lib/assets/images/development-and-investments/dollarTree.jpg?as=run"
+    import att from "$lib/assets/images/development-and-investments/att.jpg?as=run"
   import ContentWidth from "$lib/components/ContentWidth/ContentWidth.svelte";
   import FourByThreeImage from "$lib/components/FullWidth/FourByThreeImage.svelte";
-    import bass from "$lib/assets/images/development-and-investments/bassProShops.jpg"
+    import bass from "$lib/assets/images/development-and-investments/bassProShops.jpg?as=run"
   import SubHero from "$lib/components/SubHero.svelte";
   import { slide } from "svelte/transition";
+
 
   const projectArray = [
     {
@@ -84,6 +85,7 @@
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
       <div  class="md:w-[calc(50%-24px)]">
       <FourByThreeImage src={starbucks}/>
+
       </div>
       <div class="md:w-[calc(50%-24px)] border-t-2 border-t-black py-6 gap-6 flex flex-col text-black">
         <h5>Our Company</h5>
@@ -104,7 +106,6 @@
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
       <div  class="md:w-[calc(50%-24px)]">
       <FourByThreeImage src={mcAlister}/>
-      <enhanced:img src={mcAlister} class="w-full h-64"/>
       </div>
       <div class="md:w-[calc(50%-24px)] border-t-2 border-t-black py-6 gap-6 flex flex-col text-black">
         <h5>Our Network</h5>
