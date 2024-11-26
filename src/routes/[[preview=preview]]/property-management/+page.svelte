@@ -2,12 +2,13 @@
     import petco from "$lib/assets/images/property-management/petco.jpg?as=run"
     import conns from "$lib/assets/images/property-management/conns.jpg?as=run"
     import zoes from "$lib/assets/images/property-management/zoes.jpg?as=run"
+    import ross from "$lib/assets/images/property-management/ross.jpg?as=run"
   import ContentWidth from "$lib/components/ContentWidth/ContentWidth.svelte";
   import FourByThreeImage from "$lib/components/FullWidth/FourByThreeImage.svelte";
   import SubHero from "$lib/components/SubHero.svelte";
 </script>
 
-<SubHero src={petco} text="Property Management" />
+<SubHero src={ross} text="Property Management" />
 <section class="w-full bg-white py-20">
   <ContentWidth class="flex flex-col gap-20">
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
@@ -32,7 +33,7 @@
 
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
       <div  class="w-full md:w-[calc(50%-24px)]">
-      <FourByThreeImage src={zoes}/>
+      <FourByThreeImage src={petco}/>
       </div>
       <div class="md:w-[calc(50%-24px)] border-t-2 border-t-black py-6 gap-6 flex flex-col text-black">
         <h5>Proven results</h5>

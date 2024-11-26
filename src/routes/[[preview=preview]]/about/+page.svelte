@@ -3,7 +3,7 @@
   import SubHero from "$lib/components/SubHero.svelte";
   import ContentWidth from  "$lib/components/ContentWidth/ContentWidth.svelte"
   import SquareImage from "$lib/components/FullWidth/SquareImage.svelte";
-  import { slide } from "svelte/transition";
+  import { fade, slide } from "svelte/transition";
 
   import brent from "$lib/assets/images/about/headshots/brent.jpeg"
 
@@ -136,10 +136,11 @@ In more recent years, Espada partners and their associates have developed and ac
                   {#if p.vcfLink}
                     <a class="nav-link transition hover:text-white hover:bg-black text-black py-4 px-5 border-black border-[1px] rounded-sm w-fit mt-8" href={p.vcfLink} download>Contact Card</a>
                   {/if}
-                  {#if viewportWidth < 1340}
+                  {#if viewportWidth < 1340 && !leaderBioStates[i]}
                   <button 
-                      onclick={() => leaderBioStates[i] = !leaderBioStates[i]} 
-                      class="nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-[1px] rounded-sm w-fit mt-2"
+                    transition:slide={{duration:100}}
+                    onclick={() => leaderBioStates[i] = !leaderBioStates[i]} 
+                    class="nav-link {leaderBioStates[i] ? "opacity-0" : ""} text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-[1px] rounded-sm w-fit mt-2"
                   >
                       {leaderBioStates[i] ? "Hide Bio" : "Show Bio"}
                   </button>
@@ -177,8 +178,9 @@ In more recent years, Espada partners and their associates have developed and ac
                 {#if p.vcfLink}
                   <a class="nav-link transition hover:text-white hover:bg-black text-black py-4 px-5 border-black border-[1px] rounded-sm w-fit mt-8" href={p.vcfLink} download>Contact Card</a>
                 {/if}
-                {#if viewportWidth < 1340}
+                {#if viewportWidth < 1340 && !developmentTeamBioStates[i]}
                 <button 
+                    transition:slide={{duration:100}}
                     onclick={() => developmentTeamBioStates[i] = !developmentTeamBioStates[i]} 
                     class="nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-[1px] rounded-sm w-fit mt-2"
                 >
@@ -214,10 +216,11 @@ In more recent years, Espada partners and their associates have developed and ac
             <div class="w-full sm:w-1/2 flex flex-col mt-8 sm:mt-0 sm:pl-8 gap-2">
                 <h5>{p.name}</h5>
                 <h6>{p.title}</h6>
-                {#if viewportWidth < 1340}
-                <button 
+                {#if viewportWidth < 1340 && !propertyTeamBioStates[i]}
+                <button
+                    transition:slide={{duration:100}} 
                     onclick={() => propertyTeamBioStates[i] = !propertyTeamBioStates[i]} 
-                    class="nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-[1px] rounded-sm w-fit mt-2"
+                    class="nav-link {propertyTeamBioStates[i] ? "opacity-0" : ""} text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-[1px] rounded-sm w-fit mt-2"
                 >
                     {propertyTeamBioStates[i] ? "Hide Bio" : "Show Bio"}
                 </button>
