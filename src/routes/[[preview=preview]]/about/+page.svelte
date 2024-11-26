@@ -110,7 +110,11 @@ In her free time, Sophie volunteers with SNIPSA. Her varied experiences and dedi
 
 <section class="w-full bg-white py-20 text-black">
   <ContentWidth class="border-t-2 border-black flex flex-col md:flex-row py-12">
-    <h3 class="md:w-1/2 md:pr-8">Espada Real Estate is a diversified commercial real estate company with deep roots in San Antonio and south Texas.</h3>
+    <div class="md:w-1/2 md:pr-8">
+        <h1 style="text-shadow:none">Espada Real Estate</h1>
+        <h3 class="mt-6">A diversified commercial real estate company with deep roots in San Antonio and south Texas.</h3>
+   
+    </div>
     <p class="mt-12 md:mt-0 md:w-1/2 md:pl-8 whitespace-pre-line leading-loose">
       Espada Real Estate evolved from Reata Assets Investment and Development (RAID) after the sale of the Reata companies to CBRE in 2019.  The founders of RAID, now Espada, collectively have 140 years of experience in the retail real estate industry and have worked with former companies such as Trammell Crow, CBRE, and United Commercial Realty. 
 
