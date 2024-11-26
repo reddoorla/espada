@@ -1,5 +1,5 @@
 <script lang='ts'>
-  import ContentWidth from "$lib/components/ContentWidth/ContentWidth.svelte";
+
 import ScreenWidthImage from "$lib/components/ScreenWidth/ScreenWidthImage.svelte";
 import thumb from "$lib/assets/images/thumb.jpg?as=run"
 
