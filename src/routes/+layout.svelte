@@ -8,7 +8,8 @@
   import { fly, fade } from 'svelte/transition';
   import { onMount } from 'svelte';
   import { onNavigate } from '$app/navigation';
-  import Footer from '$lib/components/Footer.svelte';
+  import menu from "$lib/assets/icons/menu.svg"
+  import close from "$lib/assets/icons/close.svg"
 	/**
 	 * @typedef {Object} Props
 	 * @property {import('svelte').Snippet} [children]
@@ -91,7 +92,7 @@
 
     <button class="absolute top-5 right-5 opacity-60 hover:opacity-100 transition-all z-40" onclick={()=>isOverlayVisible=false} aria-label="close overlay">
         <div in:fade={{delay: 600}} out:fade class="text-white">
-        	<i class="fa-sharp fa-thin fa-close fa-3x"></i>
+        	<img class="w-9" src={close} alt="close"/>
         </div>
       
     </button>
@@ -113,8 +114,8 @@
 				</div>
 			
 				<button class="lg:hidden ml-6 opacity-60 hover:opacity-100 transition-all" onclick={()=>isOverlayVisible=true}>
-				{#if !isOverlayVisible}
-						<i class="fa-sharp fa-thin fa-bars fa-2xl text-white"></i>
+					{#if !isOverlayVisible}
+						<img class="w-9" src={menu} alt="menu"/>
 					{/if}
 				
 				</button>
