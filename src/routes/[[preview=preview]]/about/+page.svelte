@@ -3,6 +3,7 @@
   import SubHero from "$lib/components/SubHero.svelte";
   import ContentWidth from  "$lib/components/ContentWidth/ContentWidth.svelte"
   import SquareImage from "$lib/components/FullWidth/SquareImage.svelte";
+  import Footer from "$lib/components/Footer.svelte";
   import { fade, slide } from "svelte/transition";
 
   import brent from "$lib/assets/images/about/headshots/brent.jpeg"
@@ -19,6 +20,7 @@
 
   import Sophie from "$lib/assets/images/about/headshots/Sophie.jpg?as=run"
   import Thomas from "$lib/assets/images/about/headshots/Thomas.jpg?as=run"
+
 
   const leaderArray = [
       {
@@ -111,8 +113,7 @@ In her free time, Sophie volunteers with SNIPSA. Her varied experiences and dedi
 <section class="w-full bg-white py-20 text-black">
   <ContentWidth class="border-t-2 border-black flex flex-col md:flex-row py-12">
     <div class="md:w-1/2 md:pr-8">
-        <h1 style="text-shadow:none">Espada Real Estate</h1>
-        <h3 class="mt-6">A diversified commercial real estate company with deep roots in San Antonio and south Texas.</h3>
+        <h3>Espada Real Estate is a diversified commercial real estate company with deep roots in San Antonio and south Texas.</h3>
    
     </div>
     <p class="mt-12 md:mt-0 md:w-1/2 md:pl-8 whitespace-pre-line leading-loose">
@@ -243,3 +244,4 @@ In more recent years, Espada partners and their associates have developed and ac
     {/each}
 </ContentWidth>
 </section>
+<Footer />

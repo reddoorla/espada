@@ -2,6 +2,7 @@
     import stripMall from "$lib/assets/images/login/stripMall.jpg"
   import SubHero from "$lib/components/SubHero.svelte";
   import ContentWidth from "$lib/components/ContentWidth/ContentWidth.svelte";
+  import Footer from "$lib/components/Footer.svelte";
 </script>
 
 <SubHero src={stripMall} text="Espada Investor Portfolio" />
@@ -16,3 +17,4 @@
     </div>
   </ContentWidth>
 </section>
+<Footer />

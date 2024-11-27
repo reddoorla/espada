@@ -10,6 +10,7 @@
     import bass from "$lib/assets/images/development-and-investments/bassProShops.jpg?as=run"
   import SubHero from "$lib/components/SubHero.svelte";
   import { slide } from "svelte/transition";
+  import Footer from "$lib/components/Footer.svelte"
 
 
   const projectArray = [
@@ -197,3 +198,4 @@
     </div>
   </ContentWidth>
 </section>
+<Footer />

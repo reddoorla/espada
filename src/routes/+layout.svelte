@@ -125,5 +125,5 @@
 	</div>
 	{@render children?.()}
 </main>
-<Footer/>
+
 <PrismicPreview {repositoryName} />

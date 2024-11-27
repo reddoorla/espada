@@ -1,6 +1,7 @@
 <script lang='ts'>
     import ContentWidth from "$lib/components/ContentWidth/ContentWidth.svelte";
   import ContactForm from "$lib/components/FullWidth/ContactForm.svelte";
+  import Footer from "$lib/components/Footer.svelte";
 </script>
 
 
@@ -12,3 +13,4 @@
       </div>
     </ContentWidth>
 </section>
+<Footer />

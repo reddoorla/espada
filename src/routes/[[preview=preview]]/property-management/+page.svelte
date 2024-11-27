@@ -6,6 +6,7 @@
   import ContentWidth from "$lib/components/ContentWidth/ContentWidth.svelte";
   import FourByThreeImage from "$lib/components/FullWidth/FourByThreeImage.svelte";
   import SubHero from "$lib/components/SubHero.svelte";
+  import Footer from "$lib/components/Footer.svelte";
 </script>
 
 <SubHero src={ross} text="Property Management" />
@@ -43,3 +44,4 @@
 
   </ContentWidth>
 </section>
+<Footer/>
