@@ -81,7 +81,7 @@
 <section class="w-full bg-white py-20">
   <ContentWidth class="flex flex-col gap-20 items-center pb-12">
     <h3 class="text-black max-w-2xl text-center">
-      A diversified commercial real estate company with services development and investments with deep roots in San Antonio & South Texas.
+      A diversified commercial real estate firm with deep roots in San Antonio, Texas & beyond
     </h3>
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
       <div  class="w-full md:w-[calc(50%-24px)]">
