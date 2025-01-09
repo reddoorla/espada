@@ -30,46 +30,69 @@
     },
     {
       image: att,
-      name: "AT&T Uvalde",
-      address1:"3190 East Uvalde Street",
-      address2:"Uvalde, TX",
-      desc:"4,515SF single-tenant build-to-suit",
-      status:"Asset stabilized and sold",
-      timeline:[
-        "Negotiated JV with land partner May 2014",
-        "LOI with AT&T June 2014 with a March 2015 lease effective date",
-        "September 2015 construction started; January 2016 construction completed/tenant delivery; March 2016 rent commenced",
-        "Sold"
-      ]
+      name: "Laredo Dollar Tree Shopping Center",
+      address1:"3502 Clark Blvd",
+      address2:"Laredo, TX",
+      desc:"Developed Dollar Tree Anchored 22,000 sf retail center",
+      status:"Owned in portfolio",
     },
     {
       image: att,
-      name: "AT&T Uvalde",
-      address1:"3190 East Uvalde Street",
-      address2:"Uvalde, TX",
-      desc:"4,515SF single-tenant build-to-suit",
-      status:"Asset stabilized and sold",
-      timeline:[
-        "Negotiated JV with land partner May 2014",
-        "LOI with AT&T June 2014 with a March 2015 lease effective date",
-        "September 2015 construction started; January 2016 construction completed/tenant delivery; March 2016 rent commenced",
-        "Sold"
-      ]
+      name: "Perrin Beitel Shooping Center",
+      address1:"8611 Perrin Beitel Road",
+      address2:"San Antonio, TX",
+      desc:"Re-Developed 65,000sf retail center",
+      status:"Owned in portfolio",
     },
     {
       image: att,
-      name: "AT&T Uvalde",
-      address1:"3190 East Uvalde Street",
-      address2:"Uvalde, TX",
-      desc:"4,515SF single-tenant build-to-suit",
-      status:"Asset stabilized and sold",
-      timeline:[
-        "Negotiated JV with land partner May 2014",
-        "LOI with AT&T June 2014 with a March 2015 lease effective date",
-        "September 2015 construction started; January 2016 construction completed/tenant delivery; March 2016 rent commenced",
-        "Sold"
-      ]
+      name: "Dominion Springs Plaza",
+      address1:"IH 10 West & Boerne Stage Rd",
+      address2:"San Antonio, TX",
+      desc:"Developed 65,000 sf retail center",
+      status:"Fee Developed",
     },
+    {
+      image: att,
+      name: "Sonterra Village",
+      address1:"NWC Loop 1604 & Sonterra Place",
+      address2:"San Antonio, TX",
+      desc:"Developed Trader Joe's Anchored 43,000 sf retail center",
+      status:"Asset stabilized and sold",
+    },
+    {
+      image: att,
+      name: "Live Oak Civic Center",
+      address1:"Loop 1604 & Pat Booker Road",
+      address2:"San Antonio, TX",
+      desc:"Redevelopment of Civic Center/Starbucks Build-to-Suit",
+      status:"Asset stabilized and sold",
+    },
+    {
+      image: att,
+      name: "Cabo Bob's Redevelopment",
+      address1:"847 NE Loop 410",
+      address2:"San Antonio, TX",
+      desc:"Redevelopment & Re-Tenanting of existing building",
+      status:"Asset stabilized and sold",
+    },
+    {
+      image: att,
+      name: "River Mill Redevelopment",
+      address1:"555 Porter Street",
+      address2:"New Braunfels, TX",
+      desc:"Redevelopment of  12 acre industrial mill",
+      status:"Obtained entitlements & sold",
+    },
+    {
+      image: att,
+      name: "Brookhill Shopping Center",
+      address1:"NWC of Pecan Valley Dr & Goliad Road",
+      address2:"San Antonio, TX",
+      desc:"Added value through renovation and leasing",
+      status:"Asset stabilized and sold",
+    },
+
   ]
 
   let projectStates = $state(Array(projectArray.length).fill(false));
@@ -152,11 +175,11 @@
     </div>
   </ContentWidth>
   <ContentWidth class="border-t-2 border-black">
-    <h2 class="text-black my-16">Our Projects</h2>
-    <div class="flex flex-row justify-between flex-wrap gap-y-20 text-black">
+    <h2 class="text-black my-16">Our Projects</h2>å
+    <div class="flex flex-row justify-center flex-wrap gap-x-12 gap-y-20 text-black">
       {#each projectArray as proj, i}
       <div class="w-full md:w-[calc(50%-24px)]">
-        <FourByThreeImage src={proj.image} />
+        <FourByThreeImage src={proj.image} alt={proj.name}/>
         <div class="mt-12 border-t-2 border-black w-full">
           <button class="w-full flex flex-row justify-between items-center h-20" onclick={()=>projectStates[i]=!projectStates[i]}>
             <h5>{proj.name}</h5>
@@ -178,6 +201,7 @@
               <p>{proj.status}</p>
             </div>
             <div>
+              {#if proj.timeline}
               <p class="font-medium">Timeline</p>
               <ul class="list-disc translate-x-5 pr-5">
               {#each proj.timeline as item}
@@ -188,6 +212,7 @@
                 </li>
               {/each}
               </ul>
+              {/if}
             </div>
           </div>
           {/if}

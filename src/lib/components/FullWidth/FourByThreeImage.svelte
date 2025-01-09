@@ -14,7 +14,7 @@
       <div class="w-full aspect-[4/3] {src===placeholder ? "border-light border-2 bg-light bg-opacity-25":""} rounded-sm flex items-center justify-center relative">
         {#if typeof src === "object"}
           <Img 
-            src={src}
+            {src}
             {alt} 
             class="z-10 object-cover w-full h-full"
             loading="lazy"
@@ -23,7 +23,7 @@
 
         {:else}
           <img 
-            src={src}
+            {src}
             {alt} 
             class="z-10 object-cover w-full h-full"
             loading="lazy"
