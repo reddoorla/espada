@@ -5,6 +5,11 @@
     import mcAlister from "$lib/assets/images/development-and-investments/mcAlister.jpg?as=run"
     import dollarStore from "$lib/assets/images/development-and-investments/dollarTree.jpg?as=run"
     import att from "$lib/assets/images/development-and-investments/att.jpg?as=run"
+    import caboBobs from "$lib/assets/images/development-and-investments/caboBobs.jpg?as=run"
+    import tJs from "$lib/assets/images/development-and-investments/tJs.jpg?as=run"
+    import dominionSprings from "$lib/assets/images/development-and-investments/dominionSprings.jpg?as=run"
+    import laredoDollarTree from "$lib/assets/images/development-and-investments/laredoDollarTree.jpg?as=run"
+    import starbucks2 from "$lib/assets/images/development-and-investments/starbucks2.jpg?as=run"
   import ContentWidth from "$lib/components/ContentWidth/ContentWidth.svelte";
   import FourByThreeImage from "$lib/components/FullWidth/FourByThreeImage.svelte";
     import bass from "$lib/assets/images/development-and-investments/bassProShops.jpg?as=run"
@@ -29,7 +34,7 @@
       ]
     },
     {
-      image: att,
+      image: laredoDollarTree,
       name: "Laredo Dollar Tree Shopping Center",
       address1:"3502 Clark Blvd",
       address2:"Laredo, TX",
@@ -38,14 +43,14 @@
     },
     {
       image: att,
-      name: "Perrin Beitel Shooping Center",
+      name: "Perrin Beitel Shoping Center",
       address1:"8611 Perrin Beitel Road",
       address2:"San Antonio, TX",
       desc:"Re-Developed 65,000sf retail center",
       status:"Owned in portfolio",
     },
     {
-      image: att,
+      image: dominionSprings,
       name: "Dominion Springs Plaza",
       address1:"IH 10 West & Boerne Stage Rd",
       address2:"San Antonio, TX",
@@ -53,7 +58,7 @@
       status:"Fee Developed",
     },
     {
-      image: att,
+      image: tJs,
       name: "Sonterra Village",
       address1:"NWC Loop 1604 & Sonterra Place",
       address2:"San Antonio, TX",
@@ -61,7 +66,7 @@
       status:"Asset stabilized and sold",
     },
     {
-      image: att,
+      image: starbucks2,
       name: "Live Oak Civic Center",
       address1:"Loop 1604 & Pat Booker Road",
       address2:"San Antonio, TX",
@@ -69,7 +74,7 @@
       status:"Asset stabilized and sold",
     },
     {
-      image: att,
+      image: caboBobs,
       name: "Cabo Bob's Redevelopment",
       address1:"847 NE Loop 410",
       address2:"San Antonio, TX",
