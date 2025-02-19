@@ -43,7 +43,7 @@
     },
     {
       image: att,
-      name: "Perrin Beitel Shoping Center",
+      name: "Perrin Beitel Shopping Center",
       address1:"8611 Perrin Beitel Road",
       address2:"San Antonio, TX",
       desc:"Re-Developed 65,000sf retail center",
