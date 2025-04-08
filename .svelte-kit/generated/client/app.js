@@ -10,48 +10,18 @@ export const nodes = [
 	() => import('./nodes/6'),
 	() => import('./nodes/7'),
 	() => import('./nodes/8'),
-	() => import('./nodes/9'),
-	() => import('./nodes/10'),
-	() => import('./nodes/11'),
-	() => import('./nodes/12'),
-	() => import('./nodes/13'),
-	() => import('./nodes/14'),
-	() => import('./nodes/15'),
-	() => import('./nodes/16'),
-	() => import('./nodes/17'),
-	() => import('./nodes/18'),
-	() => import('./nodes/19'),
-	() => import('./nodes/20'),
-	() => import('./nodes/21'),
-	() => import('./nodes/22'),
-	() => import('./nodes/23'),
-	() => import('./nodes/24')
+	() => import('./nodes/9')
 ];
 
 export const server_loads = [0];
 
 export const dictionary = {
 		"/[[preview=preview]]/about": [~4],
-		"/blogs": [9],
-		"/contacts": [10],
 		"/[[preview=preview]]/contact": [~5],
-		"/content": [11],
-		"/ctas": [12],
 		"/[[preview=preview]]/development-and-investments": [~6],
-		"/faqs": [13],
-		"/footers": [14],
-		"/lists": [15],
 		"/[[preview=preview]]/login": [~7],
-		"/mastheads": [16],
-		"/navs": [17],
-		"/plans": [18],
-		"/portfolios": [19],
 		"/[[preview=preview]]/property-management": [~8],
-		"/slice-simulator": [20],
-		"/sliders": [21],
-		"/teams": [22],
-		"/testimonials": [23],
-		"/values": [24],
+		"/slice-simulator": [9],
 		"/[[preview=preview]]": [~2],
 		"/[[preview=preview]]/[uid]": [~3]
 	};

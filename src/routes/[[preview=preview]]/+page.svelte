@@ -22,7 +22,7 @@ import thumb from "$lib/assets/images/thumb.jpg?as=run"
             </div>
         </div>
         <div class="flex flex-col gap-6 items-end justify-end md:h-24 pb-6">
-            <div class="label">Copyright All Rights Reserved © </div>
+            <div class="label">{"Copyright All Rights Reserved © "+ new Date().getFullYear()} </div>
         </div>
     </ContentWidth>
 

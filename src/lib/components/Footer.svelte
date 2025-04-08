@@ -18,7 +18,7 @@
         </div>
         <div class="flex flex-col gap-6 items-end justify-between h-full pb-6">
             <DefaultButton href="/contact">Contact Us</DefaultButton>
-            <div class="label">Copyright All Rights Reserved © </div>
+            <div class="label">{"Copyright All Rights Reserved © "+ new Date().getFullYear()} </div>
         </div>
     </ContentWidth>
 

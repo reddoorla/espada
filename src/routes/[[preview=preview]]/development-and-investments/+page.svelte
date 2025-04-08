@@ -13,6 +13,9 @@
   import ContentWidth from "$lib/components/ContentWidth/ContentWidth.svelte";
   import FourByThreeImage from "$lib/components/FullWidth/FourByThreeImage.svelte";
     import bass from "$lib/assets/images/development-and-investments/bassProShops.jpg?as=run"
+    import beitel from  "$lib/assets/images/development-and-investments/PerrinBeitel.jpg?as=run"
+    import brookhill from  "$lib/assets/images/development-and-investments/Brookhill.jpg?as=run"
+    import braunfels from  "$lib/assets/images/development-and-investments/NewBraunfels.jpg?as=run"
   import SubHero from "$lib/components/SubHero.svelte";
   import { slide } from "svelte/transition";
   import Footer from "$lib/components/Footer.svelte"
@@ -42,7 +45,7 @@
       status:"Owned in portfolio",
     },
     {
-      image: att,
+      image: beitel,
       name: "Perrin Beitel Shopping Center",
       address1:"8611 Perrin Beitel Road",
       address2:"San Antonio, TX",
@@ -82,7 +85,7 @@
       status:"Asset stabilized and sold",
     },
     {
-      image: att,
+      image: braunfels,
       name: "River Mill Redevelopment",
       address1:"555 Porter Street",
       address2:"New Braunfels, TX",
@@ -90,7 +93,7 @@
       status:"Obtained entitlements & sold",
     },
     {
-      image: att,
+      image: brookhill,
       name: "Brookhill Shopping Center",
       address1:"NWC of Pecan Valley Dr & Goliad Road",
       address2:"San Antonio, TX",
