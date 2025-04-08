@@ -158,7 +158,7 @@
   </ContentWidth>
   <ContentWidth class="border-t-2 border-black">
     <h2 class="text-black md:max-w-2xl my-16">We are adept at executing every phase of development.</h2>
-    <div class="w-full flex flex-row mb-32">
+    <div class="w-full flex flex-col md:flex-row mb-32">
       <p class="md:w-1/2 text-black leading-loose">
         Market Research <br/>
         Site Selection<br/>
@@ -182,15 +182,15 @@
       </p>
     </div>
   </ContentWidth>
-  <ContentWidth class="border-t-2 border-black">
-    <h2 class="text-black my-16">Our Projects</h2>å
+  <ContentWidth class="border-t-2 border-black text-left">
+    <h2 class="text-black my-16">Our Projects</h2>
     <div class="flex flex-row justify-center flex-wrap gap-x-12 gap-y-20 text-black">
       {#each projectArray as proj, i}
       <div class="w-full md:w-[calc(50%-24px)]">
         <FourByThreeImage src={proj.image} alt={proj.name}/>
         <div class="mt-12 border-t-2 border-black w-full">
           <button class="w-full flex flex-row justify-between items-center h-20" onclick={()=>projectStates[i]=!projectStates[i]}>
-            <h5>{proj.name}</h5>
+            <h5 class="text-left">{proj.name}</h5>
             <i class="fa-sharp fa-chevron-down fa-lg transition-transform {projectStates[i]?"-rotate-180":""}"></i>
           </button>
           {#if projectStates[i]}
