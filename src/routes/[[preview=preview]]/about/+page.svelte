@@ -10,7 +10,6 @@
 
   import Don from "$lib/assets/images/about/headshots/Don.jpg?as=run"
 
-  import Jessica from "$lib/assets/images/about/headshots/Jessica.jpg?as=run"
   import John from "$lib/assets/images/about/headshots/John.jpg?as=run"
   import Kaitlin from "$lib/assets/images/about/headshots/Kaitlin.jpg?as=run"
   import Kathy from "$lib/assets/images/about/headshots/Kathy.jpg?as=run"
@@ -18,7 +17,6 @@
   import Michael from "$lib/assets/images/about/headshots/Michael.jpg?as=run"
   import Mitch from "$lib/assets/images/about/headshots/Mitch.jpg?as=run"
 
-  import Sophie from "$lib/assets/images/about/headshots/Sophie.jpg?as=run"
   import Thomas from "$lib/assets/images/about/headshots/Thomas.jpg?as=run"
 
 
@@ -71,24 +69,12 @@
   ]
 
   const propertyTeamArray = [
-    {
-          headshot: Jessica,
-          name: "Jessica Lopez",
-          title: "Director of Property Management",
-          body: `Jessica is a Certified Property Manager with over 13 years of experience in property management.  She previously served as a General Manager at Big V Properties where she was responsible for The Rim, the largest shopping center in Texas.  During her time there, she held positions of increasing responsibility starting as Assistant Property Manager and ultimately becoming the General Manager.  Prior to Big V, she worked at the Rivercenter Mall Management Office for seven years.  She has served as a board member for IREM’s San Antonio chapter and is actively involved in IREM events.  Jessica is originally from Chicago, where she worked in lease administration for American Express before going on to become the Manager of Lease Administration for American Express at consulting firms such as Deloitte & Touche, American Express Tax and Business Services, and RSM McGladrey`,
-      },
+
       {
           headshot: Kaitlin,
           name: "Kaitlin Davey",
           title: "Property Manager",
           body: `Kaitlin is the Property Manager St. Paul Square, Patriot Plaza, and Live Oak Shopping Center. She is currently managing a portfolio of about 1,000,000 square feet of Class A office and retail space. Prior to joining Espada Real Estate, Kaitlin worked in commercial property management for Spigel Properties where her portfolio was comprised of shopping centers with a strong concentration in Michigan, Ohio and Texas. Kaitlin is an active member of IREM San Antonio. Kaitlin earned her BA from Texas Tech University.`,
-      },
-      {
-          headshot: Sophie,
-          name: "Sophie Larking",
-          title: "Assistant Property Manager",
-          body: `Sophie is an Assistant Property Manager in the commercial real estate industry. Having attended the University of North Carolina, she brings a diverse background in property management, event coordination, and hospitality. Sophie has served as an artist in residence at Hotel Emma and managed events for Saint City Culinary, where she supported a foundation providing low-cost medical services to Texas service industry workers.
-In her free time, Sophie volunteers with SNIPSA. Her varied experiences and dedication to both her work and community make her a valuable asset to property operations and tenant relations.`,
       },
       {
           headshot: Kathy,
