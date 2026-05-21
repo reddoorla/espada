@@ -1,13 +1,13 @@
 <!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang="ts">
-export let icon="";
-export let iconAltText="company logo"
-export let testimonialText ="";
-export let attribution = "";
-export let attributionLabel = "";
-export let backgroundColor="transparent"
-export let float = "center"
+
+
+
+
+
+
+  let { icon = "", iconAltText = "company logo", testimonialText = "", attribution = "", attributionLabel = "", backgroundColor = "transparent", float = "center" }: { icon?: unknown; iconAltText?: unknown; testimonialText?: unknown; attribution?: unknown; attributionLabel?: unknown; backgroundColor?: unknown; float?: unknown } = $props();
 let justify=float;
 let horizontalFloatMargin = "mx-auto"
 

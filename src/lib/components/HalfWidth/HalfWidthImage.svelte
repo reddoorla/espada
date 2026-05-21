@@ -1,9 +1,8 @@
 <!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang="ts">
-    import placeholder from "$lib/assets/images/image_placeholder.svg"
-    export let image = placeholder;
-    export let alt = "";
+      let { image = placeholder, alt = "" }: { image?: unknown; alt?: unknown } = $props();
+import placeholder from "$lib/assets/images/image_placeholder.svg"
 
 
     let rotationAngle = "36.8";

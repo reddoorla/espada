@@ -1,8 +1,9 @@
 <script lang="ts">
-    import placeholder from "$lib/assets/images/image_placeholder.svg"
+      let { src = placeholder, alt = "" }: { src?: unknown; alt?: unknown } = $props();
+import placeholder from "$lib/assets/images/image_placeholder.svg"
     import  Img  from "@zerodevx/svelte-img"
-    export let src = placeholder;
-    export let alt = ""
+
+
     const rotationAngle = "45";
     const crossLength = "141%";
 

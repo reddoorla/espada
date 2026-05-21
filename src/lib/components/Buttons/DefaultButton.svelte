@@ -1,10 +1,9 @@
 <!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang="ts">
-    export let text = "BUTTON";
-    export let click = ()=>{};
-    export let filled = true;
-    export let href="";
+
+
+  let { text = "BUTTON", click = ()=>{}, filled = true, href = "" }: { text?: unknown; click?: unknown; filled?: unknown; href?: unknown } = $props();
 </script>
 
 <style>
@@ -29,7 +28,7 @@ text-transform: uppercase;
 </style>
 
 {#if href}
-    <a {href} on:click={click} 
+    <a {href} onclick={click} 
             class="{filled ?
             "hover:bg-white   hover:text-black" 
             : 
@@ -38,7 +37,7 @@ text-transform: uppercase;
             <slot>{text}</slot>
     </a>
 {:else}
-<button on:click={click}
+<button onclick={click}
         class="{filled ?
          "bg-dark bg-opacity-80 hover:bg-opacity-100 active:bg-black  text-white"
          :

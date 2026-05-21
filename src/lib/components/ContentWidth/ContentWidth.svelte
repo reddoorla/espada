@@ -1,9 +1,8 @@
 <!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang='ts'>
-    import AnimateIn from "../Animation/AnimateIn.svelte";
-
-    export let animateIn = false;
+      let { animateIn = false }: { animateIn?: unknown } = $props();
+import AnimateIn from "../Animation/AnimateIn.svelte";
 </script>
 
 {#if animateIn}

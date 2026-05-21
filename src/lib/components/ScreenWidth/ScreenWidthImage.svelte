@@ -1,14 +1,14 @@
 <script lang='ts'>
-	import placeholder from "../../assets/images/background_placeholder.svg";
+	  let { src = placeholder, altText = "background image", placeholderSide = "right", vimeoId = "", darken = false, backdrop = false }: { src?: unknown; altText?: unknown; placeholderSide?: unknown; vimeoId?: unknown; darken?: unknown; backdrop?: unknown } = $props();
+import placeholder from "../../assets/images/background_placeholder.svg";
 	import ContentWidth from "../ContentWidth/ContentWidth.svelte";
 	import  Img  from "@zerodevx/svelte-img"
-	
-	export let src = placeholder;
-	export let altText = "background image";
-	export let placeholderSide = "right";
-	export let vimeoId = "";
-	export let darken = false;
-	export let backdrop = false;
+
+
+
+
+
+
 	let viewportHeight: number;
 	let viewportWidth: number;
 	

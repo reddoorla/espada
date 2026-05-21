@@ -1,24 +1,21 @@
 <!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang='ts'>
-    import placeholderIcon from "../../assets/icons/logos/logo.svg"
+      let { icon = "", iconAltText = "logo", labelText = "", titleText = "", titleTag = "h3", subtitleText = "", paragraphText = "", buttonText = "", linkText = "", linkHref = "", backgroundColor = "transparent", float = "center" }: { icon?: unknown; iconAltText?: unknown; labelText?: unknown; titleText?: unknown; titleTag?: unknown; subtitleText?: unknown; paragraphText?: unknown; buttonText?: unknown; linkText?: unknown; linkHref?: unknown; backgroundColor?: unknown; float?: unknown } = $props();
+import placeholderIcon from "../../assets/icons/logos/logo.svg"
     import DefaultButton from "../Buttons/DefaultButton.svelte";
     import ArrowButton from "../Buttons/ArrowButton.svelte";
 
 
-export let icon = "";
-export let iconAltText = "logo"
-export let labelText = ""
-export let titleText = ""
-export let titleTag = "h3"
-export let subtitleText = ""
-export let paragraphText = ""
-export let buttonText = ""
-export let linkText=""
-export let linkHref=""
 
-export let backgroundColor="transparent"
-export let float = "center"
+
+
+
+
+
+
+
+
 let justify=float;
 let horizontalFloatMargin = "mx-auto"
 

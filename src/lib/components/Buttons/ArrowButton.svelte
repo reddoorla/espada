@@ -11,9 +11,9 @@
 </script>
 
 <a 
-on:mouseenter={()=>isLinkArrowActive=true} 
-on:mouseleave={()=>isLinkArrowActive=false}
-on:click= {()=>isLinkArrowActive=false}
+onmouseenter={()=>isLinkArrowActive=true} 
+onmouseleave={()=>isLinkArrowActive=false}
+onclick= {()=>isLinkArrowActive=false}
 class="flex flex-row items-center text-center no-underline justify-center transition-all duration-300 active:-translate-y-2 {$$props.class || ''}" 
 {href}>
     <span class="h-5 uppercase no-underline translate-y-[3.5px]">{text}</span>
