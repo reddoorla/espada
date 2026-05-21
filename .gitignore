@@ -26,3 +26,13 @@ yarn-error.log*
 # OS / editor
 .DS_Store
 Thumbs.db
+
+# canonical entries from @reddoorla/maintenance sync-configs
+coverage/
+.vitest-cache/
+playwright-report/
+test-results/
+.lighthouseci/
+.tsbuildinfo
+.vercel/
+.netlify/

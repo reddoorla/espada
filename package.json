@@ -37,7 +37,7 @@
     "typescript-svelte-plugin": "^0.3.36",
     "vite": "^5.4.4",
     "vite-imagetools": "^7.0.4",
-    "@reddoorla/maintenance": "^0.2.0",
+    "@reddoorla/maintenance": "^0.5.0",
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.59.1",
     "@axe-core/playwright": "^4.11.3"
