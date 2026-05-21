@@ -14,7 +14,7 @@ import placeholder from "../../assets/images/background_placeholder.svg";
 	
 
 	// Determine if image should fill viewport based on aspect ratio
-	$: fillHeight = viewportHeight * 16 > viewportWidth * 9;
+	let fillHeight = $derived(viewportHeight * 16 > viewportWidth * 9);
 	</script>
 	
 	<style>

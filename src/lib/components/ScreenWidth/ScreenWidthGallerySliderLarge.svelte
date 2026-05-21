@@ -43,7 +43,7 @@ import { onMount } from "svelte";
       let imageWidth = 720;
       let isSlideAnimated = true;
 
-      $: {
+      $effect(() => {
         if(innerWidth>1040){
             imageWidth = 720;
         } else if(innerWidth>768){
@@ -51,7 +51,7 @@ import { onMount } from "svelte";
         }else{
             imageWidth = 320;
         }
-      }
+      });
 
       const resetSliderToStart = () => {
           setTimeout(()=>isSlideAnimated=false, SLIDER_TRANSITION_LENGTH_IN_MS)
@@ -102,7 +102,7 @@ import { onMount } from "svelte";
       let progressWrapForwardPosition = -100;
       let progressWrapBackwardPosition = itemArray.length*100
 
-      $: {
+      $effect(() => {
         progressPosistion= (sliderIndex)*100;
         if(sliderIndex==itemArray.length)
             progressWrapForwardPosition=0;
@@ -114,7 +114,7 @@ import { onMount } from "svelte";
         else
             progressWrapBackwardPosition = itemArray.length*100;
 
-      }
+      });
   
       onMount(()=>{
          sliderInterval = setInterval(()=>slideRight(), SLIDER_INTERVAL_IN_MS);

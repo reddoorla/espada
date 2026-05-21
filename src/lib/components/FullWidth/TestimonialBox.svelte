@@ -9,7 +9,7 @@
 let justify=float;
 let horizontalFloatMargin = "mx-auto"
 
-$:{
+$effect(() => {
     justify=float;
 if(float==="left")
     justify="start";
@@ -21,7 +21,7 @@ if(float==="left")
     horizontalFloatMargin="ml-0 mr-auto";
 if(float==="right")
     horizontalFloatMargin="ml-auto mr-0"
-}
+});
 
 </script>
 

@@ -66,7 +66,7 @@ import { onMount } from "svelte";
       let progressWrapForwardPosition = -100;
       let progressWrapBackwardPosition = imageArray.length*100
 
-      $: {
+      $effect(() => {
         progressPosistion= (sliderIndex)*100;
         if(sliderIndex==imageArray.length)
             progressWrapForwardPosition=0;
@@ -79,7 +79,7 @@ import { onMount } from "svelte";
             progressWrapBackwardPosition = imageArray.length*100;
 
             console.log(sliderIndex)
-      }
+      });
   
       onMount(()=>{
          sliderInterval = setInterval(()=>slideLeft(), SLIDER_INTERVAL_IN_MS);
