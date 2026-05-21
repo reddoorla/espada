@@ -46,8 +46,8 @@ importers:
         specifier: ^1.59.1
         version: 1.60.0
       '@reddoorla/maintenance':
-        specifier: ^0.2.0
-        version: 0.2.0(jiti@1.21.7)(playwright-core@1.60.0)(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)
+        specifier: ^0.5.0
+        version: 0.5.0(jiti@1.21.7)(playwright-core@1.60.0)(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)
       '@slicemachine/adapter-sveltekit':
         specifier: ^0.3.36
         version: 0.3.96(@prismicio/types@0.2.9)(@sveltejs/kit@2.60.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.55.9(@typescript-eslint/types@8.59.4))(vite@5.4.21(@types/node@25.9.1)))(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)(vite@5.4.21(@types/node@25.9.1)))(prettier-plugin-svelte@3.5.2(prettier@3.8.3)(svelte@5.55.9(@typescript-eslint/types@8.59.4)))(prettier@3.8.3)(svelte@5.55.9(@typescript-eslint/types@8.59.4))
@@ -918,8 +918,8 @@ packages:
       '@types/react-dom':
         optional: true
 
-  '@reddoorla/maintenance@0.2.0':
-    resolution: {integrity: sha512-k8cCrfle99mLqE3LvMD7l1cDdGU8Ao+v67qmWB6vGreUg2Cidu7pgA6B9bOPymWlpwpB4P84dIeWEmMhxhvaIg==}
+  '@reddoorla/maintenance@0.5.0':
+    resolution: {integrity: sha512-cUb3YbTvVFKCzZ99QKw4ZSWgpx8yypxDrwtOrJ/nFneWHY/NTSK0o/NRUbNguofwD+rcxLER2neUsB8ofz1mBg==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -4542,7 +4542,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@reddoorla/maintenance@0.2.0(jiti@1.21.7)(playwright-core@1.60.0)(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)':
+  '@reddoorla/maintenance@0.5.0(jiti@1.21.7)(playwright-core@1.60.0)(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)':
     dependencies:
       '@axe-core/playwright': 4.11.3(playwright-core@1.60.0)
       '@eslint/js': 10.0.1(eslint@10.4.0(jiti@1.21.7))
