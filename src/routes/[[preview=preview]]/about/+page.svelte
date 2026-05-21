@@ -115,7 +115,7 @@ In more recent years, Espada partners and their associates have developed and ac
       <div class="xl:min-h-80 flex flex-col xl:flex-row justify-between w-full flex-nowrap">
           <div class="flex flex-col sm:flex-row xl:w-1/2">
               <div class="w-full sm:w-1/2 flex flex-col items-start">
-                  <SquareImage src={p.headshot} />
+                  <SquareImage src={p.headshot} alt="Headshot of {p.name}, {p.title}" />
               </div>
               <div class="sm:w-1/2 flex flex-col mt-8 sm:mt-0 sm:pl-8 gap-2">
                   <h5>{p.name}</h5>
@@ -157,7 +157,7 @@ In more recent years, Espada partners and their associates have developed and ac
     <div class="xl:min-h-80 flex flex-col xl:flex-row justify-between w-full flex-nowrap">
         <div class="flex flex-col sm:flex-row xl:w-1/2">
             <div class="w-full sm:w-1/2 flex flex-col items-start">
-                <SquareImage src={p.headshot} />
+                <SquareImage src={p.headshot} alt="Headshot of {p.name}, {p.title}" />
             </div>
             <div class="sm:w-1/2 flex flex-col mt-8 sm:mt-0 sm:pl-8 gap-2">
                 <h5>{p.name}</h5>
@@ -198,7 +198,7 @@ In more recent years, Espada partners and their associates have developed and ac
     <div class="xl:min-h-80 flex flex-col xl:flex-row justify-between w-full flex-nowrap">
         <div class="flex flex-col sm:flex-row xl:w-1/2">
             <div class="sm:w-1/2 flex flex-col items-start">
-                <SquareImage src={p.headshot} />
+                <SquareImage src={p.headshot} alt="Headshot of {p.name}, {p.title}" />
             </div>
             <div class="w-full sm:w-1/2 flex flex-col mt-8 sm:mt-0 sm:pl-8 gap-2">
                 <h5>{p.name}</h5>

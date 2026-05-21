@@ -2,7 +2,7 @@
     import placeholder from "$lib/assets/images/image_placeholder.svg"
     import  Img  from "@zerodevx/svelte-img"
     export let src = placeholder;
-    export let alt = "placeholder"
+    export let alt = ""
     const rotationAngle = "45";
     const crossLength = "141%";
 
