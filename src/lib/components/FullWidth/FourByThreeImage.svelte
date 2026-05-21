@@ -3,7 +3,7 @@
     import Img from "@zerodevx/svelte-img"
     
     export let src = placeholder;
-    export let alt = "placeholder";
+    export let alt = "";
     export let label = "";
     let rotationAngle = "36.8";
     let crossLength = "125%";
@@ -17,7 +17,8 @@
             {src}
             {alt} 
             class="z-10 object-cover w-full h-full"
-            loading="lazy"
+            loading="eager"
+            fetchpriority="low"
             decoding="async"
           />
 
@@ -26,7 +27,8 @@
             {src}
             {alt} 
             class="z-10 object-cover w-full h-full"
-            loading="lazy"
+            loading="eager"
+            fetchpriority="low"
             decoding="async"
           />
         {/if}

@@ -116,7 +116,7 @@
     </h3>
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
       <div  class="w-full md:w-[calc(50%-24px)]">
-      <FourByThreeImage src={starbucks}/>
+      <FourByThreeImage src={starbucks} alt="Drive-thru Starbucks developed by Espada Real Estate, photographed at sunset"/>
 
       </div>
       <div class="md:w-[calc(50%-24px)] border-t-2 border-t-black py-6 gap-6 flex flex-col text-black">
@@ -127,7 +127,7 @@
 
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
       <div  class="w-full md:w-[calc(50%-24px)]">
-      <FourByThreeImage src={corner}/>
+      <FourByThreeImage src={corner} alt="Mediterranean-style retail building developed by Espada, photographed at night"/>
       </div>
       <div class="md:w-[calc(50%-24px)] border-t-2 border-t-black py-6 gap-6 flex flex-col text-black">
         <h5>Our Services</h5>
@@ -137,7 +137,7 @@
 
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
       <div  class="w-full md:w-[calc(50%-24px)]">
-      <FourByThreeImage src={mcAlister}/>
+      <FourByThreeImage src={mcAlister} alt="McAlister's Deli storefront, an Espada development project"/>
       </div>
       <div class="md:w-[calc(50%-24px)] border-t-2 border-t-black py-6 gap-6 flex flex-col text-black">
         <h5>Our Network</h5>
@@ -147,7 +147,7 @@
 
     <div class="w-full flex flex-col md:flex-row justify-between items-start gap-12">
       <div  class="w-full md:w-[calc(50%-24px)]">
-      <FourByThreeImage src={dollarStore}/>
+      <FourByThreeImage src={dollarStore} alt="Dollar Tree storefront at an Espada-developed retail center"/>
       </div>
       <div class="md:w-[calc(50%-24px)] border-t-2 border-t-black py-6 gap-6 flex flex-col text-black">
         <h5>Our Reach</h5>

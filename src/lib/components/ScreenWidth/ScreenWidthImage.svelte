@@ -34,8 +34,8 @@
 		  sizes={src === placeholder ? "(min-width: 1024px) 45vw, 100vw" : "100vw"}
 		  alt={altText} 
 		  class="absolute bottom-0 {placeholderSide}-0 h-full w-full object-cover {src === placeholder ? "lg:w-[45%] md:h-auto" : ""} -z-10"
-		  loading={backdrop ? "eager" : "lazy"}
-		  fetchpriority={backdrop ? "high" : "auto"}
+		  loading="eager"
+		  fetchpriority={backdrop ? "high" : "low"}
 		/>
 		{:else}
 		<img 
@@ -43,8 +43,8 @@
 		  sizes={src === placeholder ? "(min-width: 1024px) 45vw, 100vw" : "100vw"}
 		  alt={altText} 
 		  class="absolute bottom-0 {placeholderSide}-0 h-full w-full object-cover {src === placeholder ? "lg:w-[45%] md:h-auto" : ""} -z-10"
-		  loading={backdrop ? "eager" : "lazy"}
-		  fetchpriority={backdrop ? "high" : "auto"}
+		  loading="eager"
+		  fetchpriority={backdrop ? "high" : "low"}
 		/>
 		{/if}
 		{#if vimeoId}
