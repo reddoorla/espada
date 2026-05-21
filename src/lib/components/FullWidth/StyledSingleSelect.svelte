@@ -1,7 +1,5 @@
-<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
-<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang="ts">
-      let { items, value = "", placeholder = "" }: { items: string[]|{label:string,value:string}[]; value?: unknown; placeholder?: unknown } = $props();
+      let { items, value = "", placeholder = "", class: className = "" }: { items: string[]|{label:string,value:string}[]; value?: unknown; placeholder?: unknown; class?: string } = $props();
 import Select from 'svelte-select'
     import dropdownArrow from "$lib/assets/icons/dropdown-arrow-light.svg"
 
@@ -10,7 +8,7 @@ import Select from 'svelte-select'
     let selectHover=false;
 </script>
 
-<div class="max-w-[720px] w-full mx-auto cursor-pointer relative {$$props.class || ''}" role="separator" onmouseover={()=> selectHover=true} onfocus={()=> selectHover=true} onmouseout={()=> selectHover=false} onblur={()=> selectHover=false} >
+<div class="max-w-[720px] w-full mx-auto cursor-pointer relative {className || ''}" role="separator" onmouseover={()=> selectHover=true} onfocus={()=> selectHover=true} onmouseout={()=> selectHover=false} onblur={()=> selectHover=false} >
     <Select {items} bind:value={value} {placeholder} searchable={false} class="svelte-select" />
     <div class="absolute h-full aspect-square right-0 top-0 flex items-center justify-center pointer-events-none">
         <img src={dropdownArrow} alt="decorative dropdown arrow" aria-hidden class:opacity-55={selectHover}  class=" transition-all pointer-events-none"/>
