@@ -1,5 +1,5 @@
 <script lang='ts'>
-	  let { src = placeholder, altText = "background image", placeholderSide = "right", vimeoId = "", darken = false, backdrop = false }: { src?: unknown; altText?: unknown; placeholderSide?: unknown; vimeoId?: unknown; darken?: unknown; backdrop?: unknown } = $props();
+	  let { src = placeholder, altText = "background image", placeholderSide = "right", vimeoId = "", darken = false, backdrop = false, class: className = "" }: { src?: unknown; altText?: unknown; placeholderSide?: unknown; vimeoId?: unknown; darken?: unknown; backdrop?: unknown; class?: string } = $props();
 import placeholder from "../../assets/images/background_placeholder.svg";
 	import ContentWidth from "../ContentWidth/ContentWidth.svelte";
 	import  Img  from "@zerodevx/svelte-img"
@@ -60,7 +60,7 @@ import placeholder from "../../assets/images/background_placeholder.svg";
 		  <div class="bg-darken-gradient pointer-events-none absolute w-full h-full top-0 left-0 -z-10"></div>
 		{/if}
 		<div class="w-screen h-screen absolute top-0 left-0">
-		  <ContentWidth class='{$$props.class || "flex items-center justify-center"} h-full'>
+		  <ContentWidth class='{className || "flex items-center justify-center"} h-full'>
 			<slot />
 		  </ContentWidth>
 		</div>

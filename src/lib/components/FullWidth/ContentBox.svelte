@@ -1,7 +1,5 @@
-<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
-<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang='ts'>
-      let { icon = "", iconAltText = "logo", labelText = "", titleText = "", titleTag = "h3", subtitleText = "", paragraphText = "", buttonText = "", linkText = "", linkHref = "", backgroundColor = "transparent", float = "center" }: { icon?: unknown; iconAltText?: unknown; labelText?: unknown; titleText?: unknown; titleTag?: unknown; subtitleText?: unknown; paragraphText?: unknown; buttonText?: unknown; linkText?: unknown; linkHref?: unknown; backgroundColor?: unknown; float?: unknown } = $props();
+      let { icon = "", iconAltText = "logo", labelText = "", titleText = "", titleTag = "h3", subtitleText = "", paragraphText = "", buttonText = "", linkText = "", linkHref = "", backgroundColor = "transparent", float = "center", class: className = "" }: { icon?: unknown; iconAltText?: unknown; labelText?: unknown; titleText?: unknown; titleTag?: unknown; subtitleText?: unknown; paragraphText?: unknown; buttonText?: unknown; linkText?: unknown; linkHref?: unknown; backgroundColor?: unknown; float?: unknown; class?: string } = $props();
 import placeholderIcon from "../../assets/icons/logos/logo.svg"
     import DefaultButton from "../Buttons/DefaultButton.svelte";
     import ArrowButton from "../Buttons/ArrowButton.svelte";
@@ -39,7 +37,7 @@ if(icon==="placeholder"){
 
 </script>
 
-<div class="w-full flex flex-col  p-2 sm:p-8 justify-{justify} text-{float} {$$props.class || ''}"
+<div class="w-full flex flex-col  p-2 sm:p-8 justify-{justify} text-{float} {className || ''}"
      style="background-color: {backgroundColor}"
 >
     {#if icon}

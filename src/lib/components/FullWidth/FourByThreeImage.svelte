@@ -1,5 +1,5 @@
 <script lang="ts">
-      let { src = placeholder, alt = "", label = "" }: { src?: unknown; alt?: unknown; label?: unknown } = $props();
+      let { src = placeholder, alt = "", label = "", class: className = "" }: { src?: unknown; alt?: unknown; label?: unknown; class?: string } = $props();
 import placeholder from "$lib/assets/images/image_placeholder.svg";
     import Img from "@zerodevx/svelte-img"
 
@@ -10,7 +10,7 @@ import placeholder from "$lib/assets/images/image_placeholder.svg";
     
     </script>
     
-    <div class="w-full relative {$$props.class || ''}">
+    <div class="w-full relative {className || ''}">
       <div class="w-full aspect-[4/3] {src===placeholder ? "border-light border-2 bg-light bg-opacity-25":""} rounded-sm flex items-center justify-center relative">
         {#if typeof src === "object"}
           <Img 

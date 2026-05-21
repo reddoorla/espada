@@ -1,7 +1,5 @@
-<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
-<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang='ts'>
-      let { imageArray = [placeholder, placeholder, placeholder, placeholder], altText = "background image" }: { imageArray?: unknown; altText?: unknown } = $props();
+      let { imageArray = [placeholder, placeholder, placeholder, placeholder], altText = "background image", class: className = "" }: { imageArray?: unknown; altText?: unknown; class?: string } = $props();
 import { onMount } from "svelte";
     import { swipe } from "svelte-gestures";
     import placeholder from "../../assets/images/background_placeholder.svg";
@@ -71,7 +69,7 @@ import { onMount } from "svelte";
   </script>
   <svelte:window bind:innerWidth={viewportWidth} />
       
-  <section class="pb-32 {$$props.class || ''}">
+  <section class="pb-32 {className || ''}">
       <div use:swipe onswipe={handleSwipe} class="h-[320px] py-2 relative" >
         <div class="overflow-hidden w-screen mt-20 lg:mt-0" style="margin-left:{viewportWidth>1340 ? (viewportWidth-1220/2):viewportWidth*0.04};">
       <div  class="h-full flex flex-row flex-nowrap {isSlideAnimated ? 'transition-transform duration-[2000ms]': ''}"
