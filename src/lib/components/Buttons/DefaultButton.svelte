@@ -35,15 +35,15 @@ text-transform: uppercase;
             : 
             "hover:bg-dark text-dark hover:text-white active:bg-black " 
             } border-[1px] border-white w-full md:w-auto text-center mb-5 sm:mb-0 uppercase cursor-pointer text-nowrap transition-all duration-300 active:-translate-y-2 label {$$props.class || ''}">
-            <slot />
+            <slot>{text}</slot>
     </a>
 {:else}
-<button on:click={click} 
+<button on:click={click}
         class="{filled ?
-         "bg-dark bg-opacity-80 hover:bg-opacity-100 active:bg-black  text-white" 
-         : 
-         "hover:bg-dark text-dark hover:text-white active:bg-black " 
+         "bg-dark bg-opacity-80 hover:bg-opacity-100 active:bg-black  text-white"
+         :
+         "hover:bg-dark text-dark hover:text-white active:bg-black "
          } border-[1px] border-dark w-full md:w-auto text-center mb-5 sm:mb-0 uppercase cursor-pointer text-nowrap transition-all duration-300 active:-translate-y-2 {$$props.class || ''}">
-        <slot />
+        <slot>{text}</slot>
 </button>
 {/if}

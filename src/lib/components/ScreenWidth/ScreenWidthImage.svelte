@@ -57,7 +57,7 @@
 		  ></iframe>
 		{/if}
 		{#if darken}
-		  <div class="bg-darken-gradient pointer-events-none absolute w-full h-full top-0 left-0 -z-10" />
+		  <div class="bg-darken-gradient pointer-events-none absolute w-full h-full top-0 left-0 -z-10"></div>
 		{/if}
 		<div class="w-screen h-screen absolute top-0 left-0">
 		  <ContentWidth class='{$$props.class || "flex items-center justify-center"} h-full'>
