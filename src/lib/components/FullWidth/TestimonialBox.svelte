@@ -1,17 +1,15 @@
-<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
-<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang="ts">
-export let icon="";
-export let iconAltText="company logo"
-export let testimonialText ="";
-export let attribution = "";
-export let attributionLabel = "";
-export let backgroundColor="transparent"
-export let float = "center"
+
+
+
+
+
+
+  let { icon = "", iconAltText = "company logo", testimonialText = "", attribution = "", attributionLabel = "", backgroundColor = "transparent", float = "center", class: className = "" }: { icon?: unknown; iconAltText?: unknown; testimonialText?: unknown; attribution?: unknown; attributionLabel?: unknown; backgroundColor?: unknown; float?: unknown; class?: string } = $props();
 let justify=float;
 let horizontalFloatMargin = "mx-auto"
 
-$:{
+$effect(() => {
     justify=float;
 if(float==="left")
     justify="start";
@@ -23,11 +21,11 @@ if(float==="left")
     horizontalFloatMargin="ml-0 mr-auto";
 if(float==="right")
     horizontalFloatMargin="ml-auto mr-0"
-}
+});
 
 </script>
 
-<div class="{$$props.class || ''} w-full flex flex-col  p-2 sm:p-8 justify-{justify} text-{float}"
+<div class="{className || ''} w-full flex flex-col  p-2 sm:p-8 justify-{justify} text-{float}"
      style="background-color: {backgroundColor}"
 >
     {#if icon}

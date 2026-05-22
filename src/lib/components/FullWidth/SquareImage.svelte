@@ -1,15 +1,16 @@
 <script lang="ts">
-    import placeholder from "$lib/assets/images/image_placeholder.svg"
+      let { src = placeholder, alt = "", class: className = "" }: { src?: unknown; alt?: unknown; class?: string } = $props();
+import placeholder from "$lib/assets/images/image_placeholder.svg"
     import  Img  from "@zerodevx/svelte-img"
-    export let src = placeholder;
-    export let alt = ""
+
+
     const rotationAngle = "45";
     const crossLength = "141%";
 
    
     </script>
     
-    <div class="w-full {$$props.class || ''}">
+    <div class="w-full {className || ''}">
     <div class="w-full aspect-square {src===placeholder ? "border-light border-2 bg-light bg-opacity-25":""} rounded-sm flex items-center justify-center relative">
     {#if typeof src === "object"}
       <Img 

@@ -1,20 +1,20 @@
 <script lang='ts'>
-	import placeholder from "../../assets/images/background_placeholder.svg";
+	  let { src = placeholder, altText = "background image", placeholderSide = "right", vimeoId = "", darken = false, backdrop = false, class: className = "" }: { src?: unknown; altText?: unknown; placeholderSide?: unknown; vimeoId?: unknown; darken?: unknown; backdrop?: unknown; class?: string } = $props();
+import placeholder from "../../assets/images/background_placeholder.svg";
 	import ContentWidth from "../ContentWidth/ContentWidth.svelte";
 	import  Img  from "@zerodevx/svelte-img"
-	
-	export let src = placeholder;
-	export let altText = "background image";
-	export let placeholderSide = "right";
-	export let vimeoId = "";
-	export let darken = false;
-	export let backdrop = false;
+
+
+
+
+
+
 	let viewportHeight: number;
 	let viewportWidth: number;
 	
 
 	// Determine if image should fill viewport based on aspect ratio
-	$: fillHeight = viewportHeight * 16 > viewportWidth * 9;
+	let fillHeight = $derived(viewportHeight * 16 > viewportWidth * 9);
 	</script>
 	
 	<style>
@@ -60,7 +60,7 @@
 		  <div class="bg-darken-gradient pointer-events-none absolute w-full h-full top-0 left-0 -z-10"></div>
 		{/if}
 		<div class="w-screen h-screen absolute top-0 left-0">
-		  <ContentWidth class='{$$props.class || "flex items-center justify-center"} h-full'>
+		  <ContentWidth class='{className || "flex items-center justify-center"} h-full'>
 			<slot />
 		  </ContentWidth>
 		</div>

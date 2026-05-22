@@ -1,10 +1,8 @@
 <script lang="ts">
-    import Img from "@zerodevx/svelte-img"
+      let { src, text }: { src: unknown; text: unknown } = $props();
+import Img from "@zerodevx/svelte-img"
 
-    export let src;
-    export let text;
-
-    </script>
+</script>
     
     <div class="w-screen h-48 md:h-[60vh] relative overflow-hidden flex items-center justify-center">
       {#if typeof src === "object"}

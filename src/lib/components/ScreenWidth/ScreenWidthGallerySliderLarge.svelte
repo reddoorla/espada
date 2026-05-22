@@ -1,7 +1,6 @@
-<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
-<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang='ts'>
-    import { onMount } from "svelte";
+      let { itemArray = [, class: className = "" }: { itemArray?: GalleryItem[]; class?: string } = $props();
+import { onMount } from "svelte";
     import { swipe } from "svelte-gestures";
     import placeholder from "../../assets/images/image_placeholder.svg";
     import ContentWidth from "../ContentWidth/ContentWidth.svelte";
@@ -14,8 +13,7 @@
   featuredImage?: string;
   filters?: string[];
 };
-      
-      export let itemArray:GalleryItem[] = [
+
         {
             name: "Item 1",
             featuredText:"Dev + UX",
@@ -45,7 +43,7 @@
       let imageWidth = 720;
       let isSlideAnimated = true;
 
-      $: {
+      $effect(() => {
         if(innerWidth>1040){
             imageWidth = 720;
         } else if(innerWidth>768){
@@ -53,7 +51,7 @@
         }else{
             imageWidth = 320;
         }
-      }
+      });
 
       const resetSliderToStart = () => {
           setTimeout(()=>isSlideAnimated=false, SLIDER_TRANSITION_LENGTH_IN_MS)
@@ -104,7 +102,7 @@
       let progressWrapForwardPosition = -100;
       let progressWrapBackwardPosition = itemArray.length*100
 
-      $: {
+      $effect(() => {
         progressPosistion= (sliderIndex)*100;
         if(sliderIndex==itemArray.length)
             progressWrapForwardPosition=0;
@@ -116,7 +114,7 @@
         else
             progressWrapBackwardPosition = itemArray.length*100;
 
-      }
+      });
   
       onMount(()=>{
          sliderInterval = setInterval(()=>slideRight(), SLIDER_INTERVAL_IN_MS);
@@ -127,8 +125,8 @@
   <svelte:head><title>Portfolios | Reddoor Wireframer</title></svelte:head>
   <svelte:window bind:innerWidth />
       
-  <section class="pb-32 {$$props.class || ''}">
-      <div use:swipe on:swipe={handleSwipe} class="h-py-2 relative" style="height:{imageWidth*0.95}px;">
+  <section class="pb-32 {className || ''}">
+      <div use:swipe onswipe={handleSwipe} class="h-py-2 relative" style="height:{imageWidth*0.95}px;">
       <div  class="h-full flex flex-row flex-nowrap {isSlideAnimated ? 'transition-transform duration-[2000ms]': ''}"
       style= "width:{(imageWidth-8)*tripledItems.length}px; margin-left:calc(50vw - {(imageWidth-8)/2}px); transform:translateX({-(sliderIndex+itemArray.length)*(imageWidth-8)}px); ">   
           {#each tripledItems as item }
@@ -154,7 +152,7 @@
                 {#each  itemArray as item, i}
                     <button class="h-[10px] w-[10px] border-2  rounded-full transition-colors duration-1000 cursor-pointer active:-translate-y-[0.5px] hover:opacity-60 mx-2 translate-x-2
                                     {(sliderIndex%itemArray.length>=0&&sliderIndex%itemArray.length===i)|| (sliderIndex%itemArray.length<=0&&itemArray.length+sliderIndex%itemArray.length===i) ? "bg-dark border-dark" : "border-light"}"
-                        on:click={()=>setSliderIndex(i)}
+                        onclick={()=>setSliderIndex(i)}
                         aria-label="image {i} of {itemArray.length}"
                         aria-hidden
                     ></button>
