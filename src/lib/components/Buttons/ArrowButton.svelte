@@ -17,7 +17,7 @@
   <img
     src={linkArrow}
     alt="link arrow"
-    class="h-5 w-5 -translate-y-[1px] ml-[10px] transition-transform duration-300 {isLinkArrowActive
+    class="h-5 w-5 -translate-y-px ml-[10px] transition-transform duration-300 {isLinkArrowActive
       ? 'translate-x-2'
       : ''}"
   />

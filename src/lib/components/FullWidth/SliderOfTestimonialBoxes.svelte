@@ -105,14 +105,14 @@
       <img
         alt="chevron-left"
         src={arrow}
-        class="-translate-x-[1px] rotate-180 opacity-40 hover:opacity-100"
+        class="-translate-x-px rotate-180 opacity-40 hover:opacity-100"
       />
     </button>
     <button
       onclick={slideLeft}
       class="h-6 w-6 rounded-full p-1 flex align-middle cursor-pointer transition-all duration-300 active:-translate-y-2 justify-center hover:bg-[#C2D1D9]"
     >
-      <img alt="chevron-right" src={arrow} class="opacity-40 hover:opacity-100 translate-x-[1px]" />
+      <img alt="chevron-right" src={arrow} class="opacity-40 hover:opacity-100 translate-x-px" />
     </button>
   </div>
 </div>

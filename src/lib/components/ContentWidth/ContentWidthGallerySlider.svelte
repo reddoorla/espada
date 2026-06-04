@@ -52,7 +52,7 @@
     >
       <div
         class="h-full flex flex-row flex-nowrap {isSlideAnimated
-          ? 'transition-transform duration-[2000ms]'
+          ? 'transition-transform duration-2000'
           : ''}"
         style="width:{352 * tripledImages.length}px; margin-left:{viewportWidth > 1340
           ? viewportWidth - 1220 / 2
@@ -77,16 +77,16 @@
             ? 'opacity-20 pointer-events-none'
             : ''}"
         >
-          <img alt="chevron-left" src={chevronLeft} class="-translate-x-[1px]" />
+          <img alt="chevron-left" src={chevronLeft} class="-translate-x-px" />
         </button>
         <button
           onclick={slideRight}
-          class="absolute right-0 lg:right-auto lg:-left-2 lg:top-12 -translate-y-[0.7px] h-6 w-6 rounded-full border-[#C2D1D9] border-2 p-1 flex align-middle cursor-pointer transition-all duration-500 justify-center hover:bg-[#424B5A] hover:border-[#424B5A] active:bg-black bump {sliderIndex ===
+          class="absolute right-0 lg:right-auto lg:-left-2 lg:top-12 translate-y-[-0.7px] h-6 w-6 rounded-full border-[#C2D1D9] border-2 p-1 flex align-middle cursor-pointer transition-all duration-500 justify-center hover:bg-[#424B5A] hover:border-[#424B5A] active:bg-black bump {sliderIndex ===
           imageArray.length - 1
             ? 'opacity-20 pointer-events-none'
             : ''}"
         >
-          <img alt="chevron-right" src={chevronRight} class="translate-x-[1px]" />
+          <img alt="chevron-right" src={chevronRight} class="translate-x-px" />
         </button>
       </ContentWidth>
     </div>

@@ -11,7 +11,7 @@
 </script>
 
 <div
-  class="max-w-screen-xl mx-auto relative w-full aspect-[9/16] sm:aspect-square lg:aspect-[16/9]"
+  class="max-w-(--breakpoint-xl) mx-auto relative w-full aspect-9/16 sm:aspect-square lg:aspect-video"
 >
   <img src={image} alt={altText} class="absolute bottom-0 h-full w-full object-cover -z-10" />
   <div class="w-full h-full p-[4%] xl:p-0">

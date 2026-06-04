@@ -12,9 +12,9 @@
 
 <div class="w-full relative {className || ''}">
   <div
-    class="w-full aspect-[4/3] {src === placeholder
-      ? 'border-light border-2 bg-light bg-opacity-25'
-      : ''} rounded-sm flex items-center justify-center relative"
+    class="w-full aspect-4/3 {src === placeholder
+      ? 'border-light border-2 bg-light/25'
+      : ''} rounded-xs flex items-center justify-center relative"
   >
     {#if typeof src === "object"}
       <Img

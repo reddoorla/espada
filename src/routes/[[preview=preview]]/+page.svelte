@@ -6,7 +6,7 @@
 
 <ScreenWidthImage vimeoId="1031277602" src={thumb}>
   <div
-    class="h-full w-full flex flex-col justify-center items-center gap-5 max-w-screen-lg text-center"
+    class="h-full w-full flex flex-col justify-center items-center gap-5 max-w-(--breakpoint-lg) text-center"
   >
     <h2>
       A diversified commercial real estate firm with deep roots in San Antonio, Texas & beyond

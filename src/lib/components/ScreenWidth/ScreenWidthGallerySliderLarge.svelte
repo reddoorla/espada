@@ -113,7 +113,7 @@
   >
     <div
       class="h-full flex flex-row flex-nowrap {isSlideAnimated
-        ? 'transition-transform duration-[2000ms]'
+        ? 'transition-transform duration-2000'
         : ''}"
       style="width:{(imageWidth - 8) *
         tripledItems.length}px; margin-left:calc(50vw - {(imageWidth - 8) /
@@ -129,7 +129,7 @@
               class="h-full object-cover -z-10"
             />
             <div
-              class="absolute w-full aspect-[4/3] top-8 left-0 bg-dark opacity-0 hover:opacity-100 hover:bg-opacity-80 transition-opacity duration-500 flex justify-center items-center"
+              class="absolute w-full aspect-4/3 top-8 left-0 bg-dark opacity-0 hover:opacity-100 hover:bg-dark/80 transition-opacity duration-500 flex justify-center items-center"
             >
               <h4 class="text-white">{item.name}</h4>
             </div>
@@ -151,7 +151,7 @@
         <div class="h-10 flex align-middle justify-center bottom-10">
           {#each itemArray as _item, i (i)}
             <button
-              class="h-[10px] w-[10px] border-2 rounded-full transition-colors duration-1000 cursor-pointer active:-translate-y-[0.5px] hover:opacity-60 mx-2 translate-x-2
+              class="h-[10px] w-[10px] border-2 rounded-full transition-colors duration-1000 cursor-pointer active:translate-y-[-0.5px] hover:opacity-60 mx-2 translate-x-2
                                     {(sliderIndex % itemArray.length >= 0 &&
                 sliderIndex % itemArray.length === i) ||
               (sliderIndex % itemArray.length <= 0 &&

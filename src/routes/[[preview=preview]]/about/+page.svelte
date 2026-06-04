@@ -127,7 +127,7 @@
             <h6>{p.title}</h6>
             {#if p.vcfLink}
               <a
-                class="nav-link transition hover:text-white hover:bg-black text-black py-4 px-5 border-black border-[1px] rounded-sm w-fit mt-8"
+                class="nav-link transition hover:text-white hover:bg-black text-black py-4 px-5 border-black border rounded-xs w-fit mt-8"
                 href={p.vcfLink}
                 download>Contact Card</a
               >
@@ -138,7 +138,7 @@
                 onclick={() => (leaderBioStates[i] = !leaderBioStates[i])}
                 class="nav-link {leaderBioStates[i]
                   ? 'opacity-0'
-                  : ''} text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-[1px] rounded-sm w-fit mt-2"
+                  : ''} text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border rounded-xs w-fit mt-2"
               >
                 {leaderBioStates[i] ? "Hide Bio" : "Show Bio"}
               </button>
@@ -151,7 +151,7 @@
             <p class="mt-8 whitespace-pre-line">{p.body}</p>
             <button
               onclick={() => (leaderBioStates[i] = !leaderBioStates[i])}
-              class="mt-6 nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-[1px] rounded-sm w-fit"
+              class="mt-6 nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border rounded-xs w-fit"
             >
               {leaderBioStates[i] ? "Hide Bio" : "Show Bio"}
             </button>
@@ -175,7 +175,7 @@
             <h6>{p.title}</h6>
             {#if p.vcfLink}
               <a
-                class="nav-link transition hover:text-white hover:bg-black text-black py-4 px-5 border-black border-[1px] rounded-sm w-fit mt-8"
+                class="nav-link transition hover:text-white hover:bg-black text-black py-4 px-5 border-black border rounded-xs w-fit mt-8"
                 href={p.vcfLink}
                 download>Contact Card</a
               >
@@ -184,7 +184,7 @@
               <button
                 transition:slide={{ duration: 100 }}
                 onclick={() => (developmentTeamBioStates[i] = !developmentTeamBioStates[i])}
-                class="nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-[1px] rounded-sm w-fit mt-2"
+                class="nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border rounded-xs w-fit mt-2"
               >
                 {developmentTeamBioStates[i] ? "Hide Bio" : "Show Bio"}
               </button>
@@ -197,7 +197,7 @@
             <p class="mt-8 whitespace-pre-line">{p.body}</p>
             <button
               onclick={() => (developmentTeamBioStates[i] = !developmentTeamBioStates[i])}
-              class="mt-6 nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-[1px] rounded-sm w-fit"
+              class="mt-6 nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border rounded-xs w-fit"
             >
               {developmentTeamBioStates[i] ? "Hide Bio" : "Show Bio"}
             </button>
@@ -224,7 +224,7 @@
                 onclick={() => (propertyTeamBioStates[i] = !propertyTeamBioStates[i])}
                 class="nav-link {propertyTeamBioStates[i]
                   ? 'opacity-0'
-                  : ''} text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-[1px] rounded-sm w-fit mt-2"
+                  : ''} text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border rounded-xs w-fit mt-2"
               >
                 {propertyTeamBioStates[i] ? "Hide Bio" : "Show Bio"}
               </button>
@@ -237,7 +237,7 @@
             <p class="mt-8 whitespace-pre-line">{p.body}</p>
             <button
               onclick={() => (propertyTeamBioStates[i] = !propertyTeamBioStates[i])}
-              class="mt-6 nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border-[1px] rounded-sm w-fit"
+              class="mt-6 nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border rounded-xs w-fit"
             >
               {propertyTeamBioStates[i] ? "Hide Bio" : "Show Bio"}
             </button>
