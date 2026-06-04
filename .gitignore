@@ -36,3 +36,6 @@ test-results/
 .tsbuildinfo
 .vercel/
 .netlify/
+
+# canonical entries from @reddoorla/maintenance sync-configs
+.reddoor-a11y/
