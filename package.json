@@ -1,5 +1,5 @@
 {
-  "name": "sveltekit-starter-prismic-minimal",
+  "name": "espada",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -25,6 +25,7 @@
     "@sveltejs/kit": "^2.5.27",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@tailwindcss/vite": "^4.3.0",
+    "@types/node": "^22.19.19",
     "@zerodevx/svelte-img": "^2.1.2",
     "concurrently": "^8.2.2",
     "eslint": "^10.4.0",

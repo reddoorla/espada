@@ -7,6 +7,7 @@
     darken = false,
     backdrop = false,
     class: className = "",
+    children,
   }: {
     src?: ImageSource;
     altText?: string;
@@ -15,6 +16,7 @@
     darken?: boolean;
     backdrop?: boolean;
     class?: string;
+    children?: import("svelte").Snippet;
   } = $props();
   import type { ImageSource } from "$lib/types";
   import placeholder from "../../assets/images/background_placeholder.svg";
@@ -27,8 +29,8 @@
   // (comparing the original ImageSource-typed `src`) to preserve behavior.
   const isPlaceholder = $derived(src === placeholder);
 
-  let viewportHeight = 0;
-  let viewportWidth = 0;
+  let viewportHeight = $state(0);
+  let viewportWidth = $state(0);
 
   // Determine if image should fill viewport based on aspect ratio
   let fillHeight = $derived(viewportHeight * 16 > viewportWidth * 9);
@@ -85,7 +87,7 @@
     {/if}
     <div class="w-screen h-screen absolute top-0 left-0">
       <ContentWidth class="{className || 'flex items-center justify-center'} h-full">
-        <slot />
+        {@render children?.()}
       </ContentWidth>
     </div>
   </div>
