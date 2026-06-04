@@ -13,7 +13,7 @@
   const richTextComponents = { label: Label };
 </script>
 
-<section class="container p-2 md:p8">
+<section class="container p-2 md:p-8">
   <PrismicRichText field={slice.primary.content} components={richTextComponents} />
 </section>
 

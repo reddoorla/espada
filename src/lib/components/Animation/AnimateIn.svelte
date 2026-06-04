@@ -1,15 +1,20 @@
-<!-- @migration-task Error while migrating Svelte code: $$props is used together with named props in a way that cannot be automatically migrated. -->
 <script lang="ts">
   let {
     style = "",
     transitionDelayMax = 400,
     transitionDuration = 2400,
-  }: { style?: string; transitionDelayMax?: number; transitionDuration?: number } = $props();
+    children,
+  }: {
+    style?: string;
+    transitionDelayMax?: number;
+    transitionDuration?: number;
+    children?: import("svelte").Snippet;
+  } = $props();
   import { onDestroy, onMount } from "svelte";
 
-  let isInView = false;
+  let isInView = $state(false);
   let el: HTMLElement | null;
-  let transitionDelay = 0;
+  let transitionDelay = $state(0);
 
   const checkViewport = () => {
     if (window && el) {
@@ -46,5 +51,5 @@
     : 'opacity-0 translate-y-[50%]'}"
   style="transition-delay:{transitionDelay}ms; transition-duration:{transitionDuration}ms; {style}"
 >
-  <slot />
+  {@render children?.()}
 </div>

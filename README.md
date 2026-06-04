@@ -1,58 +1,49 @@
-# Reddoor Wireframer and Site Scaffold
+# Espada
 
-## Purpose
+Marketing site for Espada, built with **SvelteKit** (Svelte 5), **Tailwind CSS v4**, and **Prismic** as the CMS, deployed to **Netlify**.
 
-To provide a forkable starting point for all SvelteKit, Tailwind + Prismic sites developed at Reddoor.
+## Stack
 
-## Contents
+- **SvelteKit 2** / **Svelte 5** (runes) — `@sveltejs/adapter-netlify`
+- **Tailwind CSS v4** via `@tailwindcss/vite` (config lives in [`src/app.css`](src/app.css) under `@theme`)
+- **Prismic** — `@prismicio/client` v7 + `@prismicio/svelte` v2, Slice Machine for modeling
+- **Vite 6**, **pnpm**, **TypeScript**
+- Image optimization via `@zerodevx/svelte-img`
 
-### Base configuration and boilerplate for a SvelteKit app integrated with Tailwind
+## Local development
 
-SvelteKit has one of the best developer experiences of any framework, and is especially friendly to component-driven design. We combine it with Tailwind for implementation of CSS to pave the path to quickly devolping reactive, extensible, and data-driven frontends.
+```sh
+pnpm install
+pnpm dev          # runs Vite + Slice Machine concurrently
+```
 
-### Base configuration and boilerplate necessary to integrate SvelteKit with Prismic CMS
+- App: http://localhost:5173
+- Slice Machine: http://localhost:9999
 
-Prismic CMS allows flexible entry of data by content managers without exposing code, and can be integrated into any frontend design as necessary.
+Set `VITE_PRISMIC_ENVIRONMENT` in a local `.env` to point at a non-default Prismic environment (defaults to the `repositoryName` in [`slicemachine.config.json`](slicemachine.config.json)).
 
-### Designed and extensible components to be used within Prismic Slices or as Prismic Slices
+## Scripts
 
-We've designed and implemented a library of responsive, functioning components to use first in the wireframing stage, and then to be customized for each site. Delivering these components as slices will allow both us and clients to quickly prototype and push new pages that remain within the design space originally conceived for the site.
+| Command        | Description                                  |
+| -------------- | -------------------------------------------- |
+| `pnpm dev`     | Dev server + Slice Machine                   |
+| `pnpm build`   | Production build (`build/`, Netlify adapter) |
+| `pnpm preview` | Preview the production build                 |
+| `pnpm check`   | `svelte-kit sync` + `svelte-check`           |
+| `pnpm lint`    | Prettier check + ESLint                      |
+| `pnpm format`  | Prettier write                               |
 
-This library will grow as we require new interactive functions or layouts, and allow programmatic work from different projects to be easily accessible and carry over, rather than rebuilding components anew for each project.
+## Structure
 
-## How to Use
+- `src/routes/` — pages. Public routes live under `[[preview=preview]]/` so Prismic preview mode works on every page. Named routes (`about`, `contact`, `property-management`, `development-and-investments`, `login`) are file-based; `[uid]` resolves arbitrary Prismic `page` documents.
+- `src/lib/components/` — the components actually rendered by the site (kept lean — unused starter components were removed).
+- `src/lib/slices/` — Slice Machine slices (currently `RichText`).
+- `src/lib/prismicio.js` — Prismic client + route resolver.
 
-1. clone this repo
+## Content & preview
 
-2. terminal npm i
+Content is authored in Prismic. Preview mode is wired through `@prismicio/svelte/kit` (`PrismicPreview` in the root layout, `enableAutoPreviews` in the client). The `/slice-simulator` route backs Slice Machine.
 
-3. npm audit fix
+## Deployment
 
-4. initiate new prismic repo
-
-5. change slicemachine.config.json to new prismic name
-
-6. start dev server and push changes to prismic
-
-7. build site, using slices if complex cms or custom types if not
-
-//TODO: mirror prismic docs
-
-## Next steps
-
-### design
-
-address markup comments on currently implemented components, test components on all browsers
-
-### wireframer
-
-implement current components as prismic slices so tool is usable as a contentful wireframer that maps one to one with our current figma library
-
-### extending the component library
-
-add other designed components from the figma library, convert other commonly used components or systems into this repo as they are used
-
-## Bugs
-
-- arrow sometimes sticks on bump
-- replace font awesome library with `<i>` syntax
+Netlify builds with `pnpm build` and publishes `build/` (see [`netlify.toml`](netlify.toml), Node 22). Renovate keeps dependencies current (minor/patch auto-merge, Mondays).

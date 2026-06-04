@@ -1,6 +1,9 @@
 <script lang="ts">
-  let { animateIn = false, class: className = "" }: { animateIn?: unknown; class?: string } =
-    $props();
+  let {
+    animateIn = false,
+    class: className = "",
+    children,
+  }: { animateIn?: unknown; class?: string; children?: import("svelte").Snippet } = $props();
   import AnimateIn from "../Animation/AnimateIn.svelte";
 </script>
 
@@ -10,7 +13,7 @@
       class="max-w-[1220px] xl:max-w-[1440px] xl:mx-auto mx-[4%] w-[92%] {className ||
         'flex flex-col items-center justify-center relative'}"
     >
-      <slot />
+      {@render children?.()}
     </div></AnimateIn
   >
 {:else}
@@ -18,6 +21,6 @@
     class="max-w-[1220px] xl:max-w-[1440px] xl:mx-auto mx-[4%] w-[92%] {className ||
       'flex flex-col items-center justify-center relative'}"
   >
-    <slot />
+    {@render children?.()}
   </div>
 {/if}

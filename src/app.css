@@ -205,28 +205,10 @@ button {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 786px) {
+@media only screen and (max-width: 768px) {
   h1 {
     font-size: 36px;
     line-height: normal;
-  }
-
-  h2 {
-  }
-
-  h3 {
-  }
-
-  h4 {
-  }
-
-  h5 {
-  }
-
-  p {
-  }
-
-  a {
   }
 }
 
