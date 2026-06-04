@@ -3,7 +3,8 @@
     src = placeholder,
     alt = "",
     class: className = "",
-  }: { src?: unknown; alt?: unknown; class?: string } = $props();
+  }: { src?: ImageSource; alt?: string; class?: string } = $props();
+  import type { ImageSource } from "$lib/types";
   import placeholder from "$lib/assets/images/image_placeholder.svg";
   import Img from "@zerodevx/svelte-img";
 

@@ -6,7 +6,7 @@
   import arrow from "$lib/assets/icons/wireframe-link-arrow-right.svg";
 
   interface Props {
-    testimonialBoxPropsArray?: ComponentProps<TestimonialBox>[];
+    testimonialBoxPropsArray?: ComponentProps<typeof TestimonialBox>[];
   }
 
   let {

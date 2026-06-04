@@ -8,20 +8,27 @@
     backdrop = false,
     class: className = "",
   }: {
-    src?: unknown;
-    altText?: unknown;
-    placeholderSide?: unknown;
-    vimeoId?: unknown;
-    darken?: unknown;
-    backdrop?: unknown;
+    src?: ImageSource;
+    altText?: string;
+    placeholderSide?: "left" | "right";
+    vimeoId?: string;
+    darken?: boolean;
+    backdrop?: boolean;
     class?: string;
   } = $props();
+  import type { ImageSource } from "$lib/types";
   import placeholder from "../../assets/images/background_placeholder.svg";
   import ContentWidth from "../ContentWidth/ContentWidth.svelte";
   import Img from "@zerodevx/svelte-img";
 
-  let viewportHeight: number;
-  let viewportWidth: number;
+  // `src === placeholder` is checked inside the `typeof src === "object"` branch,
+  // where `src` is narrowed to `object` while `placeholder` is a `string` import,
+  // so a direct comparison reads as a no-overlap mistake. Compute it once here
+  // (comparing the original ImageSource-typed `src`) to preserve behavior.
+  const isPlaceholder = $derived(src === placeholder);
+
+  let viewportHeight = 0;
+  let viewportWidth = 0;
 
   // Determine if image should fill viewport based on aspect ratio
   let fillHeight = $derived(viewportHeight * 16 > viewportWidth * 9);
@@ -40,9 +47,9 @@
     {#if typeof src === "object"}
       <Img
         {src}
-        sizes={src === placeholder ? "(min-width: 1024px) 45vw, 100vw" : "100vw"}
+        sizes={isPlaceholder ? "(min-width: 1024px) 45vw, 100vw" : "100vw"}
         alt={altText}
-        class="absolute bottom-0 {placeholderSide}-0 h-full w-full object-cover {src === placeholder
+        class="absolute bottom-0 {placeholderSide}-0 h-full w-full object-cover {isPlaceholder
           ? 'lg:w-[45%] md:h-auto'
           : ''} -z-10"
         loading="eager"
@@ -51,9 +58,9 @@
     {:else}
       <img
         {src}
-        sizes={src === placeholder ? "(min-width: 1024px) 45vw, 100vw" : "100vw"}
+        sizes={isPlaceholder ? "(min-width: 1024px) 45vw, 100vw" : "100vw"}
         alt={altText}
-        class="absolute bottom-0 {placeholderSide}-0 h-full w-full object-cover {src === placeholder
+        class="absolute bottom-0 {placeholderSide}-0 h-full w-full object-cover {isPlaceholder
           ? 'lg:w-[45%] md:h-auto'
           : ''} -z-10"
         loading="eager"

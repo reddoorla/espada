@@ -6,8 +6,8 @@
     class: className = "",
   }: {
     items: string[] | { label: string; value: string }[];
-    value?: unknown;
-    placeholder?: unknown;
+    value?: string | { label: string; value: string };
+    placeholder?: string;
     class?: string;
   } = $props();
   import Select from "svelte-select";

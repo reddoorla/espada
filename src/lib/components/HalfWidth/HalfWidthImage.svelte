@@ -3,7 +3,7 @@
     image = placeholder,
     alt = "",
     class: className = "",
-  }: { image?: unknown; alt?: unknown; class?: string } = $props();
+  }: { image?: string; alt?: string; class?: string } = $props();
   import placeholder from "$lib/assets/images/image_placeholder.svg";
 
   let rotationAngle = "36.8";

@@ -7,7 +7,7 @@
   import chevronRight from "../../assets/icons/chevron-right.svg";
 
   interface Props {
-    contentBoxPropsArray?: ComponentProps<ContentBox>[];
+    contentBoxPropsArray?: ComponentProps<typeof ContentBox>[];
     isNumbered?: boolean;
   }
 

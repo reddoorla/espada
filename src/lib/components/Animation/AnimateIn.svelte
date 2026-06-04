@@ -4,7 +4,7 @@
     style = "",
     transitionDelayMax = 400,
     transitionDuration = 2400,
-  }: { style?: unknown; transitionDelayMax?: unknown; transitionDuration?: unknown } = $props();
+  }: { style?: string; transitionDelayMax?: number; transitionDuration?: number } = $props();
   import { onDestroy, onMount } from "svelte";
 
   let isInView = false;

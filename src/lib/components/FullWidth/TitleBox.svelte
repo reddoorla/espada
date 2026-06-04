@@ -13,17 +13,17 @@
     float = "center",
     class: className = "",
   }: {
-    icon?: unknown;
-    iconAltText?: unknown;
-    labelText?: unknown;
-    titleText?: unknown;
-    subtitleText?: unknown;
-    paragraphText?: unknown;
-    buttonText?: unknown;
-    linkText?: unknown;
-    linkHref?: unknown;
-    backgroundColor?: unknown;
-    float?: unknown;
+    icon?: string;
+    iconAltText?: string;
+    labelText?: string;
+    titleText?: string;
+    subtitleText?: string;
+    paragraphText?: string;
+    buttonText?: string;
+    linkText?: string;
+    linkHref?: string;
+    backgroundColor?: string;
+    float?: string;
     class?: string;
   } = $props();
   import placeholderIcon from "../../assets/icons/logos/logo.svg";

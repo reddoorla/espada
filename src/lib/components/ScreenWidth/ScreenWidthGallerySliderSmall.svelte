@@ -3,7 +3,8 @@
     imageArray = [placeholder, placeholder, placeholder, placeholder],
     altText = "background image",
     class: className = "",
-  }: { imageArray?: unknown; altText?: unknown; class?: string } = $props();
+  }: { imageArray?: ImageSource[]; altText?: string; class?: string } = $props();
+  import type { ImageSource } from "$lib/types";
   import { onMount } from "svelte";
   import { swipe } from "svelte-gestures";
   import placeholder from "../../assets/images/background_placeholder.svg";

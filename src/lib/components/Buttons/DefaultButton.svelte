@@ -6,10 +6,10 @@
     href = "",
     class: className = "",
   }: {
-    text?: unknown;
-    click?: unknown;
-    filled?: unknown;
-    href?: unknown;
+    text?: string;
+    click?: (event: MouseEvent) => void;
+    filled?: boolean;
+    href?: string;
     class?: string;
   } = $props();
 </script>

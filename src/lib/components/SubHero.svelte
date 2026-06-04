@@ -1,5 +1,6 @@
 <script lang="ts">
-  let { src, text }: { src: unknown; text: unknown } = $props();
+  let { src, text }: { src: ImageSource; text: string } = $props();
+  import type { ImageSource } from "$lib/types";
   import Img from "@zerodevx/svelte-img";
 </script>
 

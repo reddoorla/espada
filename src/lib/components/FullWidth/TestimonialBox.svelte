@@ -9,13 +9,13 @@
     float = "center",
     class: className = "",
   }: {
-    icon?: unknown;
-    iconAltText?: unknown;
-    testimonialText?: unknown;
-    attribution?: unknown;
-    attributionLabel?: unknown;
-    backgroundColor?: unknown;
-    float?: unknown;
+    icon?: string;
+    iconAltText?: string;
+    testimonialText?: string;
+    attribution?: string;
+    attributionLabel?: string;
+    backgroundColor?: string;
+    float?: string;
     class?: string;
   } = $props();
   let justify = float;

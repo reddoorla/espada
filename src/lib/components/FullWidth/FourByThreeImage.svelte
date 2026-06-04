@@ -4,7 +4,8 @@
     alt = "",
     label = "",
     class: className = "",
-  }: { src?: unknown; alt?: unknown; label?: unknown; class?: string } = $props();
+  }: { src?: ImageSource; alt?: string; label?: string; class?: string } = $props();
+  import type { ImageSource } from "$lib/types";
   import placeholder from "$lib/assets/images/image_placeholder.svg";
   import Img from "@zerodevx/svelte-img";
 </script>
