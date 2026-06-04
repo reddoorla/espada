@@ -1,16 +1,20 @@
 <script lang="ts">
   import profile_placeholder from "$lib/assets/images/profile_placeholder.jpeg";
-  import logo_placeholder from "$lib/assets/icons/logos/logo.svg";
   import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
   import { faFacebook, faTwitter, faReddit, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
+  interface Social {
+    platform?: string;
+    href?: string;
+  }
+
   interface Props {
-    src?: any;
+    src?: string;
     alt?: string;
     href?: string;
     name?: string;
     title?: string;
-    socials?: any;
+    socials?: Social[];
   }
 
   let {
@@ -38,7 +42,7 @@
       <h5 class="text-white my-3">{name}</h5>
       <p class="text-light my-3">{title}</p>
       <div class="h-6 my-3 flex flex-row items center justify-center transition-opacity">
-        {#each socials as social}
+        {#each socials as social, i (i)}
           <a href={social.href} class="mx-6 w-6 h-6 hover:opacity-75 transition-all bump">
             {#if social.platform === "facebook"}
               <FontAwesomeIcon icon={faFacebook} inverse size="2x" />
@@ -64,7 +68,7 @@
       <h5 class="text-white my-3">{name}</h5>
       <p class="text-light my-3">{title}</p>
       <div class="h-6 my-3 flex flex-row items center justify-center">
-        {#each socials as social}
+        {#each socials as social, i (i)}
           <a href={social.href} class="mx-6 w-6 h-6 hover:opacity-75 transition-all bump">
             {#if social.platform === "facebook"}
               <FontAwesomeIcon icon={faFacebook} inverse size="2x" />

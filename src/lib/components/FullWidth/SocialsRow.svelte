@@ -19,7 +19,7 @@
 </script>
 
 <div class="h-full flex flex-row items center justify-center transition-opacity">
-  {#each socials as social}
+  {#each socials as social, i (i)}
     <a href={social.href} class="mx-6 w-6 h-6 hover:opacity-75 transition-all bump">
       {#if social.platform === "facebook"}
         <FontAwesomeIcon icon={faFacebook} size="2x" />

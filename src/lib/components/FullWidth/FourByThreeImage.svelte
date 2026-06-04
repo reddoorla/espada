@@ -7,9 +7,6 @@
   }: { src?: unknown; alt?: unknown; label?: unknown; class?: string } = $props();
   import placeholder from "$lib/assets/images/image_placeholder.svg";
   import Img from "@zerodevx/svelte-img";
-
-  let rotationAngle = "36.8";
-  let crossLength = "125%";
 </script>
 
 <div class="w-full relative {className || ''}">

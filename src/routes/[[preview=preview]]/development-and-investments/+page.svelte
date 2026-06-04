@@ -124,7 +124,7 @@
         <p>
           Espada Real Estate, formerly REATA Assets, Investments & Development, works to develop and
           invest in retail, office, medical office, industrial and storage assets primarily in San
-          Antonio,  Texas, Oklahoma, Kansas and Illinois.
+          Antonio,&nbsp; Texas, Oklahoma, Kansas and Illinois.
         </p>
       </div>
     </div>
@@ -143,7 +143,7 @@
         <p>
           We have mastered the artful orchestration of several disciplines — from design to
           disposition — in order to deliver each project on time and within budget while meeting or
-          exceeding performance objectives. 
+          exceeding performance objectives.&nbsp;
         </p>
       </div>
     </div>
@@ -215,7 +215,7 @@
   <ContentWidth class="border-t-2 border-black text-left">
     <h2 class="text-black my-16">Our Projects</h2>
     <div class="flex flex-row justify-center flex-wrap gap-x-12 gap-y-20 text-black">
-      {#each projectArray as proj, i}
+      {#each projectArray as proj, i (proj.name)}
         <div class="w-full md:w-[calc(50%-24px)]">
           <FourByThreeImage src={proj.image} alt={proj.name} />
           <div class="mt-12 border-t-2 border-black w-full">
@@ -249,7 +249,7 @@
                   {#if proj.timeline}
                     <p class="font-medium">Timeline</p>
                     <ul class="list-disc translate-x-5 pr-5">
-                      {#each proj.timeline as item}
+                      {#each proj.timeline as item, i (i)}
                         <li>
                           <p>
                             {item}

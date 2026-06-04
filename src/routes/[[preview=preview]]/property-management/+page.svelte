@@ -65,9 +65,9 @@
         <h5>Proven results</h5>
         <p>
           Our perspective as current project owners has given our team a very good understanding of
-          how to manage your property. We have  built our reputation as a premier management team by
-          maximizing the value of assets ranging from large power and neighborhood shopping centers
-          to office buildings of every type and size.
+          how to manage your property. We have&nbsp; built our reputation as a premier management
+          team by maximizing the value of assets ranging from large power and neighborhood shopping
+          centers to office buildings of every type and size.
         </p>
       </div>
     </div>

@@ -12,7 +12,6 @@
   import chevronLeft from "$lib/assets/icons/chevron-left.svg";
   import chevronRight from "$lib/assets/icons/chevron-right.svg";
 
-  const SLIDER_TRANSITION_FUNCTION = "cubic-bezier(.5,0,0,1)";
   const SLIDER_TRANSITION_LENGTH_IN_MS = 2000;
   const SLIDER_INTERVAL_IN_MS = 5000;
 
@@ -47,13 +46,7 @@
     if (sliderIndex < 0) resetSliderToEnd();
   };
 
-  const setSliderIndex = (index: number) => {
-    sliderIndex = index;
-    clearInterval(sliderInterval);
-    sliderInterval = setInterval(() => slideLeft(), SLIDER_INTERVAL_IN_MS);
-  };
-
-  let sliderInterval: NodeJS.Timeout;
+  let sliderInterval: ReturnType<typeof setInterval>;
 
   const handleSwipe = (
     e: CustomEvent<{ direction: "left" | "top" | "right" | "bottom"; target: EventTarget }>,
@@ -96,7 +89,7 @@
         sliderIndex + imageArray.length
       ) * 352}px); "
     >
-      {#each tripledImages as image}
+      {#each tripledImages as _image, i (i)}
         <div class="w-[360px] h-full mx-4">
           <FourByThreeImage alt={altText} class="h-full object-cover -z-10" />
         </div>

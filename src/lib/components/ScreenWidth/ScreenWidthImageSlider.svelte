@@ -7,7 +7,7 @@
   import chevronRight from "$lib/assets/icons/chevron-right.svg";
 
   interface Props {
-    imageArray?: any;
+    imageArray?: string[];
     altText?: string;
     dotFloat?: string;
     hasArrows?: boolean;
@@ -22,44 +22,12 @@
     children,
   }: Props = $props();
 
-  const SLIDER_TRANSITION_FUNCTION = "cubic-bezier(.5,0,0,1)";
   const SLIDER_TRANSITION_LENGTH_IN_MS = 2000;
   const SLIDER_INTERVAL_IN_MS = 5000;
 
   let sliderIndex = $state(0);
 
   let isSlideAnimated = $state(true);
-  let nextSlideIndex = 1;
-  let previousSlideIndex = imageArray.length - 1;
-
-  let getNextSlideIndex = () => {
-    if (sliderIndex == imageArray.length - 1) {
-      nextSlideIndex = 0;
-      return;
-    }
-    if (sliderIndex == imageArray.length) {
-      nextSlideIndex = 1;
-      return;
-    }
-    if (sliderIndex < -1) {
-      nextSlideIndex = imageArray.length + (sliderIndex + 1);
-      return;
-    }
-    nextSlideIndex = sliderIndex + 1;
-  };
-
-  let getPreviousSlideIndex = () => {
-    if (sliderIndex < 1 && sliderIndex > 0 - imageArray.length) {
-      previousSlideIndex = imageArray.length + (sliderIndex - 1);
-      return;
-    }
-    if (sliderIndex == 0 - imageArray.length) {
-      previousSlideIndex = imageArray.length - 1;
-      return;
-    }
-
-    previousSlideIndex = sliderIndex - 1;
-  };
 
   const resetSlider = () => {
     setTimeout(() => (isSlideAnimated = false), SLIDER_TRANSITION_LENGTH_IN_MS);
@@ -72,16 +40,12 @@
 
   const slideLeft = () => {
     sliderIndex++;
-    getNextSlideIndex();
-    getPreviousSlideIndex();
     if (sliderIndex % imageArray.length == 0 && sliderIndex !== 0) resetSlider();
 
     console.log(sliderIndex);
   };
   const slideRight = () => {
     sliderIndex--;
-    getNextSlideIndex();
-    getPreviousSlideIndex();
     if (sliderIndex % imageArray.length == 0 && sliderIndex !== 0) resetSlider();
 
     console.log(sliderIndex);
@@ -93,15 +57,7 @@
     sliderInterval = setInterval(() => slideLeft(), SLIDER_INTERVAL_IN_MS);
   };
 
-  let sliderInterval: NodeJS.Timeout;
-
-  const handleSwipe = (
-    e: CustomEvent<{ direction: "left" | "top" | "right" | "bottom"; target: EventTarget }>,
-  ) => {
-    if (e.detail.direction === "left") slideLeft();
-
-    if (e.detail.direction === "right") slideRight();
-  };
+  let sliderInterval: ReturnType<typeof setInterval>;
 
   onMount(() => {
     sliderInterval = setInterval(() => slideLeft(), SLIDER_INTERVAL_IN_MS);
@@ -120,7 +76,7 @@
         sliderIndex + imageArray.length
       ) * 100}vw); "
     >
-      {#each tripledImages as image}
+      {#each tripledImages as image, i (i)}
         <div class="w-screen">
           <img src={image} alt={altText} class=" h-full w-full object-cover -z-10" />
         </div>
@@ -138,7 +94,7 @@
             ? 'right-[4%]  xl:right-8 -translate-x-[2px]'
             : ''} {dotFloat === 'center' ? 'left-1/2 -translate-x-1/2' : ''}  bottom-10"
         >
-          {#each imageArray as image, i}
+          {#each imageArray as _image, i (i)}
             <button
               class="h-[10px] w-[10px] border-2 rounded-full transition-colors duration-1000 cursor-pointer active:-translate-y-[0.5px] hover:opacity-60 mr-4
 								{(sliderIndex % imageArray.length >= 0 && sliderIndex % imageArray.length === i) ||

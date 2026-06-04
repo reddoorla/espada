@@ -37,8 +37,6 @@
   let horizontalFloatMargin = "mx-auto";
   if (float === "left") horizontalFloatMargin = "ml-0 mr-auto";
   if (float === "right") horizontalFloatMargin = "ml-auto mr-0";
-
-  let isLinkArrowActive = false;
 </script>
 
 <div

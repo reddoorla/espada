@@ -86,7 +86,7 @@
     class="w-screen h-screen fixed bg-black flex flex-col items-center justify-center gap-12 z-30"
     transition:fly={{ y: "-100%" }}
   >
-    {#each NAV_LINKS as item}
+    {#each NAV_LINKS as item (item.href)}
       <a
         onclick={() => (isOverlayVisible = false)}
         href={item.href}
@@ -113,7 +113,7 @@
       </a>
       <div class="flex flex-row">
         <div class="hidden lg:flex flex-row justify-between items-center gap-10">
-          {#each NAV_LINKS as item}
+          {#each NAV_LINKS as item (item.href)}
             <a class="nav-link hover:opacity-100 opacity-75" href={item.href}>{item.label}</a>
           {/each}
         </div>

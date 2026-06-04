@@ -4,7 +4,7 @@
   import ContentWidth from "$lib/components/ContentWidth/ContentWidth.svelte";
   import SquareImage from "$lib/components/FullWidth/SquareImage.svelte";
   import Footer from "$lib/components/Footer.svelte";
-  import { fade, slide } from "svelte/transition";
+  import { slide } from "svelte/transition";
 
   import brent from "$lib/assets/images/about/headshots/brent.jpeg";
 
@@ -38,7 +38,7 @@
       headshot: John,
       name: "John Wright",
       title: "Partner",
-      body: `John is a commercial real estate developer, and investor.  \n \n After nearly 10 years as a commercial broker focused on the representation of retail tenants and landlords at Trammell Crow Company and CBRE, John joined Reata Real Estate’s development and investment team where he was responsible for identifying opportunities, sourcing debt and equity and overseeing the execution of projects.  At Espada, John is focused on building a portfolio of real estate assets that produce superior risk- adjusted returns. John has a BA from Wake Forest University and an MBA from The Owen Graduate School of Management at Vanderbilt University.`,
+      body: `John is a commercial real estate developer, and investor.  \n \n After nearly 10 years as a commercial broker focused on the representation of retail tenants and landlords at Trammell Crow Company and CBRE, John joined Reata Real Estate’s development and investment team where he was responsible for identifying opportunities, sourcing debt and equity and overseeing the execution of projects.  At Espada, John is focused on building a portfolio of real estate assets that produce superior risk- adjusted returns. John has a BA from Wake Forest University and an MBA from The Owen Graduate School of Management at Vanderbilt University.`,
       vcfLink: "contact-cards/JohnWrightIV.vcf",
     },
     {
@@ -78,7 +78,7 @@
       headshot: Kathy,
       name: "Kathy Palmer",
       title: "Real Estate Controller",
-      body: `Kathy has 25+ years of experience as a Chief Financial Officer and Accounting Manager, specializing in commercial real estate and property management, in San Antonio and South Texas.  Kathy has a BBA in Accounting from the University of Texas at Arlington. `,
+      body: `Kathy has 25+ years of experience as a Chief Financial Officer and Accounting Manager, specializing in commercial real estate and property management, in San Antonio and South Texas.  Kathy has a BBA in Accounting from the University of Texas at Arlington. `,
     },
   ];
 
@@ -102,21 +102,21 @@
     </div>
     <p class="mt-12 md:mt-0 md:w-1/2 md:pl-8 whitespace-pre-line leading-loose">
       Espada Real Estate evolved from Reata Assets Investment and Development (RAID) after the sale
-      of the Reata companies to CBRE in 2019.  The founders of RAID, now Espada, collectively have
-      140 years of experience in the retail real estate industry and have worked with former
-      companies such as Trammell Crow, CBRE, and United Commercial Realty.  In more recent years,
-      Espada partners and their associates have developed and acquired other notable projects
+      of the Reata companies to CBRE in 2019.&nbsp; The founders of RAID, now Espada, collectively
+      have 140 years of experience in the retail real estate industry and have worked with former
+      companies such as Trammell Crow, CBRE, and United Commercial Realty.&nbsp; In more recent
+      years, Espada partners and their associates have developed and acquired other notable projects
       including Sonterra Village, Dominion Springs Plaza, St. Paul Square, Brooks Corner, Memorial
-      Crossing, Baytowne Shopping Center and Rio Norte shopping center.  The name Espada, Spanish
-      for “sword”, speaks to the company’s partners’ long history in San Antonio. The name pays
-      tribute to Mission Espada, the oldest Spanish mission in Texas and one of the five missions in
-      San Antonio that were recently designated as a World Heritage Site.
+      Crossing, Baytowne Shopping Center and Rio Norte shopping center.&nbsp; The name Espada,
+      Spanish for “sword”, speaks to the company’s partners’ long history in San Antonio. The name
+      pays tribute to Mission Espada, the oldest Spanish mission in Texas and one of the five
+      missions in San Antonio that were recently designated as a World Heritage Site.
     </p>
   </ContentWidth>
   <ContentWidth class="border-t-2 border-black flex flex-col gap-20 py-12">
     <h2>Espada Leadership</h2>
 
-    {#each leaderArray as p, i}
+    {#each leaderArray as p, i (p.name)}
       <div class="xl:min-h-80 flex flex-col xl:flex-row justify-between w-full flex-nowrap">
         <div class="flex flex-col sm:flex-row xl:w-1/2">
           <div class="w-full sm:w-1/2 flex flex-col items-start">
@@ -164,7 +164,7 @@
   <ContentWidth class="border-t-2 border-black flex flex-col gap-20 py-12">
     <h2>Development and Investment Team</h2>
 
-    {#each developmentTeamArray as p, i}
+    {#each developmentTeamArray as p, i (p.name)}
       <div class="xl:min-h-80 flex flex-col xl:flex-row justify-between w-full flex-nowrap">
         <div class="flex flex-col sm:flex-row xl:w-1/2">
           <div class="w-full sm:w-1/2 flex flex-col items-start">
@@ -209,7 +209,7 @@
   <ContentWidth class="border-t-2 border-black flex flex-col gap-20 py-12">
     <h2>Property Management Team</h2>
 
-    {#each propertyTeamArray as p, i}
+    {#each propertyTeamArray as p, i (p.name)}
       <div class="xl:min-h-80 flex flex-col xl:flex-row justify-between w-full flex-nowrap">
         <div class="flex flex-col sm:flex-row xl:w-1/2">
           <div class="sm:w-1/2 flex flex-col items-start">

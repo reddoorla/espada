@@ -3,8 +3,6 @@
   import { swipe } from "svelte-gestures";
   import TestimonialBox from "./TestimonialBox.svelte";
   import type { ComponentProps } from "svelte";
-  import chevronLeft from "../../assets/icons/chevron-left.svg";
-  import chevronRight from "../../assets/icons/chevron-right.svg";
   import arrow from "$lib/assets/icons/wireframe-link-arrow-right.svg";
 
   interface Props {
@@ -34,7 +32,7 @@
 
   const SLIDER_INTERVAL_IN_MS = 5000;
   let sliderIndex = $state(0);
-  let sliderInterval: NodeJS.Timeout;
+  let sliderInterval: ReturnType<typeof setInterval>;
   let sliderWidth = 100 / testimonialBoxPropsArray.length / 5;
   let isSlideAnimated = $state(true);
 
@@ -92,7 +90,7 @@
       testimonialBoxPropsArray.length) *
       sliderWidth}%);"
   >
-    {#each quintupledPropsArray as testimonialBoxProps}
+    {#each quintupledPropsArray as testimonialBoxProps, i (i)}
       <div class="h-full z-0" style="width: {sliderWidth}%;">
         <TestimonialBox {...testimonialBoxProps} />
       </div>

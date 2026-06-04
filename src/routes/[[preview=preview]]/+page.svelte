@@ -1,7 +1,6 @@
 <script lang="ts">
   import ScreenWidthImage from "$lib/components/ScreenWidth/ScreenWidthImage.svelte";
   import ContentWidth from "$lib/components/ContentWidth/ContentWidth.svelte";
-  import DefaultButton from "$lib/components/Buttons/DefaultButton.svelte";
   import thumb from "$lib/assets/images/thumb.jpg?as=run";
 </script>
 

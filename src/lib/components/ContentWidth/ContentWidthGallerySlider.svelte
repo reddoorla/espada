@@ -4,7 +4,6 @@
     altText = "background image",
     class: className = "",
   }: { imageArray?: unknown; altText?: unknown; class?: string } = $props();
-  import { onMount } from "svelte";
   import { swipe } from "svelte-gestures";
   import placeholder from "../../assets/images/background_placeholder.svg";
   import ContentWidth from "../ContentWidth/ContentWidth.svelte";
@@ -12,27 +11,11 @@
   import chevronLeft from "$lib/assets/icons/chevron-left.svg";
   import chevronRight from "$lib/assets/icons/chevron-right.svg";
 
-  const SLIDER_TRANSITION_FUNCTION = "cubic-bezier(.5,0,0,1)";
-  const SLIDER_TRANSITION_LENGTH_IN_MS = 2000;
-  const SLIDER_INTERVAL_IN_MS = 5000;
-
   let viewportWidth: number;
 
   let sliderIndex = 0;
 
   let isSlideAnimated = true;
-
-  const resetSliderToStart = () => {
-    setTimeout(() => (isSlideAnimated = false), SLIDER_TRANSITION_LENGTH_IN_MS);
-    setTimeout(() => (sliderIndex = 0), SLIDER_TRANSITION_LENGTH_IN_MS + 20);
-    setTimeout(() => (isSlideAnimated = true), SLIDER_TRANSITION_LENGTH_IN_MS + 40);
-  };
-
-  const resetSliderToEnd = () => {
-    setTimeout(() => (isSlideAnimated = false), SLIDER_TRANSITION_LENGTH_IN_MS);
-    setTimeout(() => (sliderIndex = imageArray.length - 1), SLIDER_TRANSITION_LENGTH_IN_MS + 20);
-    setTimeout(() => (isSlideAnimated = true), SLIDER_TRANSITION_LENGTH_IN_MS + 40);
-  };
 
   const slideRight = () => {
     sliderIndex++;
@@ -46,14 +29,6 @@
     //clearInterval(sliderInterval);
     //sliderInterval = setInterval(()=>slideLeft(), SLIDER_INTERVAL_IN_MS);
   };
-
-  const setSliderIndex = (index: number) => {
-    sliderIndex = index;
-    //clearInterval(sliderInterval);
-    //sliderInterval = setInterval(()=>slideLeft(), SLIDER_INTERVAL_IN_MS);
-  };
-
-  let sliderInterval: NodeJS.Timeout;
 
   const handleSwipe = (
     e: CustomEvent<{ direction: "left" | "top" | "right" | "bottom"; target: EventTarget }>,
@@ -83,7 +58,7 @@
           : viewportWidth * 0.04}; transform:translateX({-(sliderIndex + imageArray.length) *
           352}px); "
       >
-        {#each tripledImages as image}
+        {#each tripledImages as _image, i (i)}
           <div class="w-[360px] h-full mx-4">
             <FourByThreeImage alt={altText} class="h-full object-cover -z-10" />
           </div>
