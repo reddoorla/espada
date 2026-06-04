@@ -15,8 +15,8 @@
 <div class="w-full {className || ''}">
   <div
     class="w-full aspect-square {src === placeholder
-      ? 'border-light border-2 bg-light bg-opacity-25'
-      : ''} rounded-sm flex items-center justify-center relative"
+      ? 'border-light border-2 bg-light/25'
+      : ''} rounded-xs flex items-center justify-center relative"
   >
     {#if typeof src === "object"}
       <Img

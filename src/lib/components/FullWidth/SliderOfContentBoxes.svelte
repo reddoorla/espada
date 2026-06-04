@@ -97,7 +97,7 @@
           <div
             class="ml-2 sm:ml-7 -mb-1 mt-2 sm:-mb-4 w-9 h-9 bg-black rounded-full text-white flex justify-center items-center"
           >
-            <p class="translate-y-[1px]">{(i % contentBoxPropsArray.length) + 1}</p>
+            <p class="translate-y-px">{(i % contentBoxPropsArray.length) + 1}</p>
           </div>
         {/if}
         <ContentBox {...contentBoxProps} />
@@ -112,13 +112,13 @@
       onclick={slideRight}
       class="h-6 w-6 rounded-full border-[#C2D1D9] border-2 p-1 flex align-middle justify-center cursor-pointer transition-all duration-300 active:-translate-y-2 hover:bg-[#424B5A] hover:border-[#424B5A]"
     >
-      <img alt="chevron-left" src={chevronLeft} class="-translate-x-[1px]" />
+      <img alt="chevron-left" src={chevronLeft} class="-translate-x-px" />
     </button>
     <button
       onclick={slideLeft}
       class="h-6 w-6 rounded-full border-[#C2D1D9] border-2 p-1 flex align-middle cursor-pointer transition-all duration-300 active:-translate-y-2 justify-center hover:bg-[#424B5A] hover:border-[#424B5A]"
     >
-      <img alt="chevron-right" src={chevronRight} class="translate-x-[1px]" />
+      <img alt="chevron-right" src={chevronRight} class="translate-x-px" />
     </button>
   </div>
 </div>

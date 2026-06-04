@@ -70,7 +70,7 @@
   <div use:swipe class="h-[160vw] sm:h-[90vw] xl:h-[60vw] lg:max-h-screen relative overflow-hidden">
     <div
       class="h-full flex flex-row flex-nowrap {isSlideAnimated
-        ? 'transition-transform duration-[2000ms]'
+        ? 'transition-transform duration-2000'
         : ''}"
       style="width:{100 * tripledImages.length}vw; transform:translateX({-(
         sliderIndex + imageArray.length
@@ -91,12 +91,12 @@
             : ''} {dotFloat === 'left'
             ? 'left-[4%]  xl:left-8 translate-x-[2px]'
             : ''} {dotFloat === 'right'
-            ? 'right-[4%]  xl:right-8 -translate-x-[2px]'
+            ? 'right-[4%]  xl:right-8 translate-x-[-2px]'
             : ''} {dotFloat === 'center' ? 'left-1/2 -translate-x-1/2' : ''}  bottom-10"
         >
           {#each imageArray as _image, i (i)}
             <button
-              class="h-[10px] w-[10px] border-2 rounded-full transition-colors duration-1000 cursor-pointer active:-translate-y-[0.5px] hover:opacity-60 mr-4
+              class="h-[10px] w-[10px] border-2 rounded-full transition-colors duration-1000 cursor-pointer active:translate-y-[-0.5px] hover:opacity-60 mr-4
 								{(sliderIndex % imageArray.length >= 0 && sliderIndex % imageArray.length === i) ||
               (sliderIndex % imageArray.length <= 0 &&
                 imageArray.length + (sliderIndex % imageArray.length) === i)

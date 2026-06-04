@@ -83,7 +83,7 @@
   <div use:swipe onswipe={handleSwipe} class="h-[320px] py-2 relative">
     <div
       class="h-full flex flex-row flex-nowrap {isSlideAnimated
-        ? 'transition-transform duration-[2000ms]'
+        ? 'transition-transform duration-2000'
         : ''}"
       style="width:{352 *
         tripledImages.length}px; margin-left:calc(50vw - 176px); transform:translateX({-(
@@ -103,21 +103,21 @@
         >
           <div
             class="h-full rounded-full absolute top-0 right-0 bg-dark {isSlideAnimated
-              ? 'transition-transform duration-[2000ms]'
+              ? 'transition-transform duration-2000'
               : ''}"
             style="width:{(1 / imageArray.length) *
               100}%; transform:translateX({-progressPosistion}%);"
           ></div>
           <div
             class="h-full rounded-full absolute top-0 right-0 bg-dark {isSlideAnimated
-              ? 'transition-transform duration-[2000ms]'
+              ? 'transition-transform duration-2000'
               : ''}"
             style="width:{(1 / imageArray.length) *
               100}%; transform:translateX({progressWrapForwardPosition}%);"
           ></div>
           <div
             class="h-full rounded-full absolute top-0 right-0 bg-dark {isSlideAnimated
-              ? 'transition-transform duration-[2000ms]'
+              ? 'transition-transform duration-2000'
               : ''}"
             style="width:{(1 / imageArray.length) *
               100}%; transform:translateX({-progressWrapBackwardPosition}%);"
@@ -128,13 +128,13 @@
           onclick={slideLeft}
           class="absolute -left-2 h-6 w-6 rounded-full border-[#C2D1D9] border-2 p-1 flex align-middle justify-center cursor-pointer transition-all duration-500 hover:bg-[#424B5A] hover:border-[#424B5A] active:bg-black bump"
         >
-          <img alt="chevron-left" src={chevronLeft} class="-translate-x-[1px]" />
+          <img alt="chevron-left" src={chevronLeft} class="-translate-x-px" />
         </button>
         <button
           onclick={slideRight}
-          class="absolute -right-2 -translate-y-[0.7px] h-6 w-6 rounded-full border-[#C2D1D9] border-2 p-1 flex align-middle cursor-pointer transition-all duration-500 justify-center hover:bg-[#424B5A] hover:border-[#424B5A] active:bg-black bump"
+          class="absolute -right-2 translate-y-[-0.7px] h-6 w-6 rounded-full border-[#C2D1D9] border-2 p-1 flex align-middle cursor-pointer transition-all duration-500 justify-center hover:bg-[#424B5A] hover:border-[#424B5A] active:bg-black bump"
         >
-          <img alt="chevron-right" src={chevronRight} class="translate-x-[1px]" />
+          <img alt="chevron-right" src={chevronRight} class="translate-x-px" />
         </button>
       </ContentWidth>
     </div>

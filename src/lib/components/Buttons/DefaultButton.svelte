@@ -20,7 +20,7 @@
     onclick={click}
     class="{filled
       ? 'hover:bg-white   hover:text-black'
-      : 'hover:bg-dark text-dark hover:text-white active:bg-black '} border-[1px] border-white w-full md:w-auto text-center mb-5 sm:mb-0 uppercase cursor-pointer text-nowrap transition-all duration-300 active:-translate-y-2 label {className ||
+      : 'hover:bg-dark text-dark hover:text-white active:bg-black '} border border-white w-full md:w-auto text-center mb-5 sm:mb-0 uppercase cursor-pointer text-nowrap transition-all duration-300 active:-translate-y-2 label {className ||
       ''}"
   >
     <slot>{text}</slot>
@@ -29,8 +29,8 @@
   <button
     onclick={click}
     class="{filled
-      ? 'bg-dark bg-opacity-80 hover:bg-opacity-100 active:bg-black  text-white'
-      : 'hover:bg-dark text-dark hover:text-white active:bg-black '} border-[1px] border-dark w-full md:w-auto text-center mb-5 sm:mb-0 uppercase cursor-pointer text-nowrap transition-all duration-300 active:-translate-y-2 {className ||
+      ? 'bg-dark/80 hover:bg-dark/100 active:bg-black  text-white'
+      : 'hover:bg-dark text-dark hover:text-white active:bg-black '} border border-dark w-full md:w-auto text-center mb-5 sm:mb-0 uppercase cursor-pointer text-nowrap transition-all duration-300 active:-translate-y-2 {className ||
       ''}"
   >
     <slot>{text}</slot>

@@ -12,9 +12,9 @@
 
 <div class="w-full lg:w-1/2 my-8 {className || ''}">
   <div
-    class="w-full aspect-[4/3] {image === placeholder
-      ? 'border-light border-2 bg-light bg-opacity-25'
-      : ''}  rounded-sm flex items-center justify-center relative"
+    class="w-full aspect-4/3 {image === placeholder
+      ? 'border-light border-2 bg-light/25'
+      : ''}  rounded-xs flex items-center justify-center relative"
   >
     <img src={image} {alt} class="z-10 {image == placeholder ? 'w-16 bg-[#F2F5F7]' : 'w-full'}" />
     <div

@@ -14,16 +14,16 @@
     </h3>
     <div class="flex flex-col md:flex-row items-center gap-4 md:gap-10 mt-8 md:mt-16">
       <a
-        class="nav-link transition hover:text-black hover:bg-white py-4 px-5 border-white border-[1px] rounded-sm w-fit mt-8"
+        class="nav-link transition hover:text-black hover:bg-white py-4 px-5 border-white border rounded-xs w-fit mt-8"
         target="_blank"
         href="https://espadarealestate.appfolio.com/oportal/users/log_in">Investor Login</a
       >
       <a
-        class="nav-link transition hover:text-black hover:bg-white py-4 px-5 border-white border-[1px] rounded-sm w-fit mt-8"
+        class="nav-link transition hover:text-black hover:bg-white py-4 px-5 border-white border rounded-xs w-fit mt-8"
         href="/contact">Contact Us</a
       >
       <a
-        class="nav-link transition hover:text-black hover:bg-white py-4 px-5 border-white border-[1px] rounded-sm w-fit mt-8"
+        class="nav-link transition hover:text-black hover:bg-white py-4 px-5 border-white border rounded-xs w-fit mt-8"
         href="/">Help Center</a
       >
     </div>

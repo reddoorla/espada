@@ -1,6 +1,54 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind CSS v4 configuration */
+@import "tailwindcss";
+
+@theme {
+  /* Breakpoints — Tailwind 4 namespace (NOT --screen-*) */
+  --breakpoint-sm: 560px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1340px;
+
+  /* Colors */
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-light: #c2d1d9;
+  --color-dark: #424b5a;
+
+  /* Easing utilities (ease-*) */
+  --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-fast-slow: cubic-bezier(0.5, 0, 0, 1);
+
+  /* Custom heights */
+  --height-screen-75: 75vh;
+  --height-screen-50: 50vh;
+  --height-screen-25: 25vh;
+  --height-screen-10: 10vh;
+  --height-screen-5: 5vh;
+  --height-112: 28rem;
+  --height-128: 32rem;
+  --height-144: 36rem;
+  --height-160: 40rem;
+  --height-192: 48rem;
+  --height-256: 64rem;
+  --height-384: 96rem;
+  --height-512: 128rem;
+  --height-640: 160rem;
+}
+
+/* Safelist — classes applied dynamically (e.g. from Prismic) the scanner can't see */
+@source inline("justify-{center,start,end,between,around}");
+@source inline("sm:justify-{center,start,end}");
+@source inline("hidden");
+@source inline("aspect-{square,video}");
+@source inline("aspect-[16/9]");
+@source inline("aspect-[4/3]");
+@source inline("translate-y-1");
+@source inline("w-[360px]");
+@source inline("md:w-1/2");
+@source inline("h-[40vw]");
 
 body {
   font-family: "interstate", sans-serif;
