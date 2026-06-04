@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
       let { itemArray = [, class: className = "" }: { itemArray?: GalleryItem[]; class?: string } = $props();
 import { onMount } from "svelte";
     import { swipe } from "svelte-gestures";
@@ -121,45 +121,72 @@ import { onMount } from "svelte";
       });
   
       const tripledItems = itemArray.concat(itemArray).concat(itemArray)
-  </script>
-  <svelte:head><title>Portfolios | Reddoor Wireframer</title></svelte:head>
-  <svelte:window bind:innerWidth />
-      
-  <section class="pb-32 {className || ''}">
-      <div use:swipe onswipe={handleSwipe} class="h-py-2 relative" style="height:{imageWidth*0.95}px;">
-      <div  class="h-full flex flex-row flex-nowrap {isSlideAnimated ? 'transition-transform duration-[2000ms]': ''}"
-      style= "width:{(imageWidth-8)*tripledItems.length}px; margin-left:calc(50vw - {(imageWidth-8)/2}px); transform:translateX({-(sliderIndex+itemArray.length)*(imageWidth-8)}px); ">   
-          {#each tripledItems as item }
-          {#if item.href}
-          <a href={item?.href||"#"} class="h-full mx-4 relative" style="width:{imageWidth}px;">
-              <FourByThreeImage  src={item?.featuredImage} label={item?.featuredText||""} alt={item.name} class="h-full object-cover -z-10"/>
-              <div class="absolute w-full aspect-[4/3] top-8 left-0 bg-dark opacity-0 hover:opacity-100 hover:bg-opacity-80 transition-opacity duration-500 flex justify-center items-center">
-                <h4 class="text-white">{item.name}</h4>
+</script>
+
+<svelte:head><title>Portfolios | Reddoor Wireframer</title></svelte:head>
+<svelte:window bind:innerWidth />
+
+<section class="pb-32 {className || ''}">
+  <div
+    use:swipe
+    onswipe={handleSwipe}
+    class="h-py-2 relative"
+    style="height:{imageWidth * 0.95}px;"
+  >
+    <div
+      class="h-full flex flex-row flex-nowrap {isSlideAnimated
+        ? 'transition-transform duration-[2000ms]'
+        : ''}"
+      style="width:{(imageWidth - 8) *
+        tripledItems.length}px; margin-left:calc(50vw - {(imageWidth - 8) /
+        2}px); transform:translateX({-(sliderIndex + itemArray.length) * (imageWidth - 8)}px); "
+    >
+      {#each tripledItems as item}
+        {#if item.href}
+          <a href={item?.href || "#"} class="h-full mx-4 relative" style="width:{imageWidth}px;">
+            <FourByThreeImage
+              src={item?.featuredImage}
+              label={item?.featuredText || ""}
+              alt={item.name}
+              class="h-full object-cover -z-10"
+            />
+            <div
+              class="absolute w-full aspect-[4/3] top-8 left-0 bg-dark opacity-0 hover:opacity-100 hover:bg-opacity-80 transition-opacity duration-500 flex justify-center items-center"
+            >
+              <h4 class="text-white">{item.name}</h4>
             </div>
           </a>
-          {:else}
+        {:else}
           <div class="h-full mx-4" style="width:{imageWidth}px">
-            <FourByThreeImage  src={item?.featuredImage} label={item?.featuredText||""} alt={item.name} class="h-full object-cover -z-10"/>
+            <FourByThreeImage
+              src={item?.featuredImage}
+              label={item?.featuredText || ""}
+              alt={item.name}
+              class="h-full object-cover -z-10"
+            />
           </div>
-          {/if}
+        {/if}
+      {/each}
+    </div>
+    <div class="absolute flex justify-center w-full bottom-0">
+      <ContentWidth class="h-full relative w-full">
+        <div class="h-10 flex align-middle justify-center bottom-10">
+          {#each itemArray as item, i}
+            <button
+              class="h-[10px] w-[10px] border-2 rounded-full transition-colors duration-1000 cursor-pointer active:-translate-y-[0.5px] hover:opacity-60 mx-2 translate-x-2
+                                    {(sliderIndex % itemArray.length >= 0 &&
+                sliderIndex % itemArray.length === i) ||
+              (sliderIndex % itemArray.length <= 0 &&
+                itemArray.length + (sliderIndex % itemArray.length) === i)
+                ? 'bg-dark border-dark'
+                : 'border-light'}"
+              onclick={() => setSliderIndex(i)}
+              aria-label="image {i} of {itemArray.length}"
+              aria-hidden
+            ></button>
           {/each}
-          
-          
-      </div>
-      <div class="absolute flex justify-center w-full bottom-0">
-        <ContentWidth class="h-full relative w-full">
-            <div class="h-10 flex align-middle justify-center bottom-10">
-                {#each  itemArray as item, i}
-                    <button class="h-[10px] w-[10px] border-2  rounded-full transition-colors duration-1000 cursor-pointer active:-translate-y-[0.5px] hover:opacity-60 mx-2 translate-x-2
-                                    {(sliderIndex%itemArray.length>=0&&sliderIndex%itemArray.length===i)|| (sliderIndex%itemArray.length<=0&&itemArray.length+sliderIndex%itemArray.length===i) ? "bg-dark border-dark" : "border-light"}"
-                        onclick={()=>setSliderIndex(i)}
-                        aria-label="image {i} of {itemArray.length}"
-                        aria-hidden
-                    ></button>
-                {/each}
-            </div>
-        </ContentWidth>
-          
-      </div>
+        </div>
+      </ContentWidth>
+    </div>
   </div>
-  </section>
+</section>

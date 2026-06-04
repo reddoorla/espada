@@ -1,9 +1,7 @@
 <script>
-	import { SliceZone } from '@prismicio/svelte';
+  import { SliceZone } from "@prismicio/svelte";
 
-	import { components } from '$lib/slices';
+  import { components } from "$lib/slices";
 
-	let { data } = $props();
+  let { data } = $props();
 </script>
-
-
