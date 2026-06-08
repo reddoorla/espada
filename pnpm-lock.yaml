@@ -46,8 +46,8 @@ importers:
         specifier: ^1.59.1
         version: 1.60.0
       '@reddoorla/maintenance':
-        specifier: ^0.26.0
-        version: 0.26.1(jiti@2.7.0)(playwright-core@1.60.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)
+        specifier: ^0.28.0
+        version: 0.28.0(jiti@2.7.0)(playwright-core@1.60.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)
       '@slicemachine/adapter-sveltekit':
         specifier: ^0.3.96
         version: 0.3.96(@prismicio/types@0.2.9)(@sveltejs/kit@2.60.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.55.9(@typescript-eslint/types@8.59.4))(vite@6.4.2(@types/node@22.19.19)(jiti@2.7.0)(lightningcss@1.32.0)))(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)(vite@6.4.2(@types/node@22.19.19)(jiti@2.7.0)(lightningcss@1.32.0)))(prettier-plugin-svelte@3.5.2(prettier@3.8.3)(svelte@5.55.9(@typescript-eslint/types@8.59.4)))(prettier@3.8.3)(svelte@5.55.9(@typescript-eslint/types@8.59.4))
@@ -907,8 +907,8 @@ packages:
       react: ^18.0 || ^19.0 || ^19.0.0-rc
       react-dom: ^18.0 || ^19.0 || ^19.0.0-rc
 
-  '@reddoorla/maintenance@0.26.1':
-    resolution: {integrity: sha512-QxmdjSnk8q6tx1GmznBUgwJzU12UuCZ4Q5xgoYLYTBqK/8lk18g+IKqULPl8SUgf+sIQvnY4bfY0KJ4POrC6GQ==}
+  '@reddoorla/maintenance@0.28.0':
+    resolution: {integrity: sha512-Lc4qWBWKG5ZLVWrNGH6oSBIYNtEcPaH54k9kXWa3SkTbMpdcm0JjZnFnw3G3FNA9rgllk2cpNcSHm+SosVAcwA==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -4971,7 +4971,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       react-promise-suspense: 0.3.4
 
-  '@reddoorla/maintenance@0.26.1(jiti@2.7.0)(playwright-core@1.60.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)':
+  '@reddoorla/maintenance@0.28.0(jiti@2.7.0)(playwright-core@1.60.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)':
     dependencies:
       '@axe-core/playwright': 4.11.3(playwright-core@1.60.0)
       '@eslint/js': 10.0.1(eslint@10.4.0(jiti@2.7.0))
