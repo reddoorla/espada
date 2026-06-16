@@ -1,7 +1,5 @@
 declare namespace svelteHTML {
   interface HTMLAttributes<T> {
-    netlify?: boolean;
-    "netlify-honeypot"?: string;
     // svelte-gestures v4 only ships Svelte 4 `on:swipe` directive typings, not the
     // Svelte 5 attribute-style `onswipe={...}` handler used with `use:swipe`.
     onswipe?: (
