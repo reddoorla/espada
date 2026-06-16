@@ -1,61 +1,97 @@
 <script lang="ts">
-  let submit = () => form.submit();
-  let form: HTMLFormElement;
+  import { enhance } from "$app/forms";
 
-  let selectValue = $state("");
+  let {
+    form,
+    formTs,
+  }: {
+    form?: { success?: boolean; error?: string } | null;
+    formTs?: number;
+  } = $props();
+
+  let submitting = $state(false);
 </script>
 
-<form
-  class="w-full flex flex-col gap-8"
-  name="contact"
-  method="post"
-  bind:this={form}
-  netlify
-  netlify-honeypot="bot-field"
->
-  <input type="hidden" name="form-name" value="contact" />
+<!--
+  Forwards to the central dashboard ingest via createIngestAction; spam is handled
+  by the hidden honeypot + a fill-timing screen (no Netlify Forms / CAPTCHA).
+  Requires FORMS_INGEST_URL + FORMS_INGEST_TOKEN in the deployed site's env.
+-->
+{#if form?.success}
+  <p role="status" class="w-full border border-black rounded-[3px] p-4 text-black">
+    Thanks — your message is on its way. We'll be in touch soon.
+  </p>
+{:else}
+  <form
+    class="w-full flex flex-col gap-8"
+    method="POST"
+    use:enhance={() => {
+      submitting = true;
+      return async ({ update }) => {
+        await update();
+        submitting = false;
+      };
+    }}
+  >
+    {#if form?.error}
+      <p role="alert" class="w-full border border-red-600 rounded-[3px] p-4 text-red-700">
+        {form.error}
+      </p>
+    {/if}
 
-  <div class="w-full flex flex-row justify-between">
+    <!-- Anti-bot: per-request timing token + a hidden honeypot. Naive bots
+         fill the honeypot; a too-fast fill is caught by the timing screen. -->
+    <input type="hidden" name="ts" value={formTs} />
     <input
-      class="w-[calc(50%-15px)] border rounded-[3px] text-black border-black h-10 pl-4 pt-[2.5px]"
-      name="firstName"
-      placeholder="First Name"
       type="text"
+      name="bot-field"
+      tabindex="-1"
+      autocomplete="off"
+      aria-hidden="true"
+      class="hidden"
+    />
+
+    <div class="w-full flex flex-row justify-between">
+      <input
+        class="w-[calc(50%-15px)] border rounded-[3px] text-black border-black h-10 pl-4 pt-[2.5px]"
+        name="firstName"
+        placeholder="First Name"
+        type="text"
+      />
+      <input
+        class="w-[calc(50%-15px)] border rounded-[3px] text-black border-black h-10 pl-4 pt-[2.5px]"
+        name="lastName"
+        placeholder="Last Name"
+        type="text"
+      />
+    </div>
+
+    <input
+      class="w-full border rounded-[3px] text-black border-black h-10 pl-4 pt-[2.5px]"
+      name="email"
+      placeholder="Your Email"
+      type="email"
     />
     <input
-      class="w-[calc(50%-15px)] border rounded-[3px] text-black border-black h-10 pl-4 pt-[2.5px]"
-      name="lastName"
-      placeholder="Last Name"
-      type="text"
+      class="w-full border rounded-[3px] text-black border-black h-10 pl-4 pt-[2.5px]"
+      name="phone"
+      placeholder="Your Number"
+      type="tel"
     />
-  </div>
 
-  <input
-    class="w-full border rounded-[3px] text-black border-black h-10 pl-4 pt-[2.5px]"
-    name="email"
-    placeholder="Your Email"
-    type="email"
-  />
-  <input
-    class="w-full border rounded-[3px] text-black border-black h-10 pl-4 pt-[2.5px]"
-    name="phone"
-    placeholder="Your Number"
-    type="phone"
-  />
+    <textarea
+      class="border rounded-[3px] text-black border-black h-48 pl-4 pt-[2.5px]"
+      placeholder="Your Message"
+      name="message"
+    ></textarea>
 
-  <input name="select" type="select" bind:value={selectValue} hidden />
-
-  <textarea
-    class="border rounded-[3px] text-black border-black h-48 pl-4 pt-[2.5px]"
-    placeholder="Your Message"
-    name="message"
-  ></textarea>
-
-  <div class="w-16">
-    <button
-      onclick={submit}
-      class="nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border rounded-xs w-fit mt-2"
-      >Submit</button
-    >
-  </div>
-</form>
+    <div class="w-16">
+      <button
+        type="submit"
+        disabled={submitting}
+        class="nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border rounded-xs w-fit mt-2 disabled:opacity-60"
+        >{submitting ? "Sending…" : "Submit"}</button
+      >
+    </div>
+  </form>
+{/if}
