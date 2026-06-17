@@ -13,10 +13,11 @@
   /**
    * @typedef {Object} Props
    * @property {import('svelte').Snippet} [children]
+   * @property {import('./$types').LayoutData} [data]
    */
 
   /** @type {Props} */
-  let { children } = $props();
+  let { children, data } = $props();
 
   const NAV_LINKS = [
     {
@@ -132,4 +133,6 @@
   {@render children?.()}
 </main>
 
-<PrismicPreview {repositoryName} />
+{#if data.isPreviewSession}
+  <PrismicPreview {repositoryName} />
+{/if}
