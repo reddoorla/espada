@@ -1,5 +1,7 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
+  import { env } from "$env/dynamic/public";
+  import { loadTurnstile } from "$lib/turnstile";
 
   let {
     form,
@@ -10,6 +12,37 @@
   } = $props();
 
   let submitting = $state(false);
+
+  // Optional Cloudflare Turnstile — dark until PUBLIC_TURNSTILE_SITE_KEY is set;
+  // rendered explicitly (works on full load + SPA nav). createIngestAction reads
+  // the injected cf-turnstile-response input and forwards it for central verify.
+  const turnstileSiteKey = env.PUBLIC_TURNSTILE_SITE_KEY?.trim();
+  let turnstileEl = $state<HTMLDivElement>();
+
+  $effect(() => {
+    const el = turnstileEl;
+    if (!turnstileSiteKey || !el) return;
+    let widgetId: string | undefined;
+    let cancelled = false;
+    loadTurnstile()
+      .then((turnstile) => {
+        if (cancelled || !el.isConnected) return;
+        widgetId = turnstile.render(el, { sitekey: turnstileSiteKey });
+      })
+      .catch((err) => {
+        console.warn("[turnstile] widget did not render:", err);
+      });
+    return () => {
+      cancelled = true;
+      if (widgetId !== undefined) {
+        try {
+          window.turnstile?.remove(widgetId);
+        } catch {
+          // already torn down (e.g. by navigation)
+        }
+      }
+    };
+  });
 </script>
 
 <!--
@@ -84,6 +117,12 @@
       placeholder="Your Message"
       name="message"
     ></textarea>
+
+    {#if turnstileSiteKey}
+      <!-- Cloudflare Turnstile mount point; the effect renders it explicitly and
+           injects a hidden cf-turnstile-response input that createIngestAction forwards. -->
+      <div class="cf-turnstile" bind:this={turnstileEl}></div>
+    {/if}
 
     <div class="w-16">
       <button
