@@ -8,6 +8,7 @@
   import { fly, fade } from "svelte/transition";
   import { onMount } from "svelte";
   import { onNavigate } from "$app/navigation";
+  import { whenPageReady, prefersReducedMotion } from "$lib/utils/whenPageReady";
   import menu from "$lib/assets/icons/menu.svg";
   import close from "$lib/assets/icons/close.svg";
   /**
@@ -45,10 +46,16 @@
   let isOverlayVisible = $state(false);
   let isTransitioning = $state(true);
 
+  // false during SSR; the client instance re-evaluates with the real setting.
+  const reducedMotion = prefersReducedMotion();
+
   onMount(() => {
-    setTimeout(() => {
+    // Hold the splash scrim until above-the-fold imagery has settled instead
+    // of a blind timer: min 250ms so an instant reveal doesn't flicker, max
+    // 1200ms (the old timer) so a stalled hero can't wedge the scrim open.
+    whenPageReady({ minMs: reducedMotion ? 0 : 250, maxMs: 1200 }).then(() => {
       isTransitioning = false;
-    }, 1200);
+    });
   });
 
   onNavigate(() => {
@@ -77,7 +84,7 @@
 {#if isTransitioning}
   <div
     class="bg-[#140F09] z-40 fixed w-screen h-screen top-0 left-0 pointer-events-none"
-    out:fade={{ duration: 700 }}
+    out:fade={{ duration: reducedMotion ? 0 : 700 }}
   ></div>
 {/if}
 
