@@ -43,8 +43,8 @@ importers:
         specifier: ^1.59.1
         version: 1.60.0
       '@reddoorla/maintenance':
-        specifier: ^0.67.0
-        version: 0.67.0(@sveltejs/kit@2.60.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.55.9(@typescript-eslint/types@8.59.4))(vite@6.4.3(@types/node@22.19.19)(jiti@2.7.0)(lightningcss@1.32.0)))(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)(vite@6.4.3(@types/node@22.19.19)(jiti@2.7.0)(lightningcss@1.32.0)))(jiti@2.7.0)(playwright-core@1.60.0)(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)
+        specifier: ^0.69.0
+        version: 0.69.0(@sveltejs/kit@2.60.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.55.9(@typescript-eslint/types@8.59.4))(vite@6.4.3(@types/node@22.19.19)(jiti@2.7.0)(lightningcss@1.32.0)))(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)(vite@6.4.3(@types/node@22.19.19)(jiti@2.7.0)(lightningcss@1.32.0)))(jiti@2.7.0)(playwright-core@1.60.0)(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)
       '@slicemachine/adapter-sveltekit':
         specifier: ^0.3.96
         version: 0.3.96(@prismicio/types@0.2.9)(@sveltejs/kit@2.60.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.55.9(@typescript-eslint/types@8.59.4))(vite@6.4.3(@types/node@22.19.19)(jiti@2.7.0)(lightningcss@1.32.0)))(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)(vite@6.4.3(@types/node@22.19.19)(jiti@2.7.0)(lightningcss@1.32.0)))(prettier-plugin-svelte@3.5.2(prettier@3.8.3)(svelte@5.55.9(@typescript-eslint/types@8.59.4)))(prettier@3.8.3)(svelte@5.55.9(@typescript-eslint/types@8.59.4))
@@ -650,8 +650,8 @@ packages:
     engines: {node: '>=12.7.0'}
     deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
-  '@reddoorla/maintenance@0.67.0':
-    resolution: {integrity: sha512-uh9VpkOeuZk0mNciP26P6HzNFvhzszHma+ZprvgZjMRi+nxczgPO/2yMTvJZM/DjwX4Zn5zBEjx+R4dIo4LN0g==}
+  '@reddoorla/maintenance@0.69.0':
+    resolution: {integrity: sha512-w2I3LENHfu2VH0tI6qCRHDZBXdepNOhw0OLmRH+71ok5ZoyRSeXVEilfGCV5eavC+pwcD4YoTWc7JCfhpEEMuA==}
     engines: {node: '>=20'}
     hasBin: true
     peerDependencies:
@@ -3256,7 +3256,7 @@ snapshots:
   '@prismicio/types@0.2.9':
     optional: true
 
-  '@reddoorla/maintenance@0.67.0(@sveltejs/kit@2.60.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.55.9(@typescript-eslint/types@8.59.4))(vite@6.4.3(@types/node@22.19.19)(jiti@2.7.0)(lightningcss@1.32.0)))(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)(vite@6.4.3(@types/node@22.19.19)(jiti@2.7.0)(lightningcss@1.32.0)))(jiti@2.7.0)(playwright-core@1.60.0)(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)':
+  '@reddoorla/maintenance@0.69.0(@sveltejs/kit@2.60.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.55.9(@typescript-eslint/types@8.59.4))(vite@6.4.3(@types/node@22.19.19)(jiti@2.7.0)(lightningcss@1.32.0)))(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)(vite@6.4.3(@types/node@22.19.19)(jiti@2.7.0)(lightningcss@1.32.0)))(jiti@2.7.0)(playwright-core@1.60.0)(svelte@5.55.9(@typescript-eslint/types@8.59.4))(typescript@5.9.3)':
     dependencies:
       '@axe-core/playwright': 4.11.3(playwright-core@1.60.0)
       '@eslint/js': 10.0.1(eslint@10.4.0(jiti@2.7.0))
