@@ -8,7 +8,7 @@
   import { fly, fade } from "svelte/transition";
   import { onMount } from "svelte";
   import { onNavigate } from "$app/navigation";
-  import { whenPageReady, prefersReducedMotion } from "$lib/utils/whenPageReady";
+  import { whenPageReady, prefersReducedMotion } from "@reddoorla/maintenance/client";
   import menu from "$lib/assets/icons/menu.svg";
   import close from "$lib/assets/icons/close.svg";
   /**
