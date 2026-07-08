@@ -12,7 +12,8 @@
     "lint": "prettier --check . --plugin prettier-plugin-svelte . && eslint .",
     "format": "prettier --write . --plugin prettier-plugin-svelte .",
     "slicemachine": "start-slicemachine",
-    "vite:devHost": "vite dev --host --port 8888"
+    "vite:devHost": "vite dev --host --port 8888",
+    "test:smoke": "playwright install chromium && playwright test"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",
