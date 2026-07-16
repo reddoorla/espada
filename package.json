@@ -13,6 +13,7 @@
     "format": "prettier --write . --plugin prettier-plugin-svelte .",
     "slicemachine": "start-slicemachine",
     "vite:devHost": "vite dev --host --port 8888",
+    "test": "pnpm test:smoke",
     "test:smoke": "playwright install chromium && playwright test"
   },
   "devDependencies": {

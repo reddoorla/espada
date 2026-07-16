@@ -22,4 +22,18 @@ export type SmokeRoute = {
   expectStatus?: number;
 };
 
-export const smokeRoutes: SmokeRoute[] = [{ path: "/", name: "home", hydrationMarker: "footer" }];
+// Every public page on this site renders a <footer> (the shared Footer
+// component or an inline one), so it doubles as the paint marker everywhere.
+// The [uid] Prismic catch-all is exercised by the 404 test in pages.spec.ts.
+export const smokeRoutes: SmokeRoute[] = [
+  { path: "/", name: "home", hydrationMarker: "footer" },
+  { path: "/property-management", name: "property management", hydrationMarker: "footer" },
+  {
+    path: "/development-and-investments",
+    name: "development & investments",
+    hydrationMarker: "footer",
+  },
+  { path: "/about", name: "about", hydrationMarker: "footer" },
+  { path: "/contact", name: "contact", hydrationMarker: "footer" },
+  { path: "/login", name: "investor login", hydrationMarker: "footer" },
+];

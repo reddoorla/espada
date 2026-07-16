@@ -59,7 +59,8 @@ test("404 page renders the custom error component", async ({ page }) => {
     waitUntil: "domcontentloaded",
   });
   expect(response?.status()).toBe(404);
-  // src/routes/+error.svelte renders `<h1>{page.status}</h1>` → "404".
+  // The [uid] catch-all throws error(404); this repo has no custom
+  // +error.svelte, so SvelteKit's default error page renders the "404" status.
   await expect(page.getByText("404", { exact: false }).first()).toBeVisible();
   expect(errors).toEqual([]);
 });
