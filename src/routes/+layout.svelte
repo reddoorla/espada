@@ -43,6 +43,30 @@
     },
   ];
 
+  // Last-resort head fallbacks. The Prismic value ALWAYS wins — these only fill
+  // in when a page's SEO fields are empty, so every route still emits a
+  // non-empty <meta name="description"> and a unique, sensible <title>. Copy is
+  // derived from Espada's own homepage/about wording (espadarealestate.com); no
+  // invented claims.
+  const SITE_NAME = "Espada Real Estate";
+  const DEFAULT_DESCRIPTION =
+    "Espada Real Estate is a diversified commercial real estate firm with deep roots in San Antonio, Texas — property management, development, and investments.";
+
+  /** Per-route <title> fallback, used only when a doc has no meta_title/title. */
+  const TITLE_FALLBACKS: Record<string, string> = {
+    "/": "Espada Real Estate — San Antonio Commercial Real Estate",
+    "/about": "About — Espada Real Estate",
+    "/contact": "Contact — Espada Real Estate",
+    "/development-and-investments": "Development & Investments — Espada Real Estate",
+    "/login": "Investor Login — Espada Real Estate",
+    "/property-management": "Property Management — Espada Real Estate",
+  };
+
+  const metaTitle = $derived(
+    $page.data.meta_title || $page.data.title || TITLE_FALLBACKS[$page.url.pathname] || SITE_NAME,
+  );
+  const metaDescription = $derived($page.data.meta_description || DEFAULT_DESCRIPTION);
+
   let isOverlayVisible = $state(false);
   let isTransitioning = $state(true);
 
@@ -68,13 +92,10 @@
 </script>
 
 <svelte:head>
-  <title>{$page.data.title ?? "Espada"}</title>
-  {#if $page.data.meta_description}
-    <meta name="description" content={$page.data.meta_description} />
-  {/if}
-  {#if $page.data.meta_title}
-    <meta property="og:title" content={$page.data.meta_title} />
-  {/if}
+  <title>{metaTitle}</title>
+  <meta name="description" content={metaDescription} />
+  <meta property="og:title" content={metaTitle} />
+  <meta property="og:description" content={metaDescription} />
   {#if $page.data.meta_image}
     <meta property="og:image" content={$page.data.meta_image} />
     <meta name="twitter:card" content="summary_large_image" />
