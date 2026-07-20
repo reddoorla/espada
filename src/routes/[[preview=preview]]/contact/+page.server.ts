@@ -14,7 +14,10 @@ export const prerender = false;
 export const load: PageServerLoad = async ({ fetch, cookies }) => {
   const client = createClient({ fetch, cookies });
 
-  const page = await client.getByUID("page", "home");
+  // The page body below is hardcoded, but the <head> meta (title/description)
+  // is driven by the "contact" Prismic doc via the root layout. This used to
+  // fetch the "home" doc, which gave / and /contact identical <title>s.
+  const page = await client.getByUID("page", "contact");
 
   return {
     page,
