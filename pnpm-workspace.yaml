@@ -6,3 +6,14 @@ allowBuilds:
   protobufjs: true
   sharp: true
 minimumReleaseAge: 0
+
+# Transitive-dependency security pins (same idiom as reddoor-starter/-maintenance —
+# pnpm 11 reads overrides HERE, not package.json). Cleared 2026-07-26:
+#   - cookie <0.7.0: out-of-bounds chars in name/path/domain (GHSA-pxg6-pf52-xh8x) — the
+#     one runtime-scope alert; via @sveltejs/kit, which still declares ^0.6.0
+#   - sharp <0.35.0: inherited libvips CVEs (GHSA-f88m-g3jw-g9cj) — dev/build-only, via
+#     @zerodevx/svelte-img > vite-imagetools 6 > imagetools-core 6; unifies on the
+#     0.35.x line the repo already ships as a direct devDep
+overrides:
+  cookie@<0.7.0: ">=0.7.0 <1"
+  sharp@<0.35.0: ">=0.35.0 <0.36"
