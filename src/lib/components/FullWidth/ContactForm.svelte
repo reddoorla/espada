@@ -115,8 +115,7 @@
     <textarea
       class="border rounded-[3px] text-black border-black h-48 pl-4 pt-[2.5px]"
       placeholder="Your Message"
-      name="message"
-    ></textarea>
+      name="message"></textarea>
 
     {#if turnstileSiteKey}
       <!-- Cloudflare Turnstile mount point; the effect renders it explicitly and
