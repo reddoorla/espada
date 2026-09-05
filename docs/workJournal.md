@@ -41,7 +41,7 @@ svelte-check warnings and burying the ones on live components. July is
 hardening: a `/health` endpoint, the smoke suite, Turnstile on the contact form, a
 Prismic-backed `sitemap.xml`, and three SEO defects that had shipped silently —
 `og:image` rendering as `undefined`, pages with no meta description, and
-`/contact` fetching the *home* document, so two routes claimed the title
+`/contact` fetching the _home_ document, so two routes claimed the title
 "Espada". August and September are almost entirely dependency and CI work.
 
 **One thing worth pulling forward.** `docs/morning-reports/MORNING_REPORT_2026-06-05.md`
