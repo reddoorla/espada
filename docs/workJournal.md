@@ -87,19 +87,24 @@ item and bypasses it. `notify_status` has no acknowledged value. The alarm
 ages out on its own once the bounced submissions leave the window, which for
 these two is no later than 2026-09-25. The only immediate exit is a direct
 write to the production `submissions` table, flipping the in-window rows from
-`bounced` back to `sent` (the value they held before the webhook):
+`bounced` back to `sent` (the value they held before the webhook). That is
+what happened, by row id, once the operator authorised it — the session's
+sandbox had refused production database access until then, including the
+read-only listing.
 
-```sql
-update submissions set notify_status = 'sent'
-where site_id = (select id from sites where slug = 'espada')
-  and notify_status = 'bounced'
-  and submitted_at >= date('now', '-14 days');
-```
-
-That write did **not** happen in this session: the agent sandbox refused
-production database access, including the read-only query that would have
-listed the two rows, so the clear is pending the operator running it by hand
-(select first to confirm the slug and the two rows, then update).
+**What the rows said.** Espada has had four bounced notifications since the
+bounce tracking went in: 2026-07-24, 2026-08-06, 2026-08-31 and 2026-09-11.
+All four are the same shape — a sales pitch pasted into the contact form
+(backpacks twice, virtual-assistant services, paid traffic) — and the two in
+the window had already been marked spam by hand. Their spam scores were 30
+and 55, under the auto-filter line, so the notification went out and Espada's
+filter refused it. That is the whole mechanism: the client's filter catches
+what our classifier scores as borderline. Eight Espada submissions since
+2026-09-03 were auto-filtered with no notification sent, so the classifier is
+catching most of this traffic; these two slipped under. The window is
+date-based (`screenOutsSince` truncates to a day), which is why the 08-31 row
+still counted on 09-14 although it was more than 14×24 hours old; both
+in-window rows were flipped.
 
 **What was filed.** reddoor-maintenance#783 asks for the fix that makes the
 hand-run SQL unnecessary: store the webhook's bounce classification and the
