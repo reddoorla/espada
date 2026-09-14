@@ -61,3 +61,51 @@ undeleted; none of them is work in progress.
 have — the retrofit gave it the fleet's tooling but never the fleet's session
 notes, so the shape of this particular site has had to be rediscovered from
 source each time.
+
+## 2026-09-14 — The cockpit's "2 lead notifications bounced" is Espada's spam filter, not a dead address (reddoor-maintenance#783)
+
+The fleet digest has carried one critical item for this site since 2026-09-11:
+"Espada — 2 lead notifications bounced (14d) — check the point-of-contact
+address." The address is fine. The two bounces are Espada's inbound mail
+filter refusing the lead-notification emails as spam — their filter is more
+selective than our submission screening, so a form entry we let through was
+rejected on their side. The alarm's instruction is wrong for this case.
+
+**Why the signal says what it says.** The whole bounce-tracking path in
+reddoor-maintenance was built for this site: in July, `apm@` bounced 4 of 8
+notifications with nothing alarming, so the Resend webhook now flips a
+submission's `notify_status` to `bounced` and the cockpit fires at 2 bounces in
+a 14-day window. It records only *that* Resend reported a bounce, not the
+receiving server's reason, so a dead mailbox and a content rejection by a spam
+filter look identical once stored. The same signal that was designed to catch
+July's problem fires today for a different cause, and nothing in the data can
+tell the two apart.
+
+**What clears it, and what does not.** Nothing operator-facing. Accepted Watch
+Conditions only mute the yellow watch tier; the bounce alarm is an attention
+item and bypasses it. `notify_status` has no acknowledged value. The alarm
+ages out on its own once the bounced submissions leave the window, which for
+these two is no later than 2026-09-25. The only immediate exit is a direct
+write to the production `submissions` table, flipping the in-window rows from
+`bounced` back to `sent` (the value they held before the webhook):
+
+```sql
+update submissions set notify_status = 'sent'
+where site_id = (select id from sites where slug = 'espada')
+  and notify_status = 'bounced'
+  and submitted_at >= date('now', '-14 days');
+```
+
+That write did **not** happen in this session: the agent sandbox refused
+production database access, including the read-only query that would have
+listed the two rows, so the clear is pending the operator running it by hand
+(select first to confirm the slug and the two rows, then update).
+
+**What was filed.** reddoor-maintenance#783 asks for the fix that makes the
+hand-run SQL unnecessary: store the webhook's bounce classification and the
+receiving server's message on the submission, word the alarm by that
+classification instead of always blaming the address, give the operator an
+acknowledge action, and feed client-rejected submissions back into the spam
+classifier so fewer of them are sent in the first place.
+
+Nothing in this repo changed except this entry.
