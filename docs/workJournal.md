@@ -75,7 +75,7 @@ rejected on their side. The alarm's instruction is wrong for this case.
 reddoor-maintenance was built for this site: in July, `apm@` bounced 4 of 8
 notifications with nothing alarming, so the Resend webhook now flips a
 submission's `notify_status` to `bounced` and the cockpit fires at 2 bounces in
-a 14-day window. It records only *that* Resend reported a bounce, not the
+a 14-day window. It records only _that_ Resend reported a bounce, not the
 receiving server's reason, so a dead mailbox and a content rejection by a spam
 filter look identical once stored. The same signal that was designed to catch
 July's problem fires today for a different cause, and nothing in the data can
