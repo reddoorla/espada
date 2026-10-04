@@ -114,3 +114,33 @@ acknowledge action, and feed client-rejected submissions back into the spam
 classifier so fewer of them are sent in the first place.
 
 Nothing in this repo changed except this entry.
+
+## 2026-10-04 — Off Slice Machine, onto the Prismic CLI (reddoor-maintenance#1090)
+
+Phase 4 of the fleet migration (reddoor-maintenance
+`docs/prismic-migration-plan-2026-10.md` §9), ported from reddoor-starter#166.
+Slice Machine is deprecated by Prismic since 2026-09-18; models are now edited
+in the Type Builder and the generated files come from `pnpm prismic:gen`.
+
+**Types moved to the project root, and svelte-check stopped seeing them.**
+The CLI writes `prismicio-types.d.ts` at the root, outside SvelteKit's
+`src/**` include, and nothing in espada imported the old file by path (the
+starter's `prismicio.ts` does, which is why the starter never hit this). So
+`Content.RichTextSlice` vanished and `[uid]`'s `entries()` lost its typed uid:
+2 errors. `src/app.d.ts` now imports the file; without that line the same 2
+errors return.
+
+**No framing change was needed.** The template widens `frame-ancestors` on
+`/slice-simulator`, but espada never opted into the central CSP and sets no
+X-Frame-Options anywhere, so the Type Builder can already frame the route.
+Measured from `vite preview` (`/slice-simulator` and `/about`, `/contact`, `/`:
+neither header on any) and on espadarealestate.com (same).
+
+**A stale model, found by regenerating.** The new types add
+`FormRepliesDocument`: `customtypes/form_replies` arrived with the starter's
+form work and the committed Slice Machine types were never regenerated after
+it. The `prismic-codegen` job exists for that case; it passed on this tree and
+went red with an un-regenerated field added to the RichText model.
+
+The nightly drift sweep read espada's 3 models as matching Prismic at
+`3444ba4`, the base of this change, so nothing was owed to Prismic first.
