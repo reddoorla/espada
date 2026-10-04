@@ -1,0 +1,5 @@
+{
+  "repositoryName": "espada",
+  "libraries": ["./src/lib/slices"],
+  "routes": []
+}

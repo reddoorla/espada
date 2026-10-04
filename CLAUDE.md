@@ -8,7 +8,7 @@ get wrong.
 
 ## Commands
 
-`pnpm dev` (Vite + Slice Machine), `pnpm build`, `pnpm check` (svelte-check),
+`pnpm dev` (Vite), `pnpm build`, `pnpm check` (svelte-check),
 `pnpm lint` (prettier + eslint), `pnpm test` (Playwright smoke). **There is no
 `pnpm verify` here** — unlike the fleet starter, this repo never grew one, so
 run the four gates yourself before pushing. CI is the org's reusable workflow
@@ -26,9 +26,17 @@ run the four gates yourself before pushing. CI is the org's reusable workflow
   `sitemap.xml` lists every one. A `page` doc whose uid has no matching named
   route folder therefore ships as a blank prerendered URL that is advertised to
   crawlers. Add the route folder, or don't publish the document.
-- **`src/lib/slices/index.js` and `src/prismicio-types.d.ts` are generated** by
-  Slice Machine. The types file is in `.prettierignore` on purpose — a prettier
-  bump reformats it and reds `--check` on unrelated dep PRs.
+- **`src/lib/slices/index.ts` and `prismicio-types.d.ts` are generated** by
+  the Prismic CLI (`pnpm prismic:gen`; Slice Machine is gone, deprecated by
+  Prismic 2026-09-18). Edit a model's JSON, regenerate, commit both; the
+  `prismic-codegen` job fails a PR whose generated files are stale. Both are in
+  `.prettierignore`. The types file sits at the project root, outside SvelteKit's
+  `src/**` include, so `src/app.d.ts` imports it. Run by an agent, the
+  CLI refuses without `--task-id` and `--user-intent`, so an agent runs
+  `pnpm exec prismic task-id` once, then
+  `pnpm exec prismic gen types --task-id <id> --user-intent "<the ask>"` and the
+  same for `gen slice-index`. Never `prismic push` or `prismic pull`: both
+  delete to match.
 - **`.github/workflows/prismic-models.yml` is managed by
   `@reddoorla/maintenance`** (`reddoor-maint prismic-ci`). Change it there and
   re-run; edits here get overwritten. Its `push:` branch filter is load-bearing
