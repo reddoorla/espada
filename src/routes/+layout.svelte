@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { PrismicPreview } from "@prismicio/svelte/kit";
-  import { page } from "$app/stores";
+  import PrismicPreview from "$lib/components/PrismicPreview.svelte";
+  import { page } from "$app/state";
   import { repositoryName } from "$lib/prismicio";
   import "../app.css";
   import ContentWidth from "$lib/components/ContentWidth/ContentWidth.svelte";
@@ -63,9 +63,9 @@
   };
 
   const metaTitle = $derived(
-    $page.data.meta_title || $page.data.title || TITLE_FALLBACKS[$page.url.pathname] || SITE_NAME,
+    page.data.meta_title || page.data.title || TITLE_FALLBACKS[page.url.pathname] || SITE_NAME,
   );
-  const metaDescription = $derived($page.data.meta_description || DEFAULT_DESCRIPTION);
+  const metaDescription = $derived(page.data.meta_description || DEFAULT_DESCRIPTION);
 
   let isOverlayVisible = $state(false);
   let isTransitioning = $state(true);
@@ -96,8 +96,8 @@
   <meta name="description" content={metaDescription} />
   <meta property="og:title" content={metaTitle} />
   <meta property="og:description" content={metaDescription} />
-  {#if $page.data.meta_image}
-    <meta property="og:image" content={$page.data.meta_image} />
+  {#if page.data.meta_image}
+    <meta property="og:image" content={page.data.meta_image} />
     <meta name="twitter:card" content="summary_large_image" />
   {/if}
 </svelte:head>
