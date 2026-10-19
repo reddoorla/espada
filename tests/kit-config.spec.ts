@@ -47,11 +47,23 @@ async function kitOptions(): Promise<Record<string, unknown>> {
   return (setup.api as { options: Record<string, unknown> }).options;
 }
 
+// What a Netlify build sets, so a config that only sets an origin on Netlify
+// (the starter gates on `CI || NETLIFY`) is caught too.
+const NETLIFY_BUILD_ENV = { NETLIFY: "true", CI: "true", URL: "https://www.example.com" };
+
 async function withNetlifyEnv<T>(run: () => Promise<T>): Promise<T> {
-  const names = ["URL", "DEPLOY_URL", "DEPLOY_PRIME_URL", "SITE_NAME"] as const;
+  const names = [
+    "URL",
+    "DEPLOY_URL",
+    "DEPLOY_PRIME_URL",
+    "SITE_NAME",
+    "NETLIFY",
+    "CI",
+    "VITE_REDDOOR_GATE_FIXTURES",
+  ] as const;
   const saved = Object.fromEntries(names.map((n) => [n, process.env[n]]));
-  Object.assign(process.env, {
-    URL: "https://www.example.com",
+  delete process.env.VITE_REDDOOR_GATE_FIXTURES;
+  Object.assign(process.env, NETLIFY_BUILD_ENV, {
     DEPLOY_URL: "https://6123abc--example-site.netlify.app",
     DEPLOY_PRIME_URL: "https://deploy-preview-4--example-site.netlify.app",
     SITE_NAME: "example-site",
@@ -103,7 +115,7 @@ test.describe("the origin", () => {
       ],
       {
         cwd: repoRoot,
-        env: { ...process.env, URL: "https://www.example.com" },
+        env: { ...process.env, VITE_REDDOOR_GATE_FIXTURES: "", ...NETLIFY_BUILD_ENV },
         encoding: "utf-8",
       },
     );
