@@ -2,20 +2,27 @@
 
 Session rules for AI agents working on **Espada** — the marketing site for a
 diversified commercial real estate firm in San Antonio, Texas
-(`espadarealestate.com`). SvelteKit 2 / Svelte 5 / Tailwind v4 / Prismic, on
+(`espadarealestate.com`). SvelteKit 3 / Svelte 5 / Tailwind v4 / Prismic, on
 Netlify. [README.md](README.md) covers the stack; this covers what is easy to
 get wrong.
 
 ## Commands
 
 `pnpm dev` (Vite), `pnpm build`, `pnpm check` (svelte-check),
-`pnpm lint` (prettier + eslint), `pnpm test` (Playwright smoke). **There is no
+`pnpm lint` (prettier + eslint), `pnpm test` (Playwright: the smoke specs and
+`tests/kit-config.spec.ts`, the kit 3 config and env-declaration gate). **There is no
 `pnpm verify` here** — unlike the fleet starter, this repo never grew one, so
 run the four gates yourself before pushing. CI is the org's reusable workflow
 (`reddoorla/.github`), pinned by SHA in `.github/workflows/ci.yml`.
 
 ## Traps
 
+- **Kit 3 exposes only the env vars declared in `src/env.ts`.** Read them
+  through `$app/env/private` or `$app/env/public`; an undeclared read is
+  `undefined` with only a build warning, which on the contact form means leads
+  silently stop. The kit config is `sveltekit.config.js` (kit 3 refuses
+  `svelte.config.js`), and `paths.origin` must stay unset: kit 3 makes it the
+  only origin the form's CSRF check accepts.
 - **Most page copy is hardcoded in the route files**, not in Prismic. The named
   routes under `src/routes/[[preview=preview]]/` (`about`, `contact`,
   `property-management`, `development-and-investments`, `login`) are

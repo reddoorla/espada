@@ -4,7 +4,7 @@ Marketing site for Espada, built with **SvelteKit** (Svelte 5), **Tailwind CSS v
 
 ## Stack
 
-- **SvelteKit 2** / **Svelte 5** (runes) — `@sveltejs/adapter-netlify`
+- **SvelteKit 3** / **Svelte 5** (runes) — `@sveltejs/adapter-netlify`; kit config in `sveltekit.config.js`, passed to `sveltekit()` in `vite.config.js`
 - **Tailwind CSS v4** via `@tailwindcss/vite` (config lives in [`src/app.css`](src/app.css) under `@theme`)
 - **Prismic** — `@prismicio/client` v7 + `@prismicio/svelte` v2, the Prismic CLI and Type Builder for modeling
 - **Vite 6**, **pnpm**, **TypeScript**
