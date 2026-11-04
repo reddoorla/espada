@@ -197,3 +197,15 @@ Proof, after a fresh install in a new clone:
 - `pnpm lint` is clean, `pnpm check` gives 0 errors and 0 warnings, `pnpm build` passes, and `pnpm test` passes 23 of 23.
 - Re-adding `import { swipe } from "svelte-gestures"` to `slice-simulator/+page.svelte` turned `pnpm check` red, and so did `import Select from "svelte-select"`: `Cannot find module`, 1 error each.
 - An Opus review of this diff found it clean except for one minor: this entry had left out the three `@floating-ui/*` lockfile removals. That is fixed here.
+
+## 2026-11-04 — `@prismicio/svelte` 3 (#106, `b14a1b8`), and Font Awesome leaves (#116, `5788440`)
+
+Fleet majors phase 2, group B (the workspace's `briefs/2026-11-04-fleet-majors/`). Both changes were built on #115, the svelte-select and svelte-gestures removal.
+
+`@prismicio/svelte` 3 needed no code change, so Renovate's PR landed as Renovate opened it. `src/routes/slice-simulator/+page.svelte` already used the v3 `{#snippet children({ slices })}` form, nothing imported `SvelteRichTextSerializer`, and kit was already on `^3.0.0`. The mutation was to put the v2 `let:slices` slot form back, and `svelte-check` went red (`'$$_rotalumiSecilS0.$$slot_def' is of type 'unknown'`). The prerendered HTML was identical on 6 of 7 pages after normalising. The seventh, `/slice-simulator`, is the editor's route, and the only change there was that `class="slice-simulator "` lost its trailing space. No page renders a SliceZone, so v3's `prismic-slice-start` markers appear nowhere: the raw count is 0 on staging and on production.
+
+Review round 1 was minors only, filed as #117. The one worth knowing: the local `PrismicPreview.svelte` copy still loads Prismic toolbar v4, because it calls `getToolbarSrc(repositoryName)`, while upstream v3's component asks for toolbar v5. v3's `/api/preview` honours a `?path=` that only v5 share links carry, so today's behaviour is unchanged. It changes when the copy is replaced with upstream's, so test previews end to end then.
+
+The operator's direction for Font Awesome was to port to `@lucide/svelte`, or to remove it if nothing used it. Nothing had imported it since `61ebb91` ("remove 21 dead/unused components"), so it was a removal. The census undercounted by one package: there were five, and the fifth was the Svelte wrapper, `@fortawesome/svelte-fontawesome`. A case-insensitive grep for `fontawesome`, `FontAwesomeIcon` and `fa-` found only the two `package.json` lines. Putting an import back gives `Cannot find module` in `svelte-check`. All 7 prerendered pages were identical, and every `_app` file except `version.json` was byte-identical.
+
+Before the promotion, `main` was brought into `staging` with maintenance's `staging-bring-main.mjs` (#118, `e906e71`). `main`'s only missing commit was the previous promotion's merge commit, so the merge changed no file. `staging--espada-texas.netlify.app` at `5788440` matched `espadarealestate.com` on all 6 sitemap routes, `/health` and a 404, after normalising.
