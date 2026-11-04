@@ -182,3 +182,18 @@ The validator (`renovate-config-validator --strict`, renovate 44.172.1) passed t
 ## 2026-11-03 — main brought into staging, lockfile merged by pnpm (this PR)
 
 `main` (`a1eef4e`) and `staging` (`2fc60c9`) conflicted in `pnpm-lock.yaml` and nowhere else, by `git merge-tree --write-tree --name-only`: Renovate's non-major group lands on `main` while lock-file maintenance and majors land on `staging`, and git merges a lockfile as text. That left the promotion #113 dirty. The branch was made with maintenance's `scripts/staging-bring-main.mjs` (reddoorla/reddoor-maintenance#1912): `main` merged into a branch cut from `staging`, `package.json` as git merged it, and the pinned pnpm 12.5.1 merging its own lockfile conflict. `pnpm install --frozen-lockfile` is clean on the result. It lands as a merge commit, never a squash, so `main` is a parent and the promotion has nothing left to merge; the promotion stays the operator's.
+
+## 2026-11-04 — svelte-select and svelte-gestures leave: nothing had imported them since June (#115)
+
+Both packages had been dead since 2026-06-04. That day `61ebb91` deleted `StyledSingleSelect`, `StyledMultiSelect` and the six sliders, and left `package.json` alone. On 11-04 the operator chose removal over Renovate's majors: `svelte-select` 6 is a Svelte 5 API rewrite for a package nothing renders, and `svelte-gestures` 5 is a bump that would change only the lockfile (workspace `decisions/2026-11-04-1740-select-gestures-keep-or-replace.md`). The lockfile lost 46 lines: those two plus `svelte-floating-ui`, and nothing else. `src/global.d.ts` existed only to type `onswipe` for `svelte-gestures` v4, so it goes too.
+
+One belief corrected on contact. The brief said to delete the CSS block opening at `app.css:215` whole. That block also held the global `::placeholder { color: #ababab }` rule, which colours the live contact form's five placeholders (`FullWidth/ContactForm.svelte`). It stays, with a comment saying what it styles. Everything else in the block was select-only, plus `input[type="textarea"]::placeholder`, which matches nothing.
+
+This went first on the cockpit's word, at 10:07am PT. No Font Awesome → lucide worker had started, and that port, in Espada's phase-2 majors turn, branches from this.
+
+Proof, after a fresh install in a new clone:
+
+- `grep -rn "svelte-select\|svelte-gestures" src` is empty.
+- `pnpm lint` is clean, `pnpm check` gives 0 errors and 0 warnings, `pnpm build` passes, and `pnpm test` passes 23 of 23.
+- Re-adding `import { swipe } from "svelte-gestures"` to `slice-simulator/+page.svelte` turned `pnpm check` red, and so did `import Select from "svelte-select"`: `Cannot find module`, 1 error each.
+- An Opus review of the sibling CalTex and Data Dynamiq diffs found them clean, apart from one orphan that was then folded into the Data Dynamiq PR. This diff is the same shape.
