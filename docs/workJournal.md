@@ -182,3 +182,30 @@ The validator (`renovate-config-validator --strict`, renovate 44.172.1) passed t
 ## 2026-11-03 — main brought into staging, lockfile merged by pnpm (this PR)
 
 `main` (`a1eef4e`) and `staging` (`2fc60c9`) conflicted in `pnpm-lock.yaml` and nowhere else, by `git merge-tree --write-tree --name-only`: Renovate's non-major group lands on `main` while lock-file maintenance and majors land on `staging`, and git merges a lockfile as text. That left the promotion #113 dirty. The branch was made with maintenance's `scripts/staging-bring-main.mjs` (reddoorla/reddoor-maintenance#1912): `main` merged into a branch cut from `staging`, `package.json` as git merged it, and the pinned pnpm 12.5.1 merging its own lockfile conflict. `pnpm install --frozen-lockfile` is clean on the result. It lands as a merge commit, never a squash, so `main` is a parent and the promotion has nothing left to merge; the promotion stays the operator's.
+
+## 2026-11-04 — svelte-select and svelte-gestures leave: nothing had imported them since June (#115)
+
+Both packages had been dead since 2026-06-04. That day `61ebb91` deleted `StyledSingleSelect`, `StyledMultiSelect` and the six sliders, and left `package.json` alone. On 11-04 the operator chose removal over Renovate's majors: `svelte-select` 6 is a Svelte 5 API rewrite for a package nothing renders, and `svelte-gestures` 5 is a bump that would change only the lockfile (workspace `decisions/2026-11-04-1740-select-gestures-keep-or-replace.md`). The lockfile lost 46 lines: those two, plus `svelte-floating-ui` and its three `@floating-ui/*` dependencies, which came in only through `svelte-select`, and nothing else. `src/global.d.ts` existed only to type `onswipe` for `svelte-gestures` v4, so it goes too.
+
+One belief corrected on contact. The brief said to delete the CSS block opening at `app.css:215` whole. That block also held the global `::placeholder { color: #ababab }` rule, which colours the live contact form's five placeholders (`FullWidth/ContactForm.svelte`). It stays, with a comment saying what it styles. Everything else in the block was select-only, plus `input[type="textarea"]::placeholder`, which matches nothing.
+
+This went first on the cockpit's word, at 10:07am PT. No Font Awesome → lucide worker had started, and that port, in Espada's phase-2 majors turn, branches from this.
+
+Proof, after a fresh install in a new clone:
+
+- `grep -rn "svelte-select\|svelte-gestures" src` is empty.
+- `pnpm lint` is clean, `pnpm check` gives 0 errors and 0 warnings, `pnpm build` passes, and `pnpm test` passes 23 of 23.
+- Re-adding `import { swipe } from "svelte-gestures"` to `slice-simulator/+page.svelte` turned `pnpm check` red, and so did `import Select from "svelte-select"`: `Cannot find module`, 1 error each.
+- An Opus review of this diff found it clean except for one minor: this entry had left out the three `@floating-ui/*` lockfile removals. That is fixed here.
+
+## 2026-11-04 — `@prismicio/svelte` 3 (#106, `b14a1b8`), and Font Awesome leaves (#116, `5788440`)
+
+Fleet majors phase 2, group B (the workspace's `briefs/2026-11-04-fleet-majors/`). Both changes were built on #115, the svelte-select and svelte-gestures removal.
+
+`@prismicio/svelte` 3 needed no code change, so Renovate's PR landed as Renovate opened it. `src/routes/slice-simulator/+page.svelte` already used the v3 `{#snippet children({ slices })}` form, nothing imported `SvelteRichTextSerializer`, and kit was already on `^3.0.0`. The mutation was to put the v2 `let:slices` slot form back, and `svelte-check` went red (`'$$_rotalumiSecilS0.$$slot_def' is of type 'unknown'`). The prerendered HTML was identical on 6 of 7 pages after normalising. The seventh, `/slice-simulator`, is the editor's route, and the only change there was that `class="slice-simulator "` lost its trailing space. No page renders a SliceZone, so v3's `prismic-slice-start` markers appear nowhere: the raw count is 0 on staging and on production.
+
+Review round 1 was minors only, filed as #117. The one worth knowing: the local `PrismicPreview.svelte` copy still loads Prismic toolbar v4, because it calls `getToolbarSrc(repositoryName)`, while upstream v3's component asks for toolbar v5. v3's `/api/preview` honours a `?path=` that only v5 share links carry, so today's behaviour is unchanged. It changes when the copy is replaced with upstream's, so test previews end to end then.
+
+The operator's direction for Font Awesome was to port to `@lucide/svelte`, or to remove it if nothing used it. Nothing had imported it since `61ebb91` ("remove 21 dead/unused components"), so it was a removal. The census undercounted by one package: there were five, and the fifth was the Svelte wrapper, `@fortawesome/svelte-fontawesome`. A case-insensitive grep for `fontawesome`, `FontAwesomeIcon` and `fa-` found only the two `package.json` lines. Putting an import back gives `Cannot find module` in `svelte-check`. All 7 prerendered pages were identical, and every `_app` file except `version.json` was byte-identical.
+
+Before the promotion, `main` was brought into `staging` with maintenance's `staging-bring-main.mjs` (#118, `e906e71`). `main`'s only missing commit was the previous promotion's merge commit, so the merge changed no file. `staging--espada-texas.netlify.app` at `5788440` matched `espadarealestate.com` on all 6 sitemap routes, `/health` and a 404, after normalising.
