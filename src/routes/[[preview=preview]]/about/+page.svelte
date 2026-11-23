@@ -129,8 +129,10 @@
               <a
                 class="nav-link transition hover:text-white hover:bg-black text-black py-4 px-5 border-black border rounded-xs w-fit mt-8"
                 href={p.vcfLink}
-                download>Contact Card</a
+                download
               >
+                Contact Card
+              </a>
             {/if}
             {#if viewportWidth < 1340 && !leaderBioStates[i]}
               <button
@@ -177,8 +179,10 @@
               <a
                 class="nav-link transition hover:text-white hover:bg-black text-black py-4 px-5 border-black border rounded-xs w-fit mt-8"
                 href={p.vcfLink}
-                download>Contact Card</a
+                download
               >
+                Contact Card
+              </a>
             {/if}
             {#if viewportWidth < 1340 && !developmentTeamBioStates[i]}
               <button
