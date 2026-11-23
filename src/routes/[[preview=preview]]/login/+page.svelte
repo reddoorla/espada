@@ -16,16 +16,22 @@
       <a
         class="nav-link transition hover:text-black hover:bg-white py-4 px-5 border-white border rounded-xs w-fit mt-8"
         target="_blank"
-        href="https://espadarealestate.appfolio.com/oportal/users/log_in">Investor Login</a
+        href="https://espadarealestate.appfolio.com/oportal/users/log_in"
       >
+        Investor Login
+      </a>
       <a
         class="nav-link transition hover:text-black hover:bg-white py-4 px-5 border-white border rounded-xs w-fit mt-8"
-        href="/contact">Contact Us</a
+        href="/contact"
       >
+        Contact Us
+      </a>
       <a
         class="nav-link transition hover:text-black hover:bg-white py-4 px-5 border-white border rounded-xs w-fit mt-8"
-        href="/">Help Center</a
+        href="/"
       >
+        Help Center
+      </a>
     </div>
   </ContentWidth>
 </section>
