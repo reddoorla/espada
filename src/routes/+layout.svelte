@@ -118,8 +118,10 @@
       <a
         onclick={() => (isOverlayVisible = false)}
         href={item.href}
-        class="text-white text-2xl nav-link hover:opacity-100 opacity-75">{item.label}</a
+        class="text-white text-2xl nav-link hover:opacity-100 opacity-75"
       >
+        {item.label}
+      </a>
     {/each}
 
     <button

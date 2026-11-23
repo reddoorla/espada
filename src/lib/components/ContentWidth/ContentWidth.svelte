@@ -8,14 +8,14 @@
 </script>
 
 {#if animateIn}
-  <AnimateIn
-    ><div
+  <AnimateIn>
+    <div
       class="max-w-[1220px] xl:max-w-[1440px] xl:mx-auto mx-[4%] w-[92%] {className ||
         'flex flex-col items-center justify-center relative'}"
     >
       {@render children?.()}
-    </div></AnimateIn
-  >
+    </div>
+  </AnimateIn>
 {:else}
   <div
     class="max-w-[1220px] xl:max-w-[1440px] xl:mx-auto mx-[4%] w-[92%] {className ||

@@ -128,8 +128,9 @@
         type="submit"
         disabled={submitting}
         class="nav-link text-black py-4 px-5 border-black transition hover:text-white hover:bg-black border rounded-xs w-fit mt-2 disabled:opacity-60"
-        >{submitting ? "Sending…" : "Submit"}</button
       >
+        {submitting ? "Sending…" : "Submit"}
+      </button>
     </div>
   </form>
 {/if}
